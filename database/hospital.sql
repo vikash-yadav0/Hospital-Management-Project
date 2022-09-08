@@ -18,35 +18,6 @@ USE `hospital_management`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admission_table`
---
-
-DROP TABLE IF EXISTS `admission_table`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `admission_table` (
-  `admission_id` int NOT NULL AUTO_INCREMENT,
-  `admited_date` date NOT NULL,
-  `patient_id` int NOT NULL,
-  `doctor_id` int NOT NULL,
-  `bed_id` int NOT NULL,
-  `Payment_id` int NOT NULL,
-  `status` varchar(45) NOT NULL,
-  PRIMARY KEY (`admission_id`),
-  UNIQUE KEY `admission_id_UNIQUE` (`admission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admission_table`
---
-
-LOCK TABLES `admission_table` WRITE;
-/*!40000 ALTER TABLE `admission_table` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admission_table` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `bed_master`
 --
 
@@ -141,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-08 21:17:31
+-- Dump completed on 2022-09-08 19:47:27
