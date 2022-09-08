@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `hospital_management` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `hospital_management`;
--- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: localhost    Database: hospital_management
 -- ------------------------------------------------------
--- Server version	8.0.30
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -102,6 +102,31 @@ LOCK TABLES `billing_table` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `department_table`
+--
+
+DROP TABLE IF EXISTS `department_table`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `department_table` (
+  `dept_id` int NOT NULL AUTO_INCREMENT,
+  `dept_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`dept_id`),
+  UNIQUE KEY `dept_id_UNIQUE` (`dept_id`),
+  UNIQUE KEY `dept_name_UNIQUE` (`dept_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `department_table`
+--
+
+LOCK TABLES `department_table` WRITE;
+/*!40000 ALTER TABLE `department_table` DISABLE KEYS */;
+/*!40000 ALTER TABLE `department_table` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `patient`
 --
 
@@ -162,6 +187,30 @@ LOCK TABLES `payment_table` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `specialization_table`
+--
+
+DROP TABLE IF EXISTS `specialization_table`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `specialization_table` (
+  `sp_id` int NOT NULL AUTO_INCREMENT,
+  `sp_name` varchar(45) NOT NULL,
+  PRIMARY KEY (`sp_id`),
+  UNIQUE KEY `sp_id_UNIQUE` (`sp_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `specialization_table`
+--
+
+LOCK TABLES `specialization_table` WRITE;
+/*!40000 ALTER TABLE `specialization_table` DISABLE KEYS */;
+/*!40000 ALTER TABLE `specialization_table` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `staff_table`
 --
 
@@ -201,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-08 22:15:44
+-- Dump completed on 2022-09-08 22:34:26
