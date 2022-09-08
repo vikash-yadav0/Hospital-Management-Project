@@ -8,6 +8,12 @@ admission - aid
           - total 
           - status - permitted/settled/vacated
 
+           payment mnode
+           amt
+           date
+
+
+
 payment pid
          aid
            mode
