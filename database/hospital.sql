@@ -33,7 +33,15 @@ CREATE TABLE `admission_table` (
   `Payment_id` int NOT NULL,
   `status` varchar(45) NOT NULL,
   PRIMARY KEY (`admission_id`),
-  UNIQUE KEY `admission_id_UNIQUE` (`admission_id`)
+  UNIQUE KEY `admission_id_UNIQUE` (`admission_id`),
+  KEY `patient_id_idx` (`patient_id`),
+  KEY `doctor_id_idx` (`doctor_id`),
+  KEY `bed_id_idx` (`bed_id`),
+  KEY `payment_id_idx` (`Payment_id`),
+  CONSTRAINT `bed_id` FOREIGN KEY (`bed_id`) REFERENCES `bed_master` (`bed_id`),
+  CONSTRAINT `doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctor_table` (`doctor_id`),
+  CONSTRAINT `patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`),
+  CONSTRAINT `payment_id` FOREIGN KEY (`Payment_id`) REFERENCES `payment_table` (`payment_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,10 +66,12 @@ CREATE TABLE `bed_master` (
   `category` varchar(45) NOT NULL,
   `charges` double NOT NULL,
   `status` varchar(45) DEFAULT NULL,
-  `dept` int DEFAULT NULL,
+  `dept` int NOT NULL,
   PRIMARY KEY (`bed_id`),
-  UNIQUE KEY `bed_id_UNIQUE` (`bed_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `bed_id_UNIQUE` (`bed_id`),
+  KEY `dept1_idx` (`dept`),
+  CONSTRAINT `dept1` FOREIGN KEY (`dept`) REFERENCES `department_table` (`dept_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,12 +93,16 @@ DROP TABLE IF EXISTS `billing_table`;
 CREATE TABLE `billing_table` (
   `billing_id` int NOT NULL AUTO_INCREMENT,
   `Admission_id` int NOT NULL,
-  `test_id` int NOT NULL,
-  `medicine_id` int DEFAULT NULL,
-  `bed_id` int DEFAULT NULL,
-  `consultation_fees` int DEFAULT NULL,
+  `test_cost` double DEFAULT NULL,
+  `medicine_cost` double DEFAULT NULL,
+  `bed_id` int NOT NULL,
+  `consultation_fees` double DEFAULT NULL,
   `total cost` double DEFAULT NULL,
-  PRIMARY KEY (`billing_id`)
+  PRIMARY KEY (`billing_id`),
+  KEY `admission_id_idx` (`Admission_id`,`bed_id`),
+  KEY `bed_id_idx` (`bed_id`),
+  CONSTRAINT `Admission_id1` FOREIGN KEY (`Admission_id`) REFERENCES `admission_table` (`admission_id`),
+  CONSTRAINT `bed_id1` FOREIGN KEY (`bed_id`) REFERENCES `bed_master` (`bed_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -114,7 +128,7 @@ CREATE TABLE `department_table` (
   PRIMARY KEY (`dept_id`),
   UNIQUE KEY `dept_id_UNIQUE` (`dept_id`),
   UNIQUE KEY `dept_name_UNIQUE` (`dept_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +152,11 @@ CREATE TABLE `doctor_specilization` (
   `docsp_id` int NOT NULL AUTO_INCREMENT,
   `sp_id` int NOT NULL,
   PRIMARY KEY (`docsp_id`),
-  UNIQUE KEY `docsp_UNIQUE` (`docsp_id`)
+  UNIQUE KEY `docsp_UNIQUE` (`docsp_id`),
+  KEY `doctor_id_idx` (`doctor_id`),
+  KEY `sp_id_idx` (`sp_id`),
+  CONSTRAINT `doctor_id1` FOREIGN KEY (`doctor_id`) REFERENCES `doctor_table` (`doctor_id`),
+  CONSTRAINT `sp_id1` FOREIGN KEY (`sp_id`) REFERENCES `specialization_table` (`sp_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -167,7 +185,9 @@ CREATE TABLE `doctor_table` (
   `password` varchar(45) NOT NULL,
   `dept_id` int NOT NULL,
   PRIMARY KEY (`doctor_id`),
-  UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`)
+  UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`),
+  KEY `dept_idx` (`dept_id`),
+  CONSTRAINT `dept` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -252,7 +272,11 @@ CREATE TABLE `payment_table` (
   `Admission_id` int NOT NULL,
   `payment_status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`payment_id`),
-  UNIQUE KEY `payment_id_UNIQUE` (`payment_id`)
+  UNIQUE KEY `payment_id_UNIQUE` (`payment_id`),
+  KEY `Admission_id_idx` (`Admission_id`),
+  KEY `billing_id_idx` (`billing_id`),
+  CONSTRAINT `Admission_id` FOREIGN KEY (`Admission_id`) REFERENCES `admission_table` (`admission_id`),
+  CONSTRAINT `billing_id` FOREIGN KEY (`billing_id`) REFERENCES `billing_table` (`billing_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -299,14 +323,16 @@ DROP TABLE IF EXISTS `staff_table`;
 CREATE TABLE `staff_table` (
   `staff_id` int NOT NULL AUTO_INCREMENT,
   `staff_name` varchar(25) NOT NULL,
-  `dept` int DEFAULT NULL,
+  `dept` int NOT NULL,
   `staff_gender` varchar(10) NOT NULL,
   `staff_contact` varchar(10) NOT NULL,
   `staff_email` varchar(45) NOT NULL,
   `staff_bdate` date NOT NULL,
   `staff_jdate` date NOT NULL,
   PRIMARY KEY (`staff_id`),
-  UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`)
+  UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`),
+  KEY `dept_idx` (`dept`),
+  CONSTRAINT `dept_id` FOREIGN KEY (`dept`) REFERENCES `department_table` (`dept_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -316,9 +342,16 @@ CREATE TABLE `staff_table` (
 
 LOCK TABLES `staff_table` WRITE;
 /*!40000 ALTER TABLE `staff_table` DISABLE KEYS */;
-INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16'),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25');
 /*!40000 ALTER TABLE `staff_table` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'hospital_management'
+--
+
+--
+-- Dumping routines for database 'hospital_management'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -329,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-09 22:16:35
+-- Dump completed on 2022-09-10  0:42:27
