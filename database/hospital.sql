@@ -127,6 +127,85 @@ LOCK TABLES `department_table` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `doctor_specilization`
+--
+
+DROP TABLE IF EXISTS `doctor_specilization`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `doctor_specilization` (
+  `doctor_id` int NOT NULL,
+  `docsp_id` int NOT NULL AUTO_INCREMENT,
+  `sp_id` int NOT NULL,
+  PRIMARY KEY (`docsp_id`),
+  UNIQUE KEY `docsp_UNIQUE` (`docsp_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `doctor_specilization`
+--
+
+LOCK TABLES `doctor_specilization` WRITE;
+/*!40000 ALTER TABLE `doctor_specilization` DISABLE KEYS */;
+/*!40000 ALTER TABLE `doctor_specilization` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `doctor_table`
+--
+
+DROP TABLE IF EXISTS `doctor_table`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `doctor_table` (
+  `doctor_id` int NOT NULL AUTO_INCREMENT,
+  `doctor_name` varchar(45) NOT NULL,
+  `Doctor_email` varchar(45) NOT NULL,
+  `doctor_contact` varchar(45) NOT NULL,
+  `qualifications` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `dept_id` int NOT NULL,
+  PRIMARY KEY (`doctor_id`),
+  UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `doctor_table`
+--
+
+LOCK TABLES `doctor_table` WRITE;
+/*!40000 ALTER TABLE `doctor_table` DISABLE KEYS */;
+/*!40000 ALTER TABLE `doctor_table` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `login_table`
+--
+
+DROP TABLE IF EXISTS `login_table`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `login_table` (
+  `login_id` int NOT NULL AUTO_INCREMENT,
+  `passoward` varchar(45) NOT NULL,
+  `role` varchar(45) NOT NULL,
+  PRIMARY KEY (`login_id`),
+  UNIQUE KEY `login_id_UNIQUE` (`login_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `login_table`
+--
+
+LOCK TABLES `login_table` WRITE;
+/*!40000 ALTER TABLE `login_table` DISABLE KEYS */;
+/*!40000 ALTER TABLE `login_table` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `patient`
 --
 
@@ -250,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-08 22:34:26
+-- Dump completed on 2022-09-09 22:16:35
