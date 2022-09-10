@@ -169,11 +169,19 @@ CREATE TABLE `doctor_table` (
   `qualifications` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `dept_id` int NOT NULL,
+  `login_id` int NOT NULL,
   PRIMARY KEY (`doctor_id`),
   UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`),
   KEY `dept_id_idx` (`dept_id`),
+<<<<<<< HEAD
   CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+  KEY `login_idx` (`login_id`),
+  CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
+  CONSTRAINT `login` FOREIGN KEY (`login_id`) REFERENCES `login_table` (`login_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> a561dc48fe9a26b1ee2af405f585f3bd02781c78
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -197,7 +205,11 @@ CREATE TABLE `login_table` (
   `login_id` int NOT NULL AUTO_INCREMENT,
   `passoward` varchar(45) NOT NULL,
   `role` varchar(45) NOT NULL,
+<<<<<<< HEAD
   `login_name` varchar(255) DEFAULT NULL,
+=======
+  `user_id` varchar(45) NOT NULL,
+>>>>>>> a561dc48fe9a26b1ee2af405f585f3bd02781c78
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `login_id_UNIQUE` (`login_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -233,8 +245,16 @@ CREATE TABLE `patient_table` (
   `patient_contact2` varchar(10) DEFAULT NULL,
   `form_fill` varchar(45) NOT NULL,
   `patient_password` varchar(15) NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY (`patient_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+=======
+  `login_id` int NOT NULL,
+  PRIMARY KEY (`patient_id`),
+  KEY `login_idx` (`login_id`),
+  CONSTRAINT `login_id1` FOREIGN KEY (`login_id`) REFERENCES `login_table` (`login_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> a561dc48fe9a26b1ee2af405f585f3bd02781c78
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -317,8 +337,11 @@ CREATE TABLE `staff_table` (
   `staff_bdate` date NOT NULL,
   `staff_jdate` date NOT NULL,
   `staff_password` varchar(45) NOT NULL,
+  `login_id` int NOT NULL,
   PRIMARY KEY (`staff_id`),
-  UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`)
+  UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`),
+  KEY `login_id2_idx` (`login_id`),
+  CONSTRAINT `login_id2` FOREIGN KEY (`login_id`) REFERENCES `login_table` (`login_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -328,7 +351,7 @@ CREATE TABLE `staff_table` (
 
 LOCK TABLES `staff_table` WRITE;
 /*!40000 ALTER TABLE `staff_table` DISABLE KEYS */;
-INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16',''),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25','');
+INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16','',0),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25','',0);
 /*!40000 ALTER TABLE `staff_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -341,4 +364,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2022-09-10 17:31:39
+=======
+-- Dump completed on 2022-09-10 14:16:16
+>>>>>>> a561dc48fe9a26b1ee2af405f585f3bd02781c78
