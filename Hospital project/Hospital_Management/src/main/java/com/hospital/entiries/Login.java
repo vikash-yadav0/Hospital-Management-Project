@@ -12,29 +12,14 @@ import javax.persistence.Table;
 public class Login {
 	
 	@Id	
-	int dept_id;
+	int login_id;
 	@Column
-	String dept_name;
+	String login_name;
 	@Column
 	String role;
 	public Login() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	public Login(int dept_id, String dept_name, String role) {
-		super();
-		this.dept_id = dept_id;
-		this.dept_name = dept_name;
-		this.role = role;
-	}
-	public int getDept_id() {
-		return dept_id;
-	}
-	public String getDept_name() {
-		return dept_name;
-	}
-	public String getRole() {
-		return role;
 	}
 	
 	

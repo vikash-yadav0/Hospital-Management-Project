@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.Service.HospitalService;
 import com.hospital.entiries.Doctor;
+import com.hospital.entiries.Patient;
 
 
 @RestController
@@ -19,14 +20,20 @@ public class HospitalController
 	@Autowired
 	HospitalService hservice;
 	
-	@GetMapping("/all")
-	public List<Doctor> getAll()
+	@GetMapping("/alldoctor")
+	public List<Doctor> getAlldoctor()
 	{
 		return hservice.getAll();
 		
 	}
-	@PostMapping("/save")
-	public Doctor SaveContact(@RequestBody Doctor C)
+	@GetMapping("/allstaff")
+	public List<Doctor> getAllstaff()
+	{
+		return hservice.getAll();
+		
+	}
+	@PostMapping("/savepatient")
+	public Doctor SaveContact(@RequestBody Patient C)
 	{
 		return hservice.savecon(C);
 	}

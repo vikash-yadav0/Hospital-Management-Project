@@ -6,23 +6,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospital.entiries.Doctor;
-import com.hospital.repositry.HospitalRepository;
+import com.hospital.entiries.Patient;
+import com.hospital.repositry.HospitalRepositorye;
 
 
 @Service
 public class HospitalService {
 
 	@Autowired
-	HospitalRepository hrepo;
+	HospitalRepositorye hrepo;
 	
 	public List<Doctor> getAll()
 	{
 		return hrepo.findAll();
 	}
 	
-	public Doctor savecon(Doctor ct)
+	public Doctor savecon(Patient c)
 	{
-		return hrepo.save(ct);
+		return hrepo.save(c);
 	}
 
 }
