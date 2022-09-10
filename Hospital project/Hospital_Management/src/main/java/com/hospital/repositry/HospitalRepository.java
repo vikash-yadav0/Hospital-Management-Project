@@ -1,8 +1,8 @@
-package com.example.demo.repositry;
+package com.hospital.repositry;
 
 import java.util.List;
 
-import com.example.demo.entiries.Doctor;
+import com.hospital.entiries.Doctor;
 
 public class HospitalRepository {
 

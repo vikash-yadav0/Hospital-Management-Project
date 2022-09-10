@@ -1,12 +1,12 @@
-package com.example.demo.Service;
+package com.hospital.Service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entiries.Doctor;
-import com.example.demo.repositry.HospitalRepository;
+import com.hospital.entiries.Doctor;
+import com.hospital.repositry.HospitalRepository;
 
 
 @Service
