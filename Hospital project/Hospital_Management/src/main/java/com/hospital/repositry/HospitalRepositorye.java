@@ -1,15 +1,19 @@
 package com.hospital.repositry;
 
-import java.util.List;
+import javax.transaction.Transactional;
 
-import com.hospital.entiries.Doctor;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 import com.hospital.entiries.Patient;
+@Transactional
+@Repository
+public interface HospitalRepositorye extends JpaRepository<Patient, Integer>
+{
 
-public interface HospitalRepositorye {
+	
 
-	List<Doctor> findAll();
-
-	Doctor save(Patient c);
+	
 
 	
 }

@@ -20,20 +20,14 @@ public class HospitalController
 	@Autowired
 	HospitalService hservice;
 	
-	@GetMapping("/alldoctor")
-	public List<Doctor> getAlldoctor()
+	@GetMapping("/all")
+	public List<Patient> getAll()
 	{
 		return hservice.getAll();
 		
 	}
-	@GetMapping("/allstaff")
-	public List<Doctor> getAllstaff()
-	{
-		return hservice.getAll();
-		
-	}
-	@PostMapping("/savepatient")
-	public Doctor SaveContact(@RequestBody Patient C)
+	@PostMapping("/save")
+	public Patient SaveContact(@RequestBody Patient C)
 	{
 		return hservice.savecon(C);
 	}

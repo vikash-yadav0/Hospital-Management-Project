@@ -2,8 +2,6 @@ package com.hospital.entiries;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,6 +15,7 @@ public class Login {
 	String login_name;
 	@Column
 	String role;
+
 	public Login() {
 		super();
 		// TODO Auto-generated constructor stub

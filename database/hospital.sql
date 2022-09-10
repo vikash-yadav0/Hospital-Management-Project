@@ -61,7 +61,7 @@ CREATE TABLE `bed_master` (
   `dept` int DEFAULT NULL,
   PRIMARY KEY (`bed_id`),
   UNIQUE KEY `bed_id_UNIQUE` (`bed_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,6 +70,7 @@ CREATE TABLE `bed_master` (
 
 LOCK TABLES `bed_master` WRITE;
 /*!40000 ALTER TABLE `bed_master` DISABLE KEYS */;
+INSERT INTO `bed_master` VALUES (1,'general',200,'free',1),(2,'gold',800,'free',1),(3,'gold',800,'book',1),(4,'general',200,'book',1),(5,'silver',500,'free',1),(6,'silver',500,'book',1);
 /*!40000 ALTER TABLE `bed_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,8 +84,8 @@ DROP TABLE IF EXISTS `billing_table`;
 CREATE TABLE `billing_table` (
   `billing_id` int NOT NULL AUTO_INCREMENT,
   `Admission_id` int NOT NULL,
-  `test_id` int NOT NULL,
-  `medicine_id` int DEFAULT NULL,
+  `test_cost` double NOT NULL,
+  `medicine_cost` double DEFAULT NULL,
   `bed_id` int DEFAULT NULL,
   `consultation_fees` int DEFAULT NULL,
   `total cost` double DEFAULT NULL,
@@ -114,7 +115,7 @@ CREATE TABLE `department_table` (
   PRIMARY KEY (`dept_id`),
   UNIQUE KEY `dept_id_UNIQUE` (`dept_id`),
   UNIQUE KEY `dept_name_UNIQUE` (`dept_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,6 +124,7 @@ CREATE TABLE `department_table` (
 
 LOCK TABLES `department_table` WRITE;
 /*!40000 ALTER TABLE `department_table` DISABLE KEYS */;
+INSERT INTO `department_table` VALUES (3,'medicine department'),(4,'orthology'),(1,'Outpatient Department (OPD)'),(2,'Radiology Department');
 /*!40000 ALTER TABLE `department_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +141,7 @@ CREATE TABLE `doctor_specilization` (
   `sp_id` int NOT NULL,
   PRIMARY KEY (`docsp_id`),
   UNIQUE KEY `docsp_UNIQUE` (`docsp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,6 +150,7 @@ CREATE TABLE `doctor_specilization` (
 
 LOCK TABLES `doctor_specilization` WRITE;
 /*!40000 ALTER TABLE `doctor_specilization` DISABLE KEYS */;
+INSERT INTO `doctor_specilization` VALUES (1,1,1),(1,2,2),(1,3,4),(2,4,3),(2,5,2);
 /*!40000 ALTER TABLE `doctor_specilization` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +173,7 @@ CREATE TABLE `doctor_table` (
   UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`),
   KEY `dept_id_idx` (`dept_id`),
   CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,6 +182,7 @@ CREATE TABLE `doctor_table` (
 
 LOCK TABLES `doctor_table` WRITE;
 /*!40000 ALTER TABLE `doctor_table` DISABLE KEYS */;
+INSERT INTO `doctor_table` VALUES (1,'vikash','vikash@gmail.com','7894561235','mbbs','vikash11@',1),(2,'ram','ram@gmail.com','8956231478','mbbs,md','ram11@',2);
 /*!40000 ALTER TABLE `doctor_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,6 +197,7 @@ CREATE TABLE `login_table` (
   `login_id` int NOT NULL AUTO_INCREMENT,
   `passoward` varchar(45) NOT NULL,
   `role` varchar(45) NOT NULL,
+  `login_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `login_id_UNIQUE` (`login_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -229,7 +234,7 @@ CREATE TABLE `patient_table` (
   `form_fill` varchar(45) NOT NULL,
   `patient_password` varchar(15) NOT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -238,6 +243,7 @@ CREATE TABLE `patient_table` (
 
 LOCK TABLES `patient_table` WRITE;
 /*!40000 ALTER TABLE `patient_table` DISABLE KEYS */;
+INSERT INTO `patient_table` VALUES (1,'sonal','sonal@gmail.com','8956895689','1998-05-23','ab+','very ill from last few months , mind is not working and get frustated very soon',5.2,45,'female','8947563214','brother','sonal11@');
 /*!40000 ALTER TABLE `patient_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,7 +287,7 @@ CREATE TABLE `specialization_table` (
   `sp_name` varchar(45) NOT NULL,
   PRIMARY KEY (`sp_id`),
   UNIQUE KEY `sp_id_UNIQUE` (`sp_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,6 +296,7 @@ CREATE TABLE `specialization_table` (
 
 LOCK TABLES `specialization_table` WRITE;
 /*!40000 ALTER TABLE `specialization_table` DISABLE KEYS */;
+INSERT INTO `specialization_table` VALUES (1,' Orthopedics'),(2,'Medicine'),(3,'Obstetrics and Gynecology'),(4,'Dermatology'),(5,'Pediatrics');
 /*!40000 ALTER TABLE `specialization_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,4 +341,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-10 10:58:03
+-- Dump completed on 2022-09-10 17:31:39
