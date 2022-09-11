@@ -1,0 +1,11 @@
+package com.example.demo.entiries;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="login_table")
+public class Login {
+	
+
+}

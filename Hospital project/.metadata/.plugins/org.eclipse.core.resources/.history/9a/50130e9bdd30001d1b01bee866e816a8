@@ -1,0 +1,22 @@
+package com.hospital.repositry;
+
+import java.util.List;
+
+import com.hospital.entiries.Doctor;
+import com.hospital.entiries.Patient;
+
+public class HospitalRepository {
+
+	public List<Doctor> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Doctor save(Patient c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

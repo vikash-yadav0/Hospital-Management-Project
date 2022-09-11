@@ -1,0 +1,18 @@
+package com.hospital.repositry;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.hospital.entiries.Doctor;
+
+
+public interface HospitalRepositorye extends JpaRepository<Doctor, Integer>
+{
+
+	List<Doctor> findAll();
+
+	
+
+	
+}
