@@ -169,10 +169,13 @@ CREATE TABLE `doctor_table` (
   `qualifications` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `dept_id` int NOT NULL,
+  `login` int DEFAULT NULL,
   PRIMARY KEY (`doctor_id`),
   UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`),
   KEY `dept_id_idx` (`dept_id`),
-  CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`)
+  KEY `login1_idx` (`login`),
+  CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
+  CONSTRAINT `login1` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -182,7 +185,7 @@ CREATE TABLE `doctor_table` (
 
 LOCK TABLES `doctor_table` WRITE;
 /*!40000 ALTER TABLE `doctor_table` DISABLE KEYS */;
-INSERT INTO `doctor_table` VALUES (1,'vikash','vikash@gmail.com','7894561235','mbbs','vikash11@',1),(2,'ram','ram@gmail.com','8956231478','mbbs,md','ram11@',2);
+INSERT INTO `doctor_table` VALUES (1,'vikash','vikash@gmail.com','7894561235','mbbs','vikash11@',1,NULL),(2,'ram','ram@gmail.com','8956231478','mbbs,md','ram11@',2,NULL);
 /*!40000 ALTER TABLE `doctor_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,6 +201,7 @@ CREATE TABLE `login_table` (
   `passoward` varchar(45) NOT NULL,
   `role` varchar(45) NOT NULL,
   `login_name` varchar(255) DEFAULT NULL,
+  `user_id` varchar(45) NOT NULL,
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `login_id_UNIQUE` (`login_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -233,8 +237,11 @@ CREATE TABLE `patient_table` (
   `patient_contact2` varchar(10) DEFAULT NULL,
   `form_fill` varchar(45) NOT NULL,
   `patient_password` varchar(15) NOT NULL,
+  `login` int NOT NULL,
   PRIMARY KEY (`patient_id`),
-  UNIQUE KEY `patient_id_UNIQUE` (`patient_id`)
+  UNIQUE KEY `patient_id_UNIQUE` (`patient_id`),
+  KEY `login_idx` (`login`),
+  CONSTRAINT `loginid` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -244,7 +251,6 @@ CREATE TABLE `patient_table` (
 
 LOCK TABLES `patient_table` WRITE;
 /*!40000 ALTER TABLE `patient_table` DISABLE KEYS */;
-INSERT INTO `patient_table` VALUES (1,'sonal','sonal@gmail.com','8956895689','1998-05-23','ab+','very ill from last few months , mind is not working and get frustated very soon',5.2,45,'female','8947563214','brother','sonal11@'),(2,'deepak','deepak@gmail.com','7865895689','1997-03-12','a+','high bp problem taking medicine for it',5.7,65,'male','8945563214','patient','deepak11@'),(3,'ram','ram@gmail.com','5644589568','1997-03-15','b+','low bp problem taking medicine for it',5.6,60,'male','8945563214','friend','ram11@');
 /*!40000 ALTER TABLE `patient_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -318,8 +324,11 @@ CREATE TABLE `staff_table` (
   `staff_bdate` date NOT NULL,
   `staff_jdate` date NOT NULL,
   `staff_password` varchar(45) NOT NULL,
+  `login` int DEFAULT NULL,
   PRIMARY KEY (`staff_id`),
-  UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`)
+  UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`),
+  KEY `login_id_idx` (`login`),
+  CONSTRAINT `login_id` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -329,7 +338,7 @@ CREATE TABLE `staff_table` (
 
 LOCK TABLES `staff_table` WRITE;
 /*!40000 ALTER TABLE `staff_table` DISABLE KEYS */;
-INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16',''),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25','');
+INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16','',NULL),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25','',NULL);
 /*!40000 ALTER TABLE `staff_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -342,4 +351,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-11  9:21:04
+-- Dump completed on 2022-09-11 22:21:23
