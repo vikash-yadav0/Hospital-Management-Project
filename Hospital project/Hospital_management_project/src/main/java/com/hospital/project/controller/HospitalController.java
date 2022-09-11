@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.project.entiries.Patient;
-import com.hospital.project.service.HospitalService;
+import com.hospital.project.service.PatientService;
 
 
 
@@ -20,7 +20,7 @@ public class HospitalController
 {
 
 	@Autowired
-	HospitalService hservice;
+	PatientService hservice;
 	
 	@GetMapping("/allpatient")
 	public List<Patient> getAll()
