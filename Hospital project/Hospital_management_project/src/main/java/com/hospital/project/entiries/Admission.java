@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,21 +35,33 @@ int Payment_id;
 
 @Column
 String status;
+@ManyToOne
+@JoinColumn(name="doctor_id")
+Doctor doctor;
+@ManyToOne
+@JoinColumn(name="dept_id")
+Department department;
+@ManyToOne
+@JoinColumn(name="staff_id")
+Staff staff;
 
 public Admission() {
 	super();
 }
 
 public Admission(int admission_id, Date admited_date, int patient_id, int doctor_id, int bed_id, int payment_id,
-		String status) {
+		String status, Doctor doctor, Department department, Staff staff) {
 	super();
 	this.admission_id = admission_id;
 	this.admited_date = admited_date;
 	this.patient_id = patient_id;
 	this.doctor_id = doctor_id;
 	this.bed_id = bed_id;
-	this.Payment_id = payment_id;
+	Payment_id = payment_id;
 	this.status = status;
+	this.doctor = doctor;
+	this.department = department;
+	this.staff = staff;
 }
 
 public int getAdmission_id() {
@@ -106,12 +120,37 @@ public void setStatus(String status) {
 	this.status = status;
 }
 
+public Doctor getDoctor() {
+	return doctor;
+}
+
+public void setDoctor(Doctor doctor) {
+	this.doctor = doctor;
+}
+
+public Department getDepartment() {
+	return department;
+}
+
+public void setDepartment(Department department) {
+	this.department = department;
+}
+
+public Staff getStaff() {
+	return staff;
+}
+
+public void setStaff(Staff staff) {
+	this.staff = staff;
+}
+
 @Override
 public String toString() {
 	return "Admission [admission_id=" + admission_id + ", admited_date=" + admited_date + ", patient_id=" + patient_id
 			+ ", doctor_id=" + doctor_id + ", bed_id=" + bed_id + ", Payment_id=" + Payment_id + ", status=" + status
-			+ "]";
+			+ ", doctor=" + doctor + ", department=" + department + ", staff=" + staff + "]";
 }
+
 
 
 

@@ -1,10 +1,17 @@
 package com.hospital.project.entiries;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,14 +30,20 @@ public class Doctor {
 		String qualifications;
 		@Column
 		String password;
-		@Column
-		String dept_id;
+		@ManyToOne
+		@JoinColumn(name="department_id")
+		Department department;
+		@OneToMany(cascade = CascadeType.ALL)
+		Set<Admission> admission =new HashSet();
+		@OneToMany(cascade = CascadeType.ALL)
+		Set<Specialization> spec =new HashSet();
 		public Doctor() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 		public Doctor(int doctor_id, String doctor_name, String doctor_email, String doctor_contact,
-				String qualifications, String password, String dept_id) {
+				String qualifications, String password, Department department, Set<Admission> admission,
+				Set<Specialization> spec) {
 			super();
 			this.doctor_id = doctor_id;
 			this.doctor_name = doctor_name;
@@ -38,7 +51,9 @@ public class Doctor {
 			this.doctor_contact = doctor_contact;
 			this.qualifications = qualifications;
 			this.password = password;
-			this.dept_id = dept_id;
+			this.department = department;
+			this.admission = admission;
+			this.spec = spec;
 		}
 		public int getDoctor_id() {
 			return doctor_id;
@@ -76,18 +91,32 @@ public class Doctor {
 		public void setPassword(String password) {
 			this.password = password;
 		}
-		public String getDept_id() {
-			return dept_id;
+		public Department getDepartment() {
+			return department;
 		}
-		public void setDept_id(String dept_id) {
-			this.dept_id = dept_id;
+		public void setDepartment(Department department) {
+			this.department = department;
+		}
+		public Set<Admission> getAdmission() {
+			return admission;
+		}
+		public void setAdmission(Set<Admission> admission) {
+			this.admission = admission;
+		}
+		public Set<Specialization> getSpec() {
+			return spec;
+		}
+		public void setSpec(Set<Specialization> spec) {
+			this.spec = spec;
 		}
 		@Override
 		public String toString() {
 			return "Doctor [doctor_id=" + doctor_id + ", doctor_name=" + doctor_name + ", doctor_email=" + doctor_email
 					+ ", doctor_contact=" + doctor_contact + ", qualifications=" + qualifications + ", password="
-					+ password + ", dept_id=" + dept_id + "]";
-		}
+					+ password + ", department=" + department + ", admission=" + admission + ", spec=" + spec + "]";
+		}		
+		
+		
 		
 
 }

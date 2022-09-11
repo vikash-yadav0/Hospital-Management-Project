@@ -1,10 +1,17 @@
 package com.hospital.project.entiries;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,14 +34,18 @@ public class Staff {
 	String staff_bdate;
 	@Column
 	String staff_jdate;
-	@Column
-	String dept;
+	@ManyToOne
+	@JoinColumn(name="department_id")
+	Department department;	
+	@OneToMany(cascade = CascadeType.ALL)
+	Set<Admission> admission =new HashSet();
 	public Staff() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Staff(int staff_id, String staff_name, String staff_email, String staff_contact, String staff_gender,
-			String staff_password, String staff_bdate, String staff_jdate, String dept) {
+			String staff_password, String staff_bdate, String staff_jdate, Department department,
+			Set<Admission> admission) {
 		super();
 		this.staff_id = staff_id;
 		this.staff_name = staff_name;
@@ -44,7 +55,8 @@ public class Staff {
 		this.staff_password = staff_password;
 		this.staff_bdate = staff_bdate;
 		this.staff_jdate = staff_jdate;
-		this.dept = dept;
+		this.department = department;
+		this.admission = admission;
 	}
 	public int getStaff_id() {
 		return staff_id;
@@ -94,19 +106,26 @@ public class Staff {
 	public void setStaff_jdate(String staff_jdate) {
 		this.staff_jdate = staff_jdate;
 	}
-	public String getDept() {
-		return dept;
+	public Department getDepartment() {
+		return department;
 	}
-	public void setDept(String dept) {
-		this.dept = dept;
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+	public Set<Admission> getAdmission() {
+		return admission;
+	}
+	public void setAdmission(Set<Admission> admission) {
+		this.admission = admission;
 	}
 	@Override
 	public String toString() {
 		return "Staff [staff_id=" + staff_id + ", staff_name=" + staff_name + ", staff_email=" + staff_email
 				+ ", staff_contact=" + staff_contact + ", staff_gender=" + staff_gender + ", staff_password="
-				+ staff_password + ", staff_bdate=" + staff_bdate + ", staff_jdate=" + staff_jdate + ", dept=" + dept
-				+ "]";
+				+ staff_password + ", staff_bdate=" + staff_bdate + ", staff_jdate=" + staff_jdate + ", department="
+				+ department + ", admission=" + admission + "]";
 	}
+	
 	
 
 }

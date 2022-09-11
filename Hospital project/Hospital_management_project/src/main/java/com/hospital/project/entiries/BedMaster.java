@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -21,18 +23,19 @@ public class BedMaster {
 	Double charges;
 	@Column
 	String status;
-	@Column
-	int dept;
+	@ManyToOne
+	@JoinColumn(name="dept_id")
+	Department department;
 	public BedMaster() {
 		super();
 	}
-	public BedMaster(int bed_id, String category, Double charges, String status, int dept) {
+	public BedMaster(int bed_id, String category, Double charges, String status, Department department) {
 		super();
 		this.bed_id = bed_id;
 		this.category = category;
 		this.charges = charges;
 		this.status = status;
-		this.dept = dept;
+		this.department = department;
 	}
 	public int getBed_id() {
 		return bed_id;
@@ -58,17 +61,19 @@ public class BedMaster {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public int getDept() {
-		return dept;
+	public Department getDepartment() {
+		return department;
 	}
-	public void setDept(int dept) {
-		this.dept = dept;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 	@Override
 	public String toString() {
 		return "BedMaster [bed_id=" + bed_id + ", category=" + category + ", charges=" + charges + ", status=" + status
-				+ ", dept=" + dept + "]";
+				+ ", department=" + department + "]";
 	}
+	
+	
 	
 	
 	
