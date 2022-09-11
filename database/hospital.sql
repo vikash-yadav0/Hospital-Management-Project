@@ -167,7 +167,7 @@ CREATE TABLE `doctor_table` (
   `Doctor_email` varchar(45) NOT NULL,
   `doctor_contact` varchar(45) NOT NULL,
   `qualifications` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
+  `password` varchar(15) NOT NULL,
   `dept_id` int NOT NULL,
   `login` int DEFAULT NULL,
   PRIMARY KEY (`doctor_id`),
@@ -199,8 +199,8 @@ DROP TABLE IF EXISTS `login_table`;
 CREATE TABLE `login_table` (
   `login_id` int NOT NULL AUTO_INCREMENT,
   `passoward` varchar(15) NOT NULL,
-  `role` varchar(20) NOT NULL,
-  `user_id` varchar(25) NOT NULL,
+  `role` varchar(45) NOT NULL,
+  `user_id` varchar(45) NOT NULL,
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `login_id_UNIQUE` (`login_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -322,7 +322,7 @@ CREATE TABLE `staff_table` (
   `staff_email` varchar(45) NOT NULL,
   `staff_bdate` date NOT NULL,
   `staff_jdate` date NOT NULL,
-  `staff_password` varchar(45) NOT NULL,
+  `staff_password` varchar(15) NOT NULL,
   `login` int DEFAULT NULL,
   PRIMARY KEY (`staff_id`),
   UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`),
@@ -350,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-11 22:50:00
+-- Dump completed on 2022-09-11 23:04:57
