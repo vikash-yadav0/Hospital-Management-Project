@@ -1,5 +1,6 @@
 package com.hospital.project.entiries;
 
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,9 +32,10 @@ public class Staff {
 	@Column
 	String staff_password;
 	@Column
-	String staff_bdate;
+	Date staff_bdate;
 	@Column
-	String staff_jdate;
+	Date staff_jdate;
+	
 	@ManyToOne
 	@JoinColumn(name="department_id")
 	Department department;	
@@ -43,8 +45,9 @@ public class Staff {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Staff(int staff_id, String staff_name, String staff_email, String staff_contact, String staff_gender,
-			String staff_password, String staff_bdate, String staff_jdate, Department department,
+			String staff_password, Date staff_bdate, Date staff_jdate, Department department,
 			Set<Admission> admission) {
 		super();
 		this.staff_id = staff_id;
@@ -58,6 +61,23 @@ public class Staff {
 		this.department = department;
 		this.admission = admission;
 	}
+
+	public Date getStaff_bdate() {
+		return staff_bdate;
+	}
+
+	public void setStaff_bdate(Date staff_bdate) {
+		this.staff_bdate = staff_bdate;
+	}
+
+	public Date getStaff_jdate() {
+		return staff_jdate;
+	}
+
+	public void setStaff_jdate(Date staff_jdate) {
+		this.staff_jdate = staff_jdate;
+	}
+
 	public int getStaff_id() {
 		return staff_id;
 	}
@@ -94,18 +114,7 @@ public class Staff {
 	public void setStaff_password(String staff_password) {
 		this.staff_password = staff_password;
 	}
-	public String getStaff_bdate() {
-		return staff_bdate;
-	}
-	public void setStaff_bdate(String staff_bdate) {
-		this.staff_bdate = staff_bdate;
-	}
-	public String getStaff_jdate() {
-		return staff_jdate;
-	}
-	public void setStaff_jdate(String staff_jdate) {
-		this.staff_jdate = staff_jdate;
-	}
+	
 	public Department getDepartment() {
 		return department;
 	}
@@ -118,6 +127,7 @@ public class Staff {
 	public void setAdmission(Set<Admission> admission) {
 		this.admission = admission;
 	}
+
 	@Override
 	public String toString() {
 		return "Staff [staff_id=" + staff_id + ", staff_name=" + staff_name + ", staff_email=" + staff_email
@@ -125,6 +135,7 @@ public class Staff {
 				+ staff_password + ", staff_bdate=" + staff_bdate + ", staff_jdate=" + staff_jdate + ", department="
 				+ department + ", admission=" + admission + "]";
 	}
+	
 	
 	
 

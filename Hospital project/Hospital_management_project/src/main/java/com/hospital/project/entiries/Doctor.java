@@ -30,6 +30,8 @@ public class Doctor {
 		String qualifications;
 		@Column
 		String password;
+		@Column
+		int login;
 		@ManyToOne
 		@JoinColumn(name="department_id")
 		Department department;
@@ -41,8 +43,17 @@ public class Doctor {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+		
+		public int getLogin() {
+			return login;
+		}
+
+		public void setLogin(int login) {
+			this.login = login;
+		}
+
 		public Doctor(int doctor_id, String doctor_name, String doctor_email, String doctor_contact,
-				String qualifications, String password, Department department, Set<Admission> admission,
+				String qualifications, String password, int login, Department department, Set<Admission> admission,
 				Set<Specialization> spec) {
 			super();
 			this.doctor_id = doctor_id;
@@ -51,10 +62,12 @@ public class Doctor {
 			this.doctor_contact = doctor_contact;
 			this.qualifications = qualifications;
 			this.password = password;
+			this.login = login;
 			this.department = department;
 			this.admission = admission;
 			this.spec = spec;
 		}
+
 		public int getDoctor_id() {
 			return doctor_id;
 		}
@@ -109,12 +122,14 @@ public class Doctor {
 		public void setSpec(Set<Specialization> spec) {
 			this.spec = spec;
 		}
+
 		@Override
 		public String toString() {
 			return "Doctor [doctor_id=" + doctor_id + ", doctor_name=" + doctor_name + ", doctor_email=" + doctor_email
 					+ ", doctor_contact=" + doctor_contact + ", qualifications=" + qualifications + ", password="
-					+ password + ", department=" + department + ", admission=" + admission + ", spec=" + spec + "]";
-		}		
+					+ password + ", login=" + login + ", department=" + department + ", admission=" + admission
+					+ ", spec=" + spec + "]";
+		}
 		
 		
 		

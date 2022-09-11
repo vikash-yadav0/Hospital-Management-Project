@@ -198,10 +198,9 @@ DROP TABLE IF EXISTS `login_table`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login_table` (
   `login_id` int NOT NULL AUTO_INCREMENT,
-  `passoward` varchar(45) NOT NULL,
-  `role` varchar(45) NOT NULL,
-  `login_name` varchar(255) DEFAULT NULL,
-  `user_id` varchar(45) NOT NULL,
+  `passoward` varchar(15) NOT NULL,
+  `role` varchar(20) NOT NULL,
+  `user_id` varchar(25) NOT NULL,
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `login_id_UNIQUE` (`login_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -351,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-11 22:21:23
+-- Dump completed on 2022-09-11 22:50:00

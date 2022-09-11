@@ -37,14 +37,35 @@ public class Patient {
 	String patient_gender;
 	@Column
 	String form_fill;
+	@Column
+	int login;
 	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	@Override
+	public String toString() {
+		return "Patient [patient_id=" + patient_id + ", patient_name=" + patient_name + ", patient_email="
+				+ patient_email + ", patient_contact1=" + patient_contact1 + ", patient_contact2=" + patient_contact2
+				+ ", patient_bdate=" + patient_bdate + ", patient_password=" + patient_password
+				+ ", patient_bloodgroup=" + patient_bloodgroup + ", patient_history=" + patient_history
+				+ ", patient_height=" + patient_height + ", patient_weight=" + patient_weight + ", patient_gender="
+				+ patient_gender + ", form_fill=" + form_fill + ", login=" + login + "]";
+	}
+
+	public int getLogin() {
+		return login;
+	}
+
+	public void setLogin(int login) {
+		this.login = login;
+	}
+
 	public Patient(int patient_id, String patient_name, String patient_email, String patient_contact1,
 			String patient_contact2, String patient_bdate, String patient_password, String patient_bloodgroup,
 			String patient_history, String patient_height, String patient_weight, String patient_gender,
-			String form_fill) {
+			String form_fill, int login) {
 		super();
 		this.patient_id = patient_id;
 		this.patient_name = patient_name;
@@ -59,7 +80,9 @@ public class Patient {
 		this.patient_weight = patient_weight;
 		this.patient_gender = patient_gender;
 		this.form_fill = form_fill;
+		this.login = login;
 	}
+
 	public int getPatient_id() {
 		return patient_id;
 	}
@@ -138,14 +161,6 @@ public class Patient {
 	public void setForm_fill(String form_fill) {
 		this.form_fill = form_fill;
 	}
-	@Override
-	public String toString() {
-		return "Patient [patient_id=" + patient_id + ", patient_name=" + patient_name + ", patient_email="
-				+ patient_email + ", patient_contact1=" + patient_contact1 + ", patient_contact2=" + patient_contact2
-				+ ", patient_bdate=" + patient_bdate + ", patient_password=" + patient_password
-				+ ", patient_bloodgroup=" + patient_bloodgroup + ", patient_history=" + patient_history
-				+ ", patient_height=" + patient_height + ", patient_weight=" + patient_weight + ", patient_gender="
-				+ patient_gender + ", form_fill=" + form_fill + "]";
-	}
+	
 	
 }
