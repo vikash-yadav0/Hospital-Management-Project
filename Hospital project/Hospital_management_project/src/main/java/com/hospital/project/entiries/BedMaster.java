@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
 @Table(name="bed_master")
@@ -23,9 +25,12 @@ public class BedMaster {
 	Double charges;
 	@Column
 	String status;
+	
+	@JsonIgnoreProperties("bed")
 	@ManyToOne
 	@JoinColumn(name="dept_id")
 	Department department;
+	
 	public BedMaster() {
 		super();
 	}

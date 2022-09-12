@@ -22,12 +22,12 @@ public class PatientController
 	@Autowired
 	PatientService hservice;
 	
-	@GetMapping("/allpatient")
+	/*@GetMapping("/allpatient")
 	public List<Patient> getAll()
 	{
 		return hservice.getAll();
 		
-	}
+	}*/
 	@PostMapping("/savepatient")
 	public Patient SaveContact(@RequestBody Patient C)
 	{

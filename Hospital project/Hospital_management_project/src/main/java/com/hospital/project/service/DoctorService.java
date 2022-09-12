@@ -12,10 +12,10 @@ public class DoctorService {
 	@Autowired
 	DoctorRepository drepo;
 	
-	public List<Doctor> getAll()
+	/*public List<Doctor> getAll()
 	{
 		return drepo.findAll();
-	}	
+	}*/	
 	public Doctor savecon(Doctor c)
 	{
 		return drepo.save(c);

@@ -16,10 +16,10 @@ public class PatientService {
 	@Autowired
 	PatientRepository hrepo;
 	
-	public List<Patient> getAll()
+	/*public List<Patient> getAll()
 	{
 		return hrepo.findAll();
-	}	
+	}	*/
 	public Patient savecon(Patient c)
 	{
 		return hrepo.save(c);

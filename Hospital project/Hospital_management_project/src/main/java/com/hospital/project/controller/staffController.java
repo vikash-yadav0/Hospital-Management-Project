@@ -18,12 +18,12 @@ public class staffController {
 	@Autowired
 	StaffService sservice;
 	
-	@GetMapping("/allstaff")
+	/*@GetMapping("/allstaff")
 	public List<Staff> getAll()
 	{
 		return sservice.getAll();
 		
-	}
+	}*/
 	@PostMapping("/savestaff")
 	public Staff SaveContact(@RequestBody Staff C)
 	{

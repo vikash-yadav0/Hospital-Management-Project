@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="department_table")
 public class Department {
@@ -20,19 +22,28 @@ public class Department {
 	int dept_id;
 	@Column
 	String dept_name;
+	
+	/*@JsonIgnoreProperties("department")
 	@OneToMany(cascade = CascadeType.ALL)
 	Set<Doctor> doctor=new HashSet();
+	
+	@JsonIgnoreProperties("department")
 	@OneToMany(cascade = CascadeType.ALL)
 	Set<Admission> admission=new HashSet();
+	
+	@JsonIgnoreProperties("department")
 	@OneToMany(cascade = CascadeType.ALL)
 	Set<Staff> staff=new HashSet();
+	
+	@JsonIgnoreProperties("department")
 	@OneToMany(cascade = CascadeType.ALL)
-	Set<BedMaster> bed=new HashSet();
+	Set<BedMaster> bed=new HashSet();*/
 	public Department() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Department(int dept_id, String dept_name, Set<Doctor> doctor, Set<Admission> admission, Set<Staff> staff,
+	
+	/*public Department(int dept_id, String dept_name, Set<Doctor> doctor, Set<Admission> admission, Set<Staff> staff,
 			Set<BedMaster> bed) {
 		super();
 		this.dept_id = dept_id;
@@ -41,9 +52,15 @@ public class Department {
 		this.admission = admission;
 		this.staff = staff;
 		this.bed = bed;
-	}
+	}*/
+	
 	public int getDept_id() {
 		return dept_id;
+	}
+	public Department(int dept_id, String dept_name) {
+		super();
+		this.dept_id = dept_id;
+		this.dept_name = dept_name;
 	}
 	public void setDept_id(int dept_id) {
 		this.dept_id = dept_id;
@@ -54,7 +71,7 @@ public class Department {
 	public void setDept_name(String dept_name) {
 		this.dept_name = dept_name;
 	}
-	public Set<Doctor> getDoctor() {
+/*	public Set<Doctor> getDoctor() {
 		return doctor;
 	}
 	public void setDoctor(Set<Doctor> doctor) {
@@ -77,11 +94,11 @@ public class Department {
 	}
 	public void setBed(Set<BedMaster> bed) {
 		this.bed = bed;
-	}
+	}*/
 	@Override
 	public String toString() {
-		return "Department [dept_id=" + dept_id + ", dept_name=" + dept_name + ", doctor=" + doctor + ", admission="
-				+ admission + ", staff=" + staff + ", bed=" + bed + "]";
+		return "Department [dept_id=" + dept_id + ", dept_name=" + dept_name +  ", admission="
+				 +  "]";
 	}
 	
 	

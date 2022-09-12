@@ -18,12 +18,12 @@ public class DoctorController {
 	@Autowired
 	DoctorService dservice;
 	
-	@GetMapping("/alldoctor")
+	/*@GetMapping("/alldoctor")
 	public List<Doctor> getAll()
 	{
 		return dservice.getAll();
 		
-	}
+	}*/
 	@PostMapping("/savedoctor")
 	public Doctor SaveDoctor(@RequestBody Doctor C)
 	{

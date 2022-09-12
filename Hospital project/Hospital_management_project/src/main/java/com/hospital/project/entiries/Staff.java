@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="staff_table")
 public class Staff {
@@ -36,19 +38,21 @@ public class Staff {
 	@Column
 	Date staff_jdate;
 	
+	@JsonIgnoreProperties("staff")
 	@ManyToOne
 	@JoinColumn(name="department_id")
 	Department department;	
-	@OneToMany(cascade = CascadeType.ALL)
-	Set<Admission> admission =new HashSet();
+	
+	/*@JsonIgnoreProperties("staff")
+	@OneToMany(mappedBy="staff",cascade = CascadeType.ALL)
+	Set<Admission> admission =new HashSet();*/
 	public Staff() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Staff(int staff_id, String staff_name, String staff_email, String staff_contact, String staff_gender,
-			String staff_password, Date staff_bdate, Date staff_jdate, Department department,
-			Set<Admission> admission) {
+			String staff_password, Date staff_bdate, Date staff_jdate, Department department) {
 		super();
 		this.staff_id = staff_id;
 		this.staff_name = staff_name;
@@ -59,7 +63,7 @@ public class Staff {
 		this.staff_bdate = staff_bdate;
 		this.staff_jdate = staff_jdate;
 		this.department = department;
-		this.admission = admission;
+		
 	}
 
 	public Date getStaff_bdate() {
@@ -121,19 +125,19 @@ public class Staff {
 	public void setDepartment(Department department) {
 		this.department = department;
 	}
-	public Set<Admission> getAdmission() {
+	/*public Set<Admission> getAdmission() {
 		return admission;
 	}
 	public void setAdmission(Set<Admission> admission) {
 		this.admission = admission;
-	}
+	}*/
 
 	@Override
 	public String toString() {
 		return "Staff [staff_id=" + staff_id + ", staff_name=" + staff_name + ", staff_email=" + staff_email
 				+ ", staff_contact=" + staff_contact + ", staff_gender=" + staff_gender + ", staff_password="
 				+ staff_password + ", staff_bdate=" + staff_bdate + ", staff_jdate=" + staff_jdate + ", department="
-				+ department + ", admission=" + admission + "]";
+				+ department  + "]";
 	}
 	
 	

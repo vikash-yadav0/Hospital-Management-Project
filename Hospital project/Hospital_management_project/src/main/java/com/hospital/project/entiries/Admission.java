@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="admission_table")
 public class Admission {
@@ -18,13 +21,14 @@ public class Admission {
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 int admission_id;
 	
+@JsonFormat(pattern = "yyyy-mm-dd")
 @Column
 Date admited_date;
 
 @Column
 int patient_id;
 
-@Column
+@Column(insertable = false,updatable = false)
 int doctor_id;
 
 @Column
@@ -35,12 +39,19 @@ int Payment_id;
 
 @Column
 String status;
+
+
+@JsonIgnoreProperties("admission")
 @ManyToOne
 @JoinColumn(name="doctor_id")
 Doctor doctor;
+
+@JsonIgnoreProperties("admission")
 @ManyToOne
 @JoinColumn(name="dept_id")
 Department department;
+
+@JsonIgnoreProperties("adnission")
 @ManyToOne
 @JoinColumn(name="staff_id")
 Staff staff;

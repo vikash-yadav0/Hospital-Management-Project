@@ -13,10 +13,10 @@ public class StaffService {
 	@Autowired
 	StaffRepository srepo;
 	
-	public List<Staff> getAll()
+	/*public List<Staff> getAll()
 	{
 		return srepo.findAll();
-	}	
+	}	*/
 	public Staff savecon(Staff c)
 	{
 		return srepo.save(c);

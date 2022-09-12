@@ -1,11 +1,15 @@
 package com.hospital.project.entiries;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="patient_table")
@@ -21,8 +25,10 @@ public class Patient {
 	String patient_contact1;
 	@Column
 	String patient_contact2;
+	
+	@JsonFormat(pattern = "yyyy-mm-dd")
 	@Column
-	String patient_bdate;
+	Date patient_bdate;
 	@Column
 	String patient_password;
 	@Column
@@ -63,7 +69,7 @@ public class Patient {
 	}
 
 	public Patient(int patient_id, String patient_name, String patient_email, String patient_contact1,
-			String patient_contact2, String patient_bdate, String patient_password, String patient_bloodgroup,
+			String patient_contact2, Date patient_bdate, String patient_password, String patient_bloodgroup,
 			String patient_history, String patient_height, String patient_weight, String patient_gender,
 			String form_fill, int login) {
 		super();
@@ -113,10 +119,10 @@ public class Patient {
 	public void setPatient_contact2(String patient_contact2) {
 		this.patient_contact2 = patient_contact2;
 	}
-	public String getPatient_bdate() {
+	public Date getPatient_bdate() {
 		return patient_bdate;
 	}
-	public void setPatient_bdate(String patient_bdate) {
+	public void setPatient_bdate(Date patient_bdate) {
 		this.patient_bdate = patient_bdate;
 	}
 	public String getPatient_password() {
