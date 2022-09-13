@@ -16,7 +16,7 @@ public class AdmissionService {
 	{
 		return arepo.findAll();
 	}	
-	public Admission savecon(Admission c)
+	public Admission saveadm(Admission c)
 	{
 		return arepo.save(c);
 	}

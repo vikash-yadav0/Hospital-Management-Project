@@ -24,13 +24,13 @@ public class Billing {
 	int bed_id;
 	@Column
 	int consultation_fees;
-	@Column
-	Double total_cost;
+	
+	
 	public Billing() {
 		super();
 	}
 	public Billing(int billing_id, int admission_id, Double test_cost, Double medicine_cost, int bed_id,
-			int consultation_fees, Double total_cost) {
+			int consultation_fees) {
 		super();
 		this.billing_id = billing_id;
 		this.Admission_id = admission_id;
@@ -38,7 +38,7 @@ public class Billing {
 		this.medicine_cost = medicine_cost;
 		this.bed_id = bed_id;
 		this.consultation_fees = consultation_fees;
-		this.total_cost = total_cost;
+		
 	}
 	public int getBilling_id() {
 		return billing_id;
@@ -76,17 +76,12 @@ public class Billing {
 	public void setConsultation_fees(int consultation_fees) {
 		this.consultation_fees = consultation_fees;
 	}
-	public Double getTotal_cost() {
-		return total_cost;
-	}
-	public void setTotal_cost(Double total_cost) {
-		this.total_cost = total_cost;
-	}
+	
 	@Override
 	public String toString() {
 		return "Billing [billing_id=" + billing_id + ", Admission_id=" + Admission_id + ", test_cost=" + test_cost
 				+ ", medicine_cost=" + medicine_cost + ", bed_id=" + bed_id + ", consultation_fees=" + consultation_fees
-				+ ", total_cost=" + total_cost + "]";
+				 + "]";
 	}
 	
 	
