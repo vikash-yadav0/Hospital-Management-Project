@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -25,17 +26,23 @@ int admission_id;
 @Column
 Date admited_date;
 
-@Column
-int patient_id;
+@OneToOne
+@JoinColumn(name="patient_id")
+Patient patient;
 
-@Column(insertable = false,updatable = false)
+
+@Column(insertable =false,updatable = false)
 int doctor_id;
+// error will come in this line
 
-@Column
-int bed_id;
+@OneToOne
+@JoinColumn(name="bed_id")
+BedMaster bed;
 
-@Column
-int Payment_id;
+@OneToOne
+@JoinColumn(name="Payment_id")
+Payment payment;
+
 
 @Column
 String status;
@@ -60,15 +67,15 @@ public Admission() {
 	super();
 }
 
-public Admission(int admission_id, Date admited_date, int patient_id, int doctor_id, int bed_id, int payment_id,
+public Admission(int admission_id, Date admited_date, Patient patient, int doctor1, BedMaster bed, Payment payment,
 		String status, Doctor doctor, Department department, Staff staff) {
 	super();
 	this.admission_id = admission_id;
 	this.admited_date = admited_date;
-	this.patient_id = patient_id;
-	this.doctor_id = doctor_id;
-	this.bed_id = bed_id;
-	Payment_id = payment_id;
+	this.patient = patient;
+	this.doctor_id = doctor1;
+	this.bed = bed;
+	this.payment = payment;
 	this.status = status;
 	this.doctor = doctor;
 	this.department = department;
@@ -91,36 +98,36 @@ public void setAdmited_date(Date admited_date) {
 	this.admited_date = admited_date;
 }
 
-public int getPatient_id() {
-	return patient_id;
+public Patient getPatient() {
+	return patient;
 }
 
-public void setPatient_id(int patient_id) {
-	this.patient_id = patient_id;
+public void setPatient(Patient patient) {
+	this.patient = patient;
 }
 
-public int getDoctor_id() {
+public int getDoctor1() {
 	return doctor_id;
 }
 
-public void setDoctor_id(int doctor_id) {
-	this.doctor_id = doctor_id;
+public void setDoctor1(int doctor1) {
+	this.doctor_id = doctor1;
 }
 
-public int getBed_id() {
-	return bed_id;
+public BedMaster getBed() {
+	return bed;
 }
 
-public void setBed_id(int bed_id) {
-	this.bed_id = bed_id;
+public void setBed(BedMaster bed) {
+	this.bed = bed;
 }
 
-public int getPayment_id() {
-	return Payment_id;
+public Payment getPayment() {
+	return payment;
 }
 
-public void setPayment_id(int payment_id) {
-	Payment_id = payment_id;
+public void setPayment(Payment payment) {
+	this.payment = payment;
 }
 
 public String getStatus() {
@@ -157,14 +164,9 @@ public void setStaff(Staff staff) {
 
 @Override
 public String toString() {
-	return "Admission [admission_id=" + admission_id + ", admited_date=" + admited_date + ", patient_id=" + patient_id
-			+ ", doctor_id=" + doctor_id + ", bed_id=" + bed_id + ", Payment_id=" + Payment_id + ", status=" + status
-			+ ", doctor=" + doctor + ", department=" + department + ", staff=" + staff + "]";
+	return "Admission [admission_id=" + admission_id + ", admited_date=" + admited_date + ", patient=" + patient
+			+ ", doctor1=" + doctor_id + ", bed=" + bed + ", payment=" + payment + ", status=" + status + ", doctor="
+			+ doctor + ", department=" + department + ", staff=" + staff + "]";
 }
-
-
-
-
-
 
 }

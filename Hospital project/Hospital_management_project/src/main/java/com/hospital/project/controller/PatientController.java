@@ -1,9 +1,9 @@
 package com.hospital.project.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,7 +14,7 @@ import com.hospital.project.entiries.Patient;
 import com.hospital.project.service.PatientService;
 
 
-
+@CrossOrigin(origins ="http://localhost:3000")
 @RestController
 public class PatientController 
 {

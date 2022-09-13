@@ -2,6 +2,7 @@ package com.hospital.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.hospital.project.entiries.Admission;
 import com.hospital.project.entiries.Login;
 import com.hospital.project.service.LoginService;
-
+@CrossOrigin(origins ="http://localhost:3000")
 @Controller
 public class LoginController {
 	

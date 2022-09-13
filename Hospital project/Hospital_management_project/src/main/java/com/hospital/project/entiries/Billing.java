@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,14 +16,16 @@ public class Billing {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int billing_id;
-	@Column
-	int Admission_id;
+	@OneToOne
+	@JoinColumn(name="Admission_id")
+	Admission admission;
 	@Column
 	Double test_cost;
 	@Column
 	Double medicine_cost;
-	@Column
-	int bed_id;
+	@OneToOne
+	@JoinColumn(name="bed_id")
+	BedMaster bed;
 	@Column
 	int consultation_fees;
 	
@@ -29,29 +33,41 @@ public class Billing {
 	public Billing() {
 		super();
 	}
-	public Billing(int billing_id, int admission_id, Double test_cost, Double medicine_cost, int bed_id,
+	
+	public Billing(int billing_id, Admission admission, Double test_cost, Double medicine_cost, BedMaster bed,
 			int consultation_fees) {
 		super();
 		this.billing_id = billing_id;
-		this.Admission_id = admission_id;
+		this.admission = admission;
 		this.test_cost = test_cost;
 		this.medicine_cost = medicine_cost;
-		this.bed_id = bed_id;
+		this.bed = bed;
 		this.consultation_fees = consultation_fees;
-		
 	}
+
+	public Admission getAdmission() {
+		return admission;
+	}
+
+	public void setAdmission(Admission admission) {
+		this.admission = admission;
+	}
+
+	public BedMaster getBed() {
+		return bed;
+	}
+
+	public void setBed(BedMaster bed) {
+		this.bed = bed;
+	}
+
 	public int getBilling_id() {
 		return billing_id;
 	}
 	public void setBilling_id(int billing_id) {
 		this.billing_id = billing_id;
 	}
-	public int getAdmission_id() {
-		return Admission_id;
-	}
-	public void setAdmission_id(int admission_id) {
-		Admission_id = admission_id;
-	}
+	
 	public Double getTest_cost() {
 		return test_cost;
 	}
@@ -64,32 +80,20 @@ public class Billing {
 	public void setMedicine_cost(Double medicine_cost) {
 		this.medicine_cost = medicine_cost;
 	}
-	public int getBed_id() {
-		return bed_id;
-	}
-	public void setBed_id(int bed_id) {
-		this.bed_id = bed_id;
-	}
+	
 	public int getConsultation_fees() {
 		return consultation_fees;
 	}
 	public void setConsultation_fees(int consultation_fees) {
 		this.consultation_fees = consultation_fees;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Billing [billing_id=" + billing_id + ", Admission_id=" + Admission_id + ", test_cost=" + test_cost
-				+ ", medicine_cost=" + medicine_cost + ", bed_id=" + bed_id + ", consultation_fees=" + consultation_fees
-				 + "]";
+		return "Billing [billing_id=" + billing_id + ", admission=" + admission + ", test_cost=" + test_cost
+				+ ", medicine_cost=" + medicine_cost + ", bed=" + bed + ", consultation_fees=" + consultation_fees
+				+ "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 }

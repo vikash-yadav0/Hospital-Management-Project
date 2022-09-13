@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,8 +26,10 @@ public class Doctor {
 		String qualifications;
 		@Column
 		String password;
-		@Column
-		int login;
+		@OneToOne
+		@JoinColumn(name="login")
+		Login login;
+		
 		
 		
 		/*@JsonIgnoreProperties("doctor")
@@ -48,14 +52,8 @@ public class Doctor {
 			// TODO Auto-generated constructor stub
 		}
 
-		
-
-		
-
-
-
 		public Doctor(int doctor_id, String doctor_name, String doctor_email, String doctor_contact,
-				String qualifications, String password, int login) {
+				String qualifications, String password, Login login) {
 			super();
 			this.doctor_id = doctor_id;
 			this.doctor_name = doctor_name;
@@ -64,66 +62,10 @@ public class Doctor {
 			this.qualifications = qualifications;
 			this.password = password;
 			this.login = login;
-			
 		}
-
-
-
-
-
-
-
-		/*public Doctor(int doctor_id, String doctor_name, String doctor_email, String doctor_contact,
-				String qualifications, String password, int login, Department department,
-				Set<DoctorSpecilization> dspec, Set<Admission> admission) {
-			super();
-			this.doctor_id = doctor_id;
-			this.doctor_name = doctor_name;
-			this.doctor_email = doctor_email;
-			this.doctor_contact = doctor_contact;
-			this.qualifications = qualifications;
-			this.password = password;
-			this.login = login;
-			this.department = department;
-			this.dspec = dspec;
-			this.admission = admission;
-		}*/
-
-
-
-
-
-
-
-		@Override
-		public String toString() {
-			return "Doctor [doctor_id=" + doctor_id + ", doctor_name=" + doctor_name + ", doctor_email=" + doctor_email
-					+ ", doctor_contact=" + doctor_contact + ", qualifications=" + qualifications + ", password="
-					+ password + ", login=" + login +  "]";
-		}
-
 		public int getDoctor_id() {
 			return doctor_id;
 		}
-
-	/*	public Doctor(int doctor_id, String doctor_name, String doctor_email, String doctor_contact,
-				String qualifications, String password, int login, Department department) {
-			super();
-			this.doctor_id = doctor_id;
-			this.doctor_name = doctor_name;
-			this.doctor_email = doctor_email;
-			this.doctor_contact = doctor_contact;
-			this.qualifications = qualifications;
-			this.password = password;
-			this.login = login;
-			this.department = department;
-		}*/
-
-
-
-
-
-
 
 		public void setDoctor_id(int doctor_id) {
 			this.doctor_id = doctor_id;
@@ -169,69 +111,22 @@ public class Doctor {
 			this.password = password;
 		}
 
-		public int getLogin() {
-			return login;
-		}
-
-		public void setLogin(int login) {
-			this.login = login;
-		}
-
-	/*	public Department getDepartment() {
-			return department;
-		}
-
-		public void setDepartment(Department department) {
-			this.department = department;
-		}
-
-
-
-
-
-
-
 		@Override
 		public String toString() {
 			return "Doctor [doctor_id=" + doctor_id + ", doctor_name=" + doctor_name + ", doctor_email=" + doctor_email
 					+ ", doctor_contact=" + doctor_contact + ", qualifications=" + qualifications + ", password="
-					+ password + ", login=" + login + ", department=" + department + "]";
-		}*/
+					+ password + ", login=" + login + "]";
+		}
 
-		
+		public Login getLogin() {
+			return login;
+		}
 
-		/*public Set<DoctorSpecilization> getDspec() {
-			return dspec;
+		public void setLogin(Login login) {
+			this.login = login;
 		}
 
 
-
-		public void setDspec(Set<DoctorSpecilization> dspec) {
-			this.dspec = dspec;
-		}
-
-
-
-		public Set<Admission> getAdmission() {
-			return admission;
-		}
-
-		public void setAdmission(Set<Admission> admission) {
-			this.admission = admission;
-		}*/
-
-		
-
-
-
-	/*	@Override
-		public String toString() {
-			return "Doctor [doctor_id=" + doctor_id + ", doctor_name=" + doctor_name + ", doctor_email=" + doctor_email
-					+ ", doctor_contact=" + doctor_contact + ", qualifications=" + qualifications + ", password="
-					+ password + ", login=" + login + ", department=" + department + ", dspec=" + dspec + ", admission="
-					+ admission +"]";
-		}
-*/
 		
 		
 		

@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,42 +18,42 @@ public class Payment {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int payment_id;
-	@Column
-	int billing_id;
+	@OneToOne
+	@JoinColumn(name="billing_id")
+	Billing billing;
 	@Column
 	String online,cash;
 	@Column
 	Date Discharge_date;
-	@Column
-	int Admission_id;
+	@OneToOne
+	@JoinColumn(name="Admission_id")
+	Admission admission;
+	
 	@Column
 	String payment_status;
 	public Payment() {
 		super();
 	}
-	public Payment(int payment_id, int billing_id, String online, String cash, Date discharge_date, int admission_id,
-			String payment_status) {
+	
+	public Payment(int payment_id, Billing billing, String online, String cash, Date discharge_date,
+			Admission admission, String payment_status) {
 		super();
 		this.payment_id = payment_id;
-		this.billing_id = billing_id;
+		this.billing = billing;
 		this.online = online;
 		this.cash = cash;
-		this.Discharge_date = discharge_date;
-		this.Admission_id = admission_id;
+		Discharge_date = discharge_date;
+		this.admission = admission;
 		this.payment_status = payment_status;
 	}
+
 	public int getPayment_id() {
 		return payment_id;
 	}
 	public void setPayment_id(int payment_id) {
 		this.payment_id = payment_id;
 	}
-	public int getBilling_id() {
-		return billing_id;
-	}
-	public void setBilling_id(int billing_id) {
-		this.billing_id = billing_id;
-	}
+	
 	public String getOnline() {
 		return online;
 	}
@@ -70,24 +72,37 @@ public class Payment {
 	public void setDischarge_date(Date discharge_date) {
 		Discharge_date = discharge_date;
 	}
-	public int getAdmission_id() {
-		return Admission_id;
-	}
-	public void setAdmission_id(int admission_id) {
-		Admission_id = admission_id;
-	}
+	
 	public String getPayment_status() {
 		return payment_status;
 	}
 	public void setPayment_status(String payment_status) {
 		this.payment_status = payment_status;
 	}
+
+	public Billing getBilling() {
+		return billing;
+	}
+
+	public void setBilling(Billing billing) {
+		this.billing = billing;
+	}
+
+	public Admission getAdmission() {
+		return admission;
+	}
+
+	public void setAdmission(Admission admission) {
+		this.admission = admission;
+	}
+
 	@Override
 	public String toString() {
-		return "Payment [payment_id=" + payment_id + ", billing_id=" + billing_id + ", online=" + online + ", cash="
-				+ cash + ", Discharge_date=" + Discharge_date + ", Admission_id=" + Admission_id + ", payment_status="
+		return "Payment [payment_id=" + payment_id + ", billing=" + billing + ", online=" + online + ", cash=" + cash
+				+ ", Discharge_date=" + Discharge_date + ", admission=" + admission + ", payment_status="
 				+ payment_status + "]";
 	}
+	
 	
 	
 	

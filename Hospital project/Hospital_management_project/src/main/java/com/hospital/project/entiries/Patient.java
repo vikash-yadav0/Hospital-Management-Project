@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -43,35 +45,20 @@ public class Patient {
 	String patient_gender;
 	@Column
 	String form_fill;
-	@Column
-	int login;
+	@OneToOne
+	@JoinColumn(name="login")
+	Login login;
+	
 	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Override
-	public String toString() {
-		return "Patient [patient_id=" + patient_id + ", patient_name=" + patient_name + ", patient_email="
-				+ patient_email + ", patient_contact1=" + patient_contact1 + ", patient_contact2=" + patient_contact2
-				+ ", patient_bdate=" + patient_bdate + ", patient_password=" + patient_password
-				+ ", patient_bloodgroup=" + patient_bloodgroup + ", patient_history=" + patient_history
-				+ ", patient_height=" + patient_height + ", patient_weight=" + patient_weight + ", patient_gender="
-				+ patient_gender + ", form_fill=" + form_fill + ", login=" + login + "]";
-	}
-
-	public int getLogin() {
-		return login;
-	}
-
-	public void setLogin(int login) {
-		this.login = login;
-	}
 
 	public Patient(int patient_id, String patient_name, String patient_email, String patient_contact1,
 			String patient_contact2, Date patient_bdate, String patient_password, String patient_bloodgroup,
 			String patient_history, String patient_height, String patient_weight, String patient_gender,
-			String form_fill, int login) {
+			String form_fill, Login login) {
 		super();
 		this.patient_id = patient_id;
 		this.patient_name = patient_name;
@@ -88,6 +75,17 @@ public class Patient {
 		this.form_fill = form_fill;
 		this.login = login;
 	}
+
+
+	public Login getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
 
 	public int getPatient_id() {
 		return patient_id;
@@ -166,6 +164,17 @@ public class Patient {
 	}
 	public void setForm_fill(String form_fill) {
 		this.form_fill = form_fill;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Patient [patient_id=" + patient_id + ", patient_name=" + patient_name + ", patient_email="
+				+ patient_email + ", patient_contact1=" + patient_contact1 + ", patient_contact2=" + patient_contact2
+				+ ", patient_bdate=" + patient_bdate + ", patient_password=" + patient_password
+				+ ", patient_bloodgroup=" + patient_bloodgroup + ", patient_history=" + patient_history
+				+ ", patient_height=" + patient_height + ", patient_weight=" + patient_weight + ", patient_gender="
+				+ patient_gender + ", form_fill=" + form_fill + ", login=" + login + "]";
 	}
 	
 	
