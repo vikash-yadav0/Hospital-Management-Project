@@ -30,29 +30,20 @@ CREATE TABLE `admission_table` (
   `patient_id` int NOT NULL,
   `doctor_id` int NOT NULL,
   `bed_id` int NOT NULL,
-  `Payment_id` int NOT NULL,
   `status` varchar(45) NOT NULL,
-  `dept_id_` int DEFAULT NULL,
   `staff_id` int DEFAULT NULL,
-  `dept_id` int DEFAULT NULL,
-  `staff_id_` int DEFAULT NULL,
+  `dept_id` int NOT NULL,
   PRIMARY KEY (`admission_id`),
   UNIQUE KEY `admission_id_UNIQUE` (`admission_id`),
   KEY `patient_id_idx` (`patient_id`),
-  KEY `payment_id_idx` (`Payment_id`),
   KEY `doctor_id_idx` (`doctor_id`),
   KEY `bed_id_idx` (`bed_id`),
-  KEY `dept_id_idx` (`dept_id_`),
   KEY `staff_id_idx` (`staff_id`),
   KEY `FKo4yhdjfugpuqx31p49y5kpq79` (`dept_id`),
-  KEY `FK4vvegnftabowrakofj5y71j9f` (`staff_id_`),
   CONSTRAINT `bed_id` FOREIGN KEY (`bed_id`) REFERENCES `bed_master` (`bed_id`),
-  CONSTRAINT `dept_id_` FOREIGN KEY (`dept_id_`) REFERENCES `department_table` (`dept_id`),
   CONSTRAINT `doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctor_table` (`doctor_id`),
-  CONSTRAINT `FK4vvegnftabowrakofj5y71j9f` FOREIGN KEY (`staff_id_`) REFERENCES `staff_table` (`staff_id`),
   CONSTRAINT `FKo4yhdjfugpuqx31p49y5kpq79` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
   CONSTRAINT `patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient_table` (`patient_id`),
-  CONSTRAINT `payment_id` FOREIGN KEY (`Payment_id`) REFERENCES `payment_table` (`payment_id`),
   CONSTRAINT `staff_id` FOREIGN KEY (`staff_id`) REFERENCES `staff_table` (`staff_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -63,7 +54,7 @@ CREATE TABLE `admission_table` (
 
 LOCK TABLES `admission_table` WRITE;
 /*!40000 ALTER TABLE `admission_table` DISABLE KEYS */;
-INSERT INTO `admission_table` VALUES (1,'2022-08-12',1,1,1,1,'occupied',1,1,NULL,NULL);
+INSERT INTO `admission_table` VALUES (1,'2022-08-12',1,1,1,'occupied',1,1);
 /*!40000 ALTER TABLE `admission_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,17 +257,12 @@ DROP TABLE IF EXISTS `payment_table`;
 CREATE TABLE `payment_table` (
   `payment_id` int NOT NULL AUTO_INCREMENT,
   `billing_id` int NOT NULL,
-  `online/cash` varchar(45) NOT NULL,
+  `paymentmethod` varchar(45) DEFAULT NULL,
   `Discharge_date` date DEFAULT NULL,
-  `Admission_id` int NOT NULL,
   `payment_status` varchar(45) DEFAULT NULL,
-  `cash` varchar(255) DEFAULT NULL,
-  `online` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`payment_id`),
   UNIQUE KEY `payment_id_UNIQUE` (`payment_id`),
-  KEY `FK5j2tpx64n6b36fyge7jax6a4r` (`Admission_id`),
   KEY `FKf3r4tla36vpfj5r327hlooh1j` (`billing_id`),
-  CONSTRAINT `FK5j2tpx64n6b36fyge7jax6a4r` FOREIGN KEY (`Admission_id`) REFERENCES `admission_table` (`admission_id`),
   CONSTRAINT `FKf3r4tla36vpfj5r327hlooh1j` FOREIGN KEY (`billing_id`) REFERENCES `billing_table` (`billing_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -287,7 +273,7 @@ CREATE TABLE `payment_table` (
 
 LOCK TABLES `payment_table` WRITE;
 /*!40000 ALTER TABLE `payment_table` DISABLE KEYS */;
-INSERT INTO `payment_table` VALUES (1,1,'cash','2022-10-05',1,'cleared','yes','no');
+INSERT INTO `payment_table` VALUES (1,1,'cash','2022-10-05','cleared');
 /*!40000 ALTER TABLE `payment_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,14 +295,11 @@ CREATE TABLE `staff_table` (
   `staff_jdate` date NOT NULL,
   `staff_password` varchar(45) NOT NULL,
   `login_id` int DEFAULT NULL,
-  `department_id` int DEFAULT NULL,
   PRIMARY KEY (`staff_id`),
   UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`),
   KEY `login_id_idx` (`login_id`),
   KEY `dept_id_idx` (`dept_id`),
-  KEY `FKdh8aooo4x4b444par4cbjhids` (`department_id`),
   CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
-  CONSTRAINT `FKdh8aooo4x4b444par4cbjhids` FOREIGN KEY (`department_id`) REFERENCES `department_table` (`dept_id`),
   CONSTRAINT `login_id` FOREIGN KEY (`login_id`) REFERENCES `login_table` (`login_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -327,7 +310,7 @@ CREATE TABLE `staff_table` (
 
 LOCK TABLES `staff_table` WRITE;
 /*!40000 ALTER TABLE `staff_table` DISABLE KEYS */;
-INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16','',4,NULL),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25','',5,NULL);
+INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16','helo',4),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25','byyy',5);
 /*!40000 ALTER TABLE `staff_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -340,4 +323,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-14 16:47:31
+-- Dump completed on 2022-09-14 21:02:03

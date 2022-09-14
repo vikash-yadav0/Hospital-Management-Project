@@ -45,7 +45,7 @@ public class Staff {
 	
 	@JsonIgnoreProperties("staff")
 	@ManyToOne
-	@JoinColumn(name="department_id")
+	@JoinColumn(name="dept_id")
 	Department department;	
 	
 	/*@JsonIgnoreProperties("staff")

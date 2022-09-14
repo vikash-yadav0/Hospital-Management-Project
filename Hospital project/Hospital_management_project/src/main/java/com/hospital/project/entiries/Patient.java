@@ -49,6 +49,7 @@ public class Patient {
 	@JoinColumn(name="login")
 	Login login;
 	
+	
 	public Patient() {
 		super();
 		// TODO Auto-generated constructor stub
