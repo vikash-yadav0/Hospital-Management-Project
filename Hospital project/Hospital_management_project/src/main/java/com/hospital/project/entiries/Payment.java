@@ -35,6 +35,8 @@ public class Payment {
 		super();
 	}
 	
+	
+
 	public Payment(int payment_id, Billing billing, String online, String cash, Date discharge_date,
 			Admission admission, String payment_status) {
 		super();
@@ -47,6 +49,8 @@ public class Payment {
 		this.payment_status = payment_status;
 	}
 
+
+
 	public int getPayment_id() {
 		return payment_id;
 	}
@@ -54,12 +58,19 @@ public class Payment {
 		this.payment_id = payment_id;
 	}
 	
+	
 	public String getOnline() {
 		return online;
 	}
+
+
+
 	public void setOnline(String online) {
 		this.online = online;
 	}
+
+
+
 	public String getCash() {
 		return cash;
 	}
@@ -96,13 +107,15 @@ public class Payment {
 		this.admission = admission;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Payment [payment_id=" + payment_id + ", billing=" + billing + ", online=" + online + ", cash=" + cash
 				+ ", Discharge_date=" + Discharge_date + ", admission=" + admission + ", payment_status="
 				+ payment_status + "]";
 	}
-	
+
 	
 	
 	

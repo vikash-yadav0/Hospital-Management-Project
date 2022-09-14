@@ -31,7 +31,7 @@ function Register()
             patient_email : patient_email,
             patient_contact1 : patient_contact1,
             patient_contact2 : patient_contact2,
-           
+            patient_password: patient_password,
             patient_bloodgroup :patient_bloodgroup,
             patient_history: patient_history,
             patient_height: patient_height,
@@ -117,7 +117,7 @@ function Register()
                 }}
             />
           
-            <input type="pwd"
+            <input type="password"
             name="patient_password"
             placeholder="Password"
             onChange={(event) =>
@@ -184,7 +184,7 @@ function Register()
             />
               <button type="submit">Register</button>
               </form>    
- 
+                {patient_password}
     
         </div>
     )
