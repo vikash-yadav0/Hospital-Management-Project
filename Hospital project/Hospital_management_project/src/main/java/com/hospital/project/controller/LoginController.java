@@ -14,7 +14,7 @@ public class LoginController {
 	@Autowired
 	LoginService lser;
 
-	@PostMapping("/checklogin")
+	@PostMapping("/CheckLogin")
 	public Object  checkLogin(@RequestBody Login l)
 	{
 		return lser.CheckLogin(l.getUser_id(),l.getPassword());

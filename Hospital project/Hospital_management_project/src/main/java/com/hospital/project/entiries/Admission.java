@@ -2,6 +2,7 @@ package com.hospital.project.entiries;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,7 +40,7 @@ int doctor_id;
 @JoinColumn(name="bed_id")
 BedMaster bed;
 
-@OneToOne
+@OneToOne(cascade = CascadeType.ALL)
 @JoinColumn(name="Payment_id")
 Payment payment;
 
@@ -60,7 +61,7 @@ Department department;
 
 @JsonIgnoreProperties("adnission")
 @ManyToOne
-@JoinColumn(name="staff_id")
+@JoinColumn(name="staff_id_")
 Staff staff;
 
 public Admission() {
