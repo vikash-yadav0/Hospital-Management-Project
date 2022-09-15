@@ -70,7 +70,8 @@ public class LoginService {
 		        {
 		        	s=op.get();
 		         }
-		      catch (Exception e) {
+		      catch (Exception e) 
+		         {
 		           s=null;
 		         }
 		        return s;

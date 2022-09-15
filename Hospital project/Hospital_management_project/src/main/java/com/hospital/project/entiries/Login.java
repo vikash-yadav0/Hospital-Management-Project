@@ -2,13 +2,16 @@ package com.hospital.project.entiries;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="login_table")
 public class Login {
-	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id	
 	int login_id;
 	@Column
@@ -17,6 +20,7 @@ public class Login {
 	String role;
 	@Column
 	String password;
+	
 
 	public Login() {
 		super();

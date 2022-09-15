@@ -2,6 +2,7 @@ package com.hospital.project.entiries;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,7 +46,8 @@ public class Patient {
 	String patient_gender;
 	@Column
 	String form_fill;
-	@OneToOne
+	
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="login")
 	Login login;
 	
