@@ -12,6 +12,7 @@ import com.hospital.project.entiries.Patient;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer>
 {
+	
 
 	
 

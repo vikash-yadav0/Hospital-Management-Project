@@ -38,8 +38,7 @@ public class PatientController
 		Patient p=new Patient(pr.getPatient_name(),pr.getUser_email(),pr.getPatient_contact1(),pr.getPatient_contact2(),pr.getPatient_bdate(),pr.getPassword(),pr.getPatient_bloodgroup(),pr.getPatient_history(),pr.getPatient_height(),pr.getPatient_weight(),pr.getPatient_gender(),pr.getForm_fill(),inserted);
 		return pservice.savecon(p);
 		
-	}
-	
+	}	
 	
 	@GetMapping("/allpatient")
 	public List<Patient> getAll()
@@ -56,5 +55,22 @@ public class PatientController
 	public Patient getPatient(@RequestParam("patient_id") int Pid)
 	{
 		return pservice.getPatient(Pid);
+	}
+	
+	@PostMapping("/updatepatient")
+	public Patient updatePatient (@RequestBody com.hospital.project.entiries.updatePatient up)
+	{
+		Patient p=pservice.getPatient(up.getPatient_id());
+		Patient pi=new Patient();
+		pi.setForm_fill(up.getForm_fill());
+		pi.setPatient_password(up.getPassword());
+		pi.setPatient_bloodgroup(up.getPatient_bloodgroup());
+		pi.setPatient_bdate(up.getPatient_bdate());
+		pi.setPatient_contact1(up.getPatient_contact1());
+		pi.setPatient_contact2(up.getPatient_contact2());
+		pi.setPatient_history(up.getPatient_history());
+		pi.setPatient_height(up.getPatient_height());
+		pi.setPatient_weight(up.getPatient_weight());
+		
 	}
 }
