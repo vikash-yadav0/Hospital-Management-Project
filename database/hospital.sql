@@ -156,19 +156,19 @@ DROP TABLE IF EXISTS `doctor_table`;
 CREATE TABLE `doctor_table` (
   `doctor_id` int NOT NULL AUTO_INCREMENT,
   `doctor_name` varchar(45) NOT NULL,
-  `Doctor_email` varchar(45) NOT NULL,
   `doctor_contact` varchar(45) NOT NULL,
   `qualifications` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `login` int DEFAULT NULL,
   `department_id` int DEFAULT NULL,
+  `user_email` varchar(255) NOT NULL,
   PRIMARY KEY (`doctor_id`),
   UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`),
   KEY `login1_idx` (`login`),
   KEY `FK6mel46uabuewl4jxueybelvly` (`department_id`),
   CONSTRAINT `FK6mel46uabuewl4jxueybelvly` FOREIGN KEY (`department_id`) REFERENCES `department_table` (`dept_id`),
   CONSTRAINT `login1` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +177,7 @@ CREATE TABLE `doctor_table` (
 
 LOCK TABLES `doctor_table` WRITE;
 /*!40000 ALTER TABLE `doctor_table` DISABLE KEYS */;
-INSERT INTO `doctor_table` VALUES (1,'vikash','vikash@gmail.com','7894561235','mbbs','vikash11@',1,1),(2,'ram','ram@gmail.com','8956231478','mbbs,md','ram11@',3,2);
+INSERT INTO `doctor_table` VALUES (1,'vikash','7894561235','mbbs','vikash11@',1,1,'vikash@gmail.com'),(2,'ram','8956231478','mbbs,md','ram11@',3,2,'ram@gmail.com'),(3,'ikash','7894561235','mbbs,pg','ikash11@',14,NULL,'ikas@gmail.com');
 /*!40000 ALTER TABLE `doctor_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +195,7 @@ CREATE TABLE `login_table` (
   `user_id` varchar(25) NOT NULL,
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `login_id_UNIQUE` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `login_table` (
 
 LOCK TABLES `login_table` WRITE;
 /*!40000 ALTER TABLE `login_table` DISABLE KEYS */;
-INSERT INTO `login_table` VALUES (1,'vikky11@','doctor','vikas@gmail.com'),(2,'sonal11@','Patient','sonal@gmail.com'),(3,'ram@11','doctor','ram@gmail.com'),(4,'rakesh11@','staff','rak@gmil.com'),(5,'harsh1@','staff','harsh@gmail');
+INSERT INTO `login_table` VALUES (1,'vikky11@','doctor','vikas@gmail.com'),(2,'sonal11@','Patient','sonal@gmail.com'),(3,'ram@11','doctor','ram@gmail.com'),(4,'rakesh11@','staff','rak@gmil.com'),(5,'harsh1@','staff','harsh@gmail'),(11,'suresh11@','patient','suresh11@gmail.com'),(12,'patient','resh11@','resh11@gmail.com'),(13,'resh11@','patient','resh11@gmail.com'),(14,'ikash11@','doctor','ikas@gmail.com'),(15,'kash11@','staff','kas@gmail.com'),(16,'kash11@','staff','kas@gmail.com');
 /*!40000 ALTER TABLE `login_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,7 +218,6 @@ DROP TABLE IF EXISTS `patient_table`;
 CREATE TABLE `patient_table` (
   `patient_id` int NOT NULL AUTO_INCREMENT,
   `patient_name` varchar(20) NOT NULL,
-  `patient_email` varchar(20) NOT NULL,
   `patient_contact1` varchar(10) NOT NULL,
   `patient_bdate` date NOT NULL,
   `patient_bloodgroup` varchar(5) NOT NULL,
@@ -228,13 +227,14 @@ CREATE TABLE `patient_table` (
   `patient_gender` varchar(8) NOT NULL,
   `patient_contact2` varchar(10) DEFAULT NULL,
   `form_fill` varchar(45) NOT NULL,
-  `patient_password` varchar(15) NOT NULL,
   `login` int NOT NULL,
+  `password` varchar(15) NOT NULL,
+  `user_email` varchar(25) NOT NULL,
   PRIMARY KEY (`patient_id`),
   UNIQUE KEY `patient_id_UNIQUE` (`patient_id`),
   KEY `login_idx` (`login`),
-  CONSTRAINT `loginid` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `loginid` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +243,7 @@ CREATE TABLE `patient_table` (
 
 LOCK TABLES `patient_table` WRITE;
 /*!40000 ALTER TABLE `patient_table` DISABLE KEYS */;
-INSERT INTO `patient_table` VALUES (1,'suresh','suresh@gmail.com','8958965889','2022-05-12','o+','nothing',126,65,'male','568956895','brother','suresh11@',1);
+INSERT INTO `patient_table` VALUES (1,'suresh','8958965889','2022-05-12','o+','nothing',126,65,'male','568956895','brother',1,'553354wew','sgh@gmail.com'),(9,'suresh','8958965889','2022-01-11','o+','nothing',126,65,'male','568956895','brother',11,'trhht','rgg@gmail.com'),(10,'resh','8958965889','2024-06-11','o+','nothing',126,65,'male','568956895','brother',12,'resh11@','resh11@gmail.com'),(11,'resh','8958965889','2024-06-11','o+','nothing',126,65,'male','568956895','brother',13,'resh11@','resh11@gmail.com');
 /*!40000 ALTER TABLE `patient_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -290,18 +290,18 @@ CREATE TABLE `staff_table` (
   `dept_id` int DEFAULT NULL,
   `staff_gender` varchar(10) NOT NULL,
   `staff_contact` varchar(10) NOT NULL,
-  `staff_email` varchar(45) NOT NULL,
   `staff_bdate` date NOT NULL,
   `staff_jdate` date NOT NULL,
-  `staff_password` varchar(45) NOT NULL,
   `login_id` int DEFAULT NULL,
+  `password` varchar(15) NOT NULL,
+  `user_email` varchar(25) NOT NULL,
   PRIMARY KEY (`staff_id`),
   UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`),
   KEY `login_id_idx` (`login_id`),
   KEY `dept_id_idx` (`dept_id`),
   CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
   CONSTRAINT `login_id` FOREIGN KEY (`login_id`) REFERENCES `login_table` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,7 +310,7 @@ CREATE TABLE `staff_table` (
 
 LOCK TABLES `staff_table` WRITE;
 /*!40000 ALTER TABLE `staff_table` DISABLE KEYS */;
-INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','vikas@gmail.com','1996-05-15','2018-06-16','helo',4),(2,'rakesh',3,'male','7856123645','rakesh11@gmail.com','1995-02-23','2020-05-25','byyy',5);
+INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','1996-05-15','2018-06-16',4,'helo','vikas@gmail.com'),(2,'rakesh',3,'male','7856123645','1995-02-23','2020-05-25',5,'byyy','rakesh11@gmail.com'),(3,'ikash',NULL,'male','7894561235','1996-05-01','2012-05-12',16,'kash11@','kas@gmail.com');
 /*!40000 ALTER TABLE `staff_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -323,4 +323,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-14 21:02:03
+-- Dump completed on 2022-09-16 20:41:10
