@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.project.entiries.Doctor;
+import com.hospital.project.entiries.DoctorRegister;
 import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 import com.hospital.project.entiries.Register;
@@ -33,7 +34,7 @@ public class DoctorController {
 		
 	}
 	@PostMapping("/registerd")
-	public Doctor registerDoctor(@RequestBody Register pr)
+	public Doctor registerDoctor(@RequestBody DoctorRegister pr)
 	{
 		Login l=new Login(pr.getUser_email(),pr.getPassword(),pr.getRole());
 		Login inserted=lservice.add(l);

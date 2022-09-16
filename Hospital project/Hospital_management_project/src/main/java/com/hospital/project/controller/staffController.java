@@ -14,6 +14,7 @@ import com.hospital.project.entiries.Doctor;
 import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Register;
 import com.hospital.project.entiries.Staff;
+import com.hospital.project.entiries.StaffRegister;
 import com.hospital.project.service.LoginService;
 import com.hospital.project.service.StaffService;
 @CrossOrigin(origins ="http://localhost:3000")
@@ -25,8 +26,8 @@ public class staffController {
 	@Autowired
 	LoginService lservice;
 	
-	@PostMapping("/registerd")
-	public Staff registerstaff(@RequestBody Register pr)
+	@PostMapping("/registers")
+	public Staff registerstaff(@RequestBody StaffRegister pr)
 	{
 		Login l=new Login(pr.getUser_email(),pr.getPassword(),pr.getRole());
 		Login inserted=lservice.add(l);

@@ -18,15 +18,7 @@ public class Register {
 	String form_fill;
 	String role;
 	
-	String staff_name;	
-	String staff_contact;	
-	String staff_gender;	
-	Date staff_bdate;	
-	Date staff_jdate;
 	
-	String doctor_name;	
-	String doctor_contact;
-	String qualifications;
 	public Register() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -109,54 +101,8 @@ public class Register {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getStaff_name() {
-		return staff_name;
-	}
-	public void setStaff_name(String staff_name) {
-		this.staff_name = staff_name;
-	}
-	public String getStaff_contact() {
-		return staff_contact;
-	}
-	public void setStaff_contact(String staff_contact) {
-		this.staff_contact = staff_contact;
-	}
-	public String getStaff_gender() {
-		return staff_gender;
-	}
-	public void setStaff_gender(String staff_gender) {
-		this.staff_gender = staff_gender;
-	}
-	public Date getStaff_bdate() {
-		return staff_bdate;
-	}
-	public void setStaff_bdate(Date staff_bdate) {
-		this.staff_bdate = staff_bdate;
-	}
-	public Date getStaff_jdate() {
-		return staff_jdate;
-	}
-	public void setStaff_jdate(Date staff_jdate) {
-		this.staff_jdate = staff_jdate;
-	}
-	public String getDoctor_name() {
-		return doctor_name;
-	}
-	public void setDoctor_name(String doctor_name) {
-		this.doctor_name = doctor_name;
-	}
-	public String getDoctor_contact() {
-		return doctor_contact;
-	}
-	public void setDoctor_contact(String doctor_contact) {
-		this.doctor_contact = doctor_contact;
-	}
-	public String getQualifications() {
-		return qualifications;
-	}
-	public void setQualifications(String qualifications) {
-		this.qualifications = qualifications;
-	}
+	
+	
 	
 
 }
