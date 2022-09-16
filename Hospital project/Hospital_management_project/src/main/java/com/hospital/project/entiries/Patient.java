@@ -23,7 +23,7 @@ public class Patient {
 	@Column
 	String patient_name;
 	@Column
-	String patient_email;
+	String user_email;
 	@Column
 	String patient_contact1;
 	@Column
@@ -33,7 +33,7 @@ public class Patient {
 	@Column
 	Date patient_bdate;
 	@Column
-	String patient_password;
+	String password;
 	@Column
 	String patient_bloodgroup;
 	@Column
@@ -58,18 +58,17 @@ public class Patient {
 	}
 	
 
-	public Patient(int patient_id, String patient_name, String patient_email, String patient_contact1,
-			String patient_contact2, Date patient_bdate, String patient_password, String patient_bloodgroup,
-			String patient_history, String patient_height, String patient_weight, String patient_gender,
-			String form_fill, Login login) {
+	
+	public Patient(String patient_name, String user_email, String patient_contact1, String patient_contact2,
+			Date patient_bdate, String password, String patient_bloodgroup, String patient_history,
+			String patient_height, String patient_weight, String patient_gender, String form_fill, Login login) {
 		super();
-		this.patient_id = patient_id;
 		this.patient_name = patient_name;
-		this.patient_email = patient_email;
+		this.user_email = user_email;
 		this.patient_contact1 = patient_contact1;
 		this.patient_contact2 = patient_contact2;
 		this.patient_bdate = patient_bdate;
-		this.patient_password = patient_password;
+		this.password = password;
 		this.patient_bloodgroup = patient_bloodgroup;
 		this.patient_history = patient_history;
 		this.patient_height = patient_height;
@@ -103,10 +102,10 @@ public class Patient {
 		this.patient_name = patient_name;
 	}
 	public String getPatient_email() {
-		return patient_email;
+		return user_email;
 	}
 	public void setPatient_email(String patient_email) {
-		this.patient_email = patient_email;
+		this.user_email = patient_email;
 	}
 	public String getPatient_contact1() {
 		return patient_contact1;
@@ -127,10 +126,10 @@ public class Patient {
 		this.patient_bdate = patient_bdate;
 	}
 	public String getPatient_password() {
-		return patient_password;
+		return password;
 	}
 	public void setPatient_password(String patient_password) {
-		this.patient_password = patient_password;
+		this.password = patient_password;
 	}
 	public String getPatient_bloodgroup() {
 		return patient_bloodgroup;
@@ -173,8 +172,8 @@ public class Patient {
 	@Override
 	public String toString() {
 		return "Patient [patient_id=" + patient_id + ", patient_name=" + patient_name + ", patient_email="
-				+ patient_email + ", patient_contact1=" + patient_contact1 + ", patient_contact2=" + patient_contact2
-				+ ", patient_bdate=" + patient_bdate + ", patient_password=" + patient_password
+				+ user_email + ", patient_contact1=" + patient_contact1 + ", patient_contact2=" + patient_contact2
+				+ ", patient_bdate=" + patient_bdate + ", patient_password=" + password
 				+ ", patient_bloodgroup=" + patient_bloodgroup + ", patient_history=" + patient_history
 				+ ", patient_height=" + patient_height + ", patient_weight=" + patient_weight + ", patient_gender="
 				+ patient_gender + ", form_fill=" + form_fill + ", login=" + login + "]";

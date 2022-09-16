@@ -16,27 +16,17 @@ public class PatientService {
 	@Autowired
 	PatientRepository hrepo;
 	
-	/*public List<Patient> getAll()
+	public List<Patient> getAll()
 	{
 		return hrepo.findAll();
-	}	*/
+	}	
 	public Patient savecon(Patient c)
 	{
 		return hrepo.save(c);
 	}
 	public Patient getPatient(int pid) {
-		/*Patient p=null;		
-		Optional<Patient>op=*/
-		return hrepo.findById(pid).get();
-		/*try
-		{
-			p=op.get();
-		}
-		catch(NoSuchElementException e)
-		{
-			p=null;
-		}
-		return p;*/
+	 return hrepo.findById(pid).get();
+		
 	}
 
 }

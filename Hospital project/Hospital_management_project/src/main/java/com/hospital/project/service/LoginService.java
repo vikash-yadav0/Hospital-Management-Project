@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospital.project.entiries.Doctor;
+import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 import com.hospital.project.entiries.Staff;
 import com.hospital.project.repositry.DoctorRepository;
@@ -82,4 +83,8 @@ public class LoginService {
 		return null;	
 	}
 	
+	public Login add(Login l)
+	{
+		return lrepo.save(l);
+	}
 }

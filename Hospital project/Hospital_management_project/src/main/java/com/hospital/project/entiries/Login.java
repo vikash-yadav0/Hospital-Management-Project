@@ -27,9 +27,9 @@ public class Login {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Login(int login_id, String user_id, String role, String password) {
+	public Login( String user_id, String role, String password) {
 		super();
-		this.login_id = login_id;
+		
 		this.user_id = user_id;
 		this.role = role;
 		this.password = password;

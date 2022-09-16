@@ -14,12 +14,12 @@ import javax.persistence.Table;
 public class Doctor {	
 		@Id()
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
-		//@Column(insertable =false,updatable = false)
+		
 		int doctor_id;
 		@Column()
 		String doctor_name;
 		@Column
-		String doctor_email;
+		String user_email;
 		@Column
 		String doctor_contact;
 		@Column
@@ -52,12 +52,12 @@ public class Doctor {
 			// TODO Auto-generated constructor stub
 		}
 
-		public Doctor(int doctor_id, String doctor_name, String doctor_email, String doctor_contact,
+		public Doctor( String doctor_name, String doctor_email, String doctor_contact,
 				String qualifications, String password, Login login) {
 			super();
-			this.doctor_id = doctor_id;
+			
 			this.doctor_name = doctor_name;
-			this.doctor_email = doctor_email;
+			this.user_email = doctor_email;
 			this.doctor_contact = doctor_contact;
 			this.qualifications = qualifications;
 			this.password = password;
@@ -80,11 +80,11 @@ public class Doctor {
 		}
 
 		public String getDoctor_email() {
-			return doctor_email;
+			return user_email;
 		}
 
 		public void setDoctor_email(String doctor_email) {
-			this.doctor_email = doctor_email;
+			this.user_email = doctor_email;
 		}
 
 		public String getDoctor_contact() {
@@ -113,7 +113,7 @@ public class Doctor {
 
 		@Override
 		public String toString() {
-			return "Doctor [doctor_id=" + doctor_id + ", doctor_name=" + doctor_name + ", doctor_email=" + doctor_email
+			return "Doctor [doctor_id=" + doctor_id + ", doctor_name=" + doctor_name + ", doctor_email=" + user_email
 					+ ", doctor_contact=" + doctor_contact + ", qualifications=" + qualifications + ", password="
 					+ password + ", login=" + login + "]";
 		}

@@ -27,13 +27,13 @@ public class Staff {
 	@Column
 	String staff_name;
 	@Column
-	String staff_email;
+	String user_email;
 	@Column
 	String staff_contact;
 	@Column
 	String staff_gender;
 	@Column
-	String staff_password;
+	String password;
 	@Column
 	Date staff_bdate;
 	@Column
@@ -43,10 +43,10 @@ public class Staff {
 	Login login;
 	
 	
-	@JsonIgnoreProperties("staff")
+	/*@JsonIgnoreProperties("staff")
 	@ManyToOne
 	@JoinColumn(name="dept_id")
-	Department department;	
+	Department department;	*/
 	
 	/*@JsonIgnoreProperties("staff")
 	@OneToMany(mappedBy="staff",cascade = CascadeType.ALL)
@@ -58,39 +58,31 @@ public class Staff {
 	
 	
 
-	public Staff(int staff_id, String staff_name, String staff_email, String staff_contact, String staff_gender,
-			String staff_password, Date staff_bdate, Date staff_jdate, Login login, Department department) {
+	public Staff( String staff_name, String staff_email, String staff_contact, String staff_gender,
+			String staff_password, Date staff_bdate, Date staff_jdate, Login login) {
 		super();
-		this.staff_id = staff_id;
+		
 		this.staff_name = staff_name;
-		this.staff_email = staff_email;
+		this.user_email = staff_email;
 		this.staff_contact = staff_contact;
 		this.staff_gender = staff_gender;
-		this.staff_password = staff_password;
+		this.password = staff_password;
 		this.staff_bdate = staff_bdate;
 		this.staff_jdate = staff_jdate;
-		this.login = login;
-		this.department = department;
+		this.login = login;		
 	}
-
-
-
 	public Date getStaff_bdate() {
 		return staff_bdate;
 	}
-
 	public void setStaff_bdate(Date staff_bdate) {
 		this.staff_bdate = staff_bdate;
 	}
-
 	public Date getStaff_jdate() {
 		return staff_jdate;
 	}
-
 	public void setStaff_jdate(Date staff_jdate) {
 		this.staff_jdate = staff_jdate;
 	}
-
 	public Login getLogin() {
 		return login;
 	}
@@ -116,10 +108,10 @@ public class Staff {
 		this.staff_name = staff_name;
 	}
 	public String getStaff_email() {
-		return staff_email;
+		return user_email;
 	}
 	public void setStaff_email(String staff_email) {
-		this.staff_email = staff_email;
+		this.user_email = staff_email;
 	}
 	public String getStaff_contact() {
 		return staff_contact;
@@ -134,27 +126,17 @@ public class Staff {
 		this.staff_gender = staff_gender;
 	}
 	public String getStaff_password() {
-		return staff_password;
+		return password;
 	}
 	public void setStaff_password(String staff_password) {
-		this.staff_password = staff_password;
+		this.password = staff_password;
 	}
-	
-	public Department getDepartment() {
-		return department;
-	}
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
-
-
-
 	@Override
 	public String toString() {
-		return "Staff [staff_id=" + staff_id + ", staff_name=" + staff_name + ", staff_email=" + staff_email
+		return "Staff [staff_id=" + staff_id + ", staff_name=" + staff_name + ", staff_email=" + user_email
 				+ ", staff_contact=" + staff_contact + ", staff_gender=" + staff_gender + ", staff_password="
-				+ staff_password + ", staff_bdate=" + staff_bdate + ", staff_jdate=" + staff_jdate + ", login=" + login
-				+ ", department=" + department + "]";
+				+ password + ", staff_bdate=" + staff_bdate + ", staff_jdate=" + staff_jdate + ", login=" + login
+				+  "]";
 	}
 	
 	

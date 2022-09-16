@@ -15,3 +15,4 @@ public interface LoginReprositry extends JpaRepository<Login,Integer>{
 	public List<Object[]> checkLogin(String uid, String pwd);
 
 }
+
