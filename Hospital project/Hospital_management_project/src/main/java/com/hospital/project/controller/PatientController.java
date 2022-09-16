@@ -11,11 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hospital.project.entiries.Login;
-import com.hospital.project.entiries.Patient;
-import com.hospital.project.entiries.Register;
-import com.hospital.project.service.LoginService;
-import com.hospital.project.service.PatientService;
+import com.hospital.project.entiries.*;
+import com.hospital.project.service.*;
+
 
 
 @CrossOrigin(origins ="http://localhost:3000")
@@ -57,20 +55,20 @@ public class PatientController
 		return pservice.getPatient(Pid);
 	}
 	
-	@PostMapping("/updatepatient")
-	public Patient updatePatient (@RequestBody com.hospital.project.entiries.updatePatient up)
+	/*@PostMapping("/updatepatient")
+	public int updatePatient (@RequestParam("Patient_id") int pid,@RequestParam("Patient_name") String name)
 	{
-		Patient p=pservice.getPatient(up.getPatient_id());
-		Patient pi=new Patient();
-		pi.setForm_fill(up.getForm_fill());
-		pi.setPatient_password(up.getPassword());
-		pi.setPatient_bloodgroup(up.getPatient_bloodgroup());
-		pi.setPatient_bdate(up.getPatient_bdate());
-		pi.setPatient_contact1(up.getPatient_contact1());
-		pi.setPatient_contact2(up.getPatient_contact2());
-		pi.setPatient_history(up.getPatient_history());
-		pi.setPatient_height(up.getPatient_height());
-		pi.setPatient_weight(up.getPatient_weight());
+		return pservice.updatePatient(pid, name);
 		
+	}*/
+	/*@GetMapping("/updatepatient")
+	public Patient updatePatient(@RequestParam("Patient_name") String name,@RequestParam("User_email") String useremail,@RequestParam("Patient_id") int pid)
+	{
+		Patient p=pservice.getPatient(pid);
+		Patient up=new Patient();
+		up.setPatient_name(name);
+		up.setUser_email(useremail);
+		up.setPatient(p);
+	}*/
 	}
-}
+

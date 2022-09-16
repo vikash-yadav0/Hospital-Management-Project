@@ -14,20 +14,23 @@ import com.hospital.project.repositry.PatientRepository;
 public class PatientService {
 
 	@Autowired
-	PatientRepository hrepo;
+	PatientRepository prepo;
 	
 	public List<Patient> getAll()
 	{
-		return hrepo.findAll();
+		return prepo.findAll();
 	}	
 	public Patient savecon(Patient c)
 	{
-		return hrepo.save(c);
+		return prepo.save(c);
 	}
 	public Patient getPatient(int pid) {
-	 return hrepo.findById(pid).get();
+	 return prepo.findById(pid).get();
 		
 	}
-	
+	/*public int updatePatient(int pid,String name)
+	{
+		return prepo.UpdatePatient(pid, name);
+	}*/
 
 }

@@ -101,10 +101,10 @@ public class Patient {
 	public void setPatient_name(String patient_name) {
 		this.patient_name = patient_name;
 	}
-	public String getPatient_email() {
+	public String getUser_email() {
 		return user_email;
 	}
-	public void setPatient_email(String patient_email) {
+	public void setUser_email(String patient_email) {
 		this.user_email = patient_email;
 	}
 	public String getPatient_contact1() {
