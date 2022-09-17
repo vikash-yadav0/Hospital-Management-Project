@@ -24,9 +24,9 @@ public class PatientService {
 	{
 		return prepo.findAll();
 	}	
-	public Patient save(Patient c)
+	public boolean save(Patient c)
 	{
-		return prepo.save(c);
+		return prepo.save(c) != null;
 	}
 	public Patient getPatient(int pid) 
 	{

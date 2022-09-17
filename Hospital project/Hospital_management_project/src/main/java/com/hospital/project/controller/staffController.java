@@ -68,9 +68,9 @@ public class staffController {
 	public Staff SaveUpload(@RequestPart("data")Staff s,@RequestPart("file")MultipartFile file)
 	{
 	
-		Login l=new Login(s.getuser_email(),s.getpassword(),"doctor");
+		Login l=new Login(s.getUser_email(),s.getPassword(),"doctor");
 		Login inserted=lservice.add(l);
-		Staff p=new Staff(s.getStaff_name(),s.getuser_email(),s.getStaff_contact(),s.getStaff_gender(),s.getpassword(),s.getStaff_bdate(),s.getStaff_jdate(),inserted);
+		Staff p=new Staff(s.getStaff_name(),s.getUser_email(),s.getStaff_contact(),s.getStaff_gender(),s.getPassword(),s.getStaff_bdate(),s.getStaff_jdate(),inserted);
 		Staff savesf =sservice.save(p);
 		boolean flag=true;
 		byte[] data;

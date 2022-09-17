@@ -28,7 +28,8 @@ public class Patient {
 	String patient_contact1;
 	@Column
 	String patient_contact2;
-	
+	@Column
+	byte [] picture;
 	@JsonFormat(pattern = "yyyy-mm-dd")
 	@Column
 	Date patient_bdate;
@@ -59,6 +60,30 @@ public class Patient {
 	
 
 	
+	public Patient(int patient_id, String patient_name, String user_email, String patient_contact1,
+			String patient_contact2, byte[] picture, Date patient_bdate, String password, String patient_bloodgroup,
+			String patient_history, String patient_height, String patient_weight, String patient_gender,
+			String form_fill, Login login) {
+		super();
+		this.patient_id = patient_id;
+		this.patient_name = patient_name;
+		this.user_email = user_email;
+		this.patient_contact1 = patient_contact1;
+		this.patient_contact2 = patient_contact2;
+		this.picture = picture;
+		this.patient_bdate = patient_bdate;
+		this.password = password;
+		this.patient_bloodgroup = patient_bloodgroup;
+		this.patient_history = patient_history;
+		this.patient_height = patient_height;
+		this.patient_weight = patient_weight;
+		this.patient_gender = patient_gender;
+		this.form_fill = form_fill;
+		this.login = login;
+	}
+
+
+
 	public Patient(String patient_name, String user_email, String patient_contact1, String patient_contact2,
 			Date patient_bdate, String password, String patient_bloodgroup, String patient_history,
 			String patient_height, String patient_weight, String patient_gender, String form_fill, Login login) {
@@ -77,18 +102,18 @@ public class Patient {
 		this.form_fill = form_fill;
 		this.login = login;
 	}
-
-
+	public byte[] getPicture() {
+		return picture;
+	}
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
 	public Login getLogin() {
 		return login;
 	}
-
-
 	public void setLogin(Login login) {
 		this.login = login;
 	}
-
-
 	public int getPatient_id() {
 		return patient_id;
 	}

@@ -29,6 +29,8 @@ public class Staff {
 	@Column
 	String user_email;
 	@Column
+	byte [] picture;
+	@Column
 	String staff_contact;
 	@Column
 	String staff_gender;
@@ -40,8 +42,7 @@ public class Staff {
 	Date staff_jdate;
 	@OneToOne
 	@JoinColumn(name="login_id")
-	Login login;
-	
+	Login login;	
 	
 	/*@JsonIgnoreProperties("staff")
 	@ManyToOne
@@ -56,7 +57,20 @@ public class Staff {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
+	public Staff(int staff_id, String staff_name, String user_email, byte[] picture, String staff_contact,
+			String staff_gender, String password, Date staff_bdate, Date staff_jdate, Login login) {
+		super();
+		this.staff_id = staff_id;
+		this.staff_name = staff_name;
+		this.user_email = user_email;
+		this.picture = picture;
+		this.staff_contact = staff_contact;
+		this.staff_gender = staff_gender;
+		this.password = password;
+		this.staff_bdate = staff_bdate;
+		this.staff_jdate = staff_jdate;
+		this.login = login;
+	}
 
 	public Staff( String staff_name, String staff_email, String staff_contact, String staff_gender,
 			String staff_password, Date staff_bdate, Date staff_jdate, Login login) {
@@ -85,16 +99,29 @@ public class Staff {
 	}
 	public Login getLogin() {
 		return login;
-	}
-
-
+		}
 
 	public void setLogin(Login login) {
 		this.login = login;
 	}
-
-
-
+	public String getUser_email() {
+		return user_email;
+	}
+	public void setUser_email(String user_email) {
+		this.user_email = user_email;
+	}
+	public byte[] getPicture() {
+		return picture;
+	}
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public int getStaff_id() {
 		return staff_id;
 	}
@@ -107,12 +134,7 @@ public class Staff {
 	public void setStaff_name(String staff_name) {
 		this.staff_name = staff_name;
 	}
-	public String getuser_email() {
-		return user_email;
-	}
-	public void setuser_email(String staff_email) {
-		this.user_email = staff_email;
-	}
+	
 	public String getStaff_contact() {
 		return staff_contact;
 	}
@@ -124,12 +146,6 @@ public class Staff {
 	}
 	public void setStaff_gender(String staff_gender) {
 		this.staff_gender = staff_gender;
-	}
-	public String getpassword() {
-		return password;
-	}
-	public void setpassword(String staff_password) {
-		this.password = staff_password;
 	}
 	@Override
 	public String toString() {

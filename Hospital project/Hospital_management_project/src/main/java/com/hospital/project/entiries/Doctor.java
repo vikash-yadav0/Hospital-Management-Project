@@ -29,7 +29,8 @@ public class Doctor {
 		@OneToOne
 		@JoinColumn(name="login")
 		Login login;
-		
+		@Column
+		byte [] picture;
 		
 		
 		/*@JsonIgnoreProperties("doctor")
@@ -52,6 +53,19 @@ public class Doctor {
 			// TODO Auto-generated constructor stub
 		}
 
+		public Doctor(int doctor_id, String doctor_name, String user_email, String doctor_contact,
+				String qualifications, String password, Login login, byte[] picture) {
+			super();
+			this.doctor_id = doctor_id;
+			this.doctor_name = doctor_name;
+			this.user_email = user_email;
+			this.doctor_contact = doctor_contact;
+			this.qualifications = qualifications;
+			this.password = password;
+			this.login = login;
+			this.picture = picture;
+		}
+
 		public Doctor( String doctor_name, String doctor_email, String doctor_contact,
 				String qualifications, String password, Login login) {
 			super();
@@ -65,6 +79,14 @@ public class Doctor {
 		}
 		public int getDoctor_id() {
 			return doctor_id;
+		}
+
+		public byte[] getPicture() {
+			return picture;
+		}
+
+		public void setPicture(byte[] picture) {
+			this.picture = picture;
 		}
 
 		public void setDoctor_id(int doctor_id) {

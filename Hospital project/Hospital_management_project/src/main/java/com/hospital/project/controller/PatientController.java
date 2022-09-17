@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,17 +33,41 @@ public class PatientController
 	@Autowired
 	PatientService pservice;
 	
+	@Autowired
+	JavaMailSender sender;
 
 	@Autowired
 	LoginService lservice;
 	
 	@PostMapping("/registerp")
-	public Patient registerPatient(@RequestBody Register pr)
+	public boolean registerPatient(@RequestBody Register pr)
 	{
-		Login l=new Login(pr.getUser_email(),pr.getPassword(),"patient");
-		Login inserted=lservice.add(l);
-		Patient p=new Patient(pr.getPatient_name(),pr.getUser_email(),pr.getPatient_contact1(),pr.getPatient_contact2(),pr.getPatient_bdate(),pr.getPassword(),pr.getPatient_bloodgroup(),pr.getPatient_history(),pr.getPatient_height(),pr.getPatient_weight(),pr.getPatient_gender(),pr.getForm_fill(),inserted);
-		return pservice.save(p);
+		boolean flag =true;
+		
+		try
+		{
+			Login l=new Login(pr.getUser_email(),pr.getPassword(),"patient");
+			Login inserted=lservice.add(l);
+			Patient p=new Patient(pr.getPatient_name(),pr.getUser_email(),pr.getPatient_contact1(),pr.getPatient_contact2(),pr.getPatient_bdate(),pr.getPassword(),pr.getPatient_bloodgroup(),pr.getPatient_history(),pr.getPatient_height(),pr.getPatient_weight(),pr.getPatient_gender(),pr.getForm_fill(),inserted);
+			pservice.save(p);
+			
+			SimpleMailMessage mail=new SimpleMailMessage();
+			mail.setFrom("dachospitalknowit@gmail.com");			
+			mail.setTo(pr.getUser_email());			
+			mail.setSubject("Registration is done successfully.");			
+			mail.setText("you have successfuly register in dachospital web site now you can take appointment from doctor and schedule your checkup .");
+			System.out.println("text");
+			sender.send(mail);
+			System.out.println("mail send");
+		}
+		catch (Exception e)
+		{
+			System.out.println("exception occur");
+			flag=false;
+		}
+		
+		return flag;
+		
 		
 	}	
 	
@@ -52,7 +78,7 @@ public class PatientController
 		
 	}
 	@PostMapping("/savepatient")
-	public Patient SavePatient(@RequestBody Patient C)
+	public boolean SavePatient(@RequestBody Patient C)
 	{
 		return pservice.save(C);
 	}
@@ -69,18 +95,18 @@ public class PatientController
 		
 	}
 	@PostMapping("/uploadpfile")
-	public Patient SaveUpload(@RequestPart("data")Patient pr,@RequestPart("file")MultipartFile file)
+	public boolean SaveUpload(@RequestPart("data")Patient pr,@RequestPart("file")MultipartFile file)
 	{
 		Login l=new Login(pr.getUser_email(),pr.getPassword(),"patient");
 		Login inserted=lservice.add(l);
 		Patient p=new Patient(pr.getPatient_name(),pr.getUser_email(),pr.getPatient_contact1(),pr.getPatient_contact2(),pr.getPatient_bdate(),pr.getPassword(),pr.getPatient_bloodgroup(),pr.getPatient_history(),pr.getPatient_height(),pr.getPatient_weight(),pr.getPatient_gender(),pr.getForm_fill(),inserted);
 		
-		Patient savept =pservice.save(p);
+		boolean savept =pservice.save(p);
 		boolean flag=true;
 		byte[] data;
 		try {
 			data = file.getBytes();		
-		Path path=Paths.get("images//"+"patient"+savept.getPatient_id()+".jpg");
+		Path path=Paths.get("images//"+"patient"+p.getPatient_id()+".jpg");
 		Files.write(path, data);
 		} catch (IOException e) {
 			flag=false;
@@ -88,7 +114,7 @@ public class PatientController
 		if(flag=true)
 			return savept;
 		else 
-			return null;
+			return false;
 	}
 
 	}
