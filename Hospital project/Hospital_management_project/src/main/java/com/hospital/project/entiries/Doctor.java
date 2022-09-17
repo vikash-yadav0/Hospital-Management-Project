@@ -79,11 +79,11 @@ public class Doctor {
 			this.doctor_name = doctor_name;
 		}
 
-		public String getDoctor_email() {
+		public String getUser_email() {
 			return user_email;
 		}
 
-		public void setDoctor_email(String doctor_email) {
+		public void setUser_email(String doctor_email) {
 			this.user_email = doctor_email;
 		}
 

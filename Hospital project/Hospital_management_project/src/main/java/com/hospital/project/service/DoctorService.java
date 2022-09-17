@@ -17,7 +17,7 @@ public class DoctorService {
 	{
 		return drepo.findAll();
 	}	
-	public Doctor savecon(Doctor c)
+	public Doctor save(Doctor c)
 	{
 		return drepo.save(c);
 	}

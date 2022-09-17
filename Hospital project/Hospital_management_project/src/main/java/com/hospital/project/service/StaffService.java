@@ -18,9 +18,9 @@ public class StaffService {
 	{
 		return srepo.findAll();
 	}	
-	public Staff savecon(Staff c)
+	public Staff save(Staff s)
 	{
-		return srepo.save(c);
+		return srepo.save(s);
 	}
 	public Staff getStaff(int sid) {
 	

@@ -1,5 +1,9 @@
 package com.hospital.project.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,7 +14,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hospital.project.entiries.*;
 import com.hospital.project.service.*;
@@ -32,10 +38,10 @@ public class PatientController
 	@PostMapping("/registerp")
 	public Patient registerPatient(@RequestBody Register pr)
 	{
-		Login l=new Login(pr.getUser_email(),pr.getPassword(),pr.getRole());
+		Login l=new Login(pr.getUser_email(),pr.getPassword(),"patient");
 		Login inserted=lservice.add(l);
 		Patient p=new Patient(pr.getPatient_name(),pr.getUser_email(),pr.getPatient_contact1(),pr.getPatient_contact2(),pr.getPatient_bdate(),pr.getPassword(),pr.getPatient_bloodgroup(),pr.getPatient_history(),pr.getPatient_height(),pr.getPatient_weight(),pr.getPatient_gender(),pr.getForm_fill(),inserted);
-		return pservice.savecon(p);
+		return pservice.save(p);
 		
 	}	
 	
@@ -46,9 +52,9 @@ public class PatientController
 		
 	}
 	@PostMapping("/savepatient")
-	public Patient SaveContact(@RequestBody Patient C)
+	public Patient SavePatient(@RequestBody Patient C)
 	{
-		return pservice.savecon(C);
+		return pservice.save(C);
 	}
 	@GetMapping("/getpatient")
 	public Patient getPatient(@RequestParam("patient_id") int Pid)
@@ -61,6 +67,28 @@ public class PatientController
 	{
 		return pservice.updatePatient(pat, pid);
 		
+	}
+	@PostMapping("/uploadpfile")
+	public Patient SaveUpload(@RequestPart("data")Patient pr,@RequestPart("file")MultipartFile file)
+	{
+		Login l=new Login(pr.getUser_email(),pr.getPassword(),"patient");
+		Login inserted=lservice.add(l);
+		Patient p=new Patient(pr.getPatient_name(),pr.getUser_email(),pr.getPatient_contact1(),pr.getPatient_contact2(),pr.getPatient_bdate(),pr.getPassword(),pr.getPatient_bloodgroup(),pr.getPatient_history(),pr.getPatient_height(),pr.getPatient_weight(),pr.getPatient_gender(),pr.getForm_fill(),inserted);
+		
+		Patient savept =pservice.save(p);
+		boolean flag=true;
+		byte[] data;
+		try {
+			data = file.getBytes();		
+		Path path=Paths.get("images//"+"patient"+savept.getPatient_id()+".jpg");
+		Files.write(path, data);
+		} catch (IOException e) {
+			flag=false;
+		}
+		if(flag=true)
+			return savept;
+		else 
+			return null;
 	}
 
 	}

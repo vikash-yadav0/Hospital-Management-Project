@@ -107,10 +107,10 @@ public class Staff {
 	public void setStaff_name(String staff_name) {
 		this.staff_name = staff_name;
 	}
-	public String getStaff_email() {
+	public String getuser_email() {
 		return user_email;
 	}
-	public void setStaff_email(String staff_email) {
+	public void setuser_email(String staff_email) {
 		this.user_email = staff_email;
 	}
 	public String getStaff_contact() {
@@ -125,10 +125,10 @@ public class Staff {
 	public void setStaff_gender(String staff_gender) {
 		this.staff_gender = staff_gender;
 	}
-	public String getStaff_password() {
+	public String getpassword() {
 		return password;
 	}
-	public void setStaff_password(String staff_password) {
+	public void setpassword(String staff_password) {
 		this.password = staff_password;
 	}
 	@Override

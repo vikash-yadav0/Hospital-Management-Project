@@ -24,11 +24,12 @@ public class PatientService {
 	{
 		return prepo.findAll();
 	}	
-	public Patient savecon(Patient c)
+	public Patient save(Patient c)
 	{
 		return prepo.save(c);
 	}
-	public Patient getPatient(int pid) {
+	public Patient getPatient(int pid) 
+	{
 	 return prepo.findById(pid).get();
 		
 	}
