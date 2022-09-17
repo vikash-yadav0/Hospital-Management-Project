@@ -5262,3 +5262,4 @@ java.net.URISyntaxException: Illegal character in path at index 20: file:/C:/Use
 2022-09-17 15:09:17,372 [Worker-192: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2022-09-17 15:09:17,373 [Worker-192: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-09-17 15:09:17,374 [Worker-192: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-17 15:09:17,374 [Worker-192: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Hospital-Management-Project\Hospital project\Hospital_management_project\src\test\resources
