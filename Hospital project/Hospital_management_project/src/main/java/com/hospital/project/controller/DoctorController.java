@@ -26,7 +26,7 @@ import com.hospital.project.service.LoginService;
 @CrossOrigin(origins ="http://localhost:3000")
 @RestController
 public class DoctorController {
-
+	// not getting department with staff ..
 	@Autowired
 	DoctorService dservice;
 	

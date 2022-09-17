@@ -1,5 +1,7 @@
 package com.hospital.project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,10 @@ public class PaymentService {
 	public Payment getPayment(int pid) {
 	
 		return prepo.findById(pid).get();
+	}
+	public List<Payment> getAll() {
+		
+		return prepo.findAll();
 	}
 	
 

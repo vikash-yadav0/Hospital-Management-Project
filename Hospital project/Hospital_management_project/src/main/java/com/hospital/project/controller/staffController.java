@@ -41,7 +41,7 @@ public class staffController {
 		return sservice.save(p);
 		
 	}
-	
+	// not getting department with staff ..
 	@GetMapping("/allstaff")
 	public List<Staff> getAll()
 	{
@@ -65,7 +65,7 @@ public class staffController {
 		
 	}
 	@PostMapping("/upsfile")
-	public Staff SaveUpload(@RequestPart("data")Staff s,@RequestPart("file")MultipartFile file)
+	public Staff SaveUpload(@RequestPart("data")StaffRegister s,@RequestPart("file")MultipartFile file)
 	{
 	
 		Login l=new Login(s.getUser_email(),s.getPassword(),"doctor");

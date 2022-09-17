@@ -11,7 +11,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="doctor_table")
-public class Doctor {	
+public class Doctor {
+	
+	// not getting department with staff ..
 		@Id()
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		

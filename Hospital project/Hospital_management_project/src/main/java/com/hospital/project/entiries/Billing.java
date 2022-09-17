@@ -1,5 +1,6 @@
 package com.hospital.project.entiries;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,8 @@ public class Billing {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int billing_id;
 	
-	@OneToOne
+	@JsonIgnoreProperties({"bed","department"})
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="Admission_id")
 	Admission admission;
 	@Column

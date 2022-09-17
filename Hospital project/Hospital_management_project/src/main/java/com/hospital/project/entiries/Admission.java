@@ -28,7 +28,7 @@ int admission_id;
 @Column
 Date admited_date;
 
-@JsonIgnoreProperties("doctor")
+@JsonIgnoreProperties({"login","doctor"})
 @OneToOne(cascade = CascadeType.ALL)
 @JoinColumn(name="patient_id")
 Patient patient;
@@ -41,7 +41,7 @@ BedMaster bed;
 @Column
 String status;
 
-@JsonIgnoreProperties("admission")
+@JsonIgnoreProperties({"admission","login"})
 @ManyToOne
 @JoinColumn(name="doctor_id")
 Doctor doctor;
@@ -51,7 +51,7 @@ Doctor doctor;
 @JoinColumn(name="dept_id")
 Department department;
 
-@JsonIgnoreProperties("adnission")
+@JsonIgnoreProperties({"login","admission"})
 @ManyToOne
 @JoinColumn(name="staff_id")
 Staff staff;
