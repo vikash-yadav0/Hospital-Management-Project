@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,20 +56,12 @@ public class PatientController
 		return pservice.getPatient(Pid);
 	}
 	
-	/*@PostMapping("/updatepatient")
-	public int updatePatient (@RequestParam("Patient_id") int pid,@RequestParam("Patient_name") String name)
+	@PostMapping("/updatepatient")
+	public Patient updatePatient (@RequestBody Patient pat,@RequestParam("Patient_id") int pid)
 	{
-		return pservice.updatePatient(pid, name);
+		return pservice.updatePatient(pat, pid);
 		
-	}*/
-	/*@GetMapping("/updatepatient")
-	public Patient updatePatient(@RequestParam("Patient_name") String name,@RequestParam("User_email") String useremail,@RequestParam("Patient_id") int pid)
-	{
-		Patient p=pservice.getPatient(pid);
-		Patient up=new Patient();
-		up.setPatient_name(name);
-		up.setUser_email(useremail);
-		up.setPatient(p);
-	}*/
+	}
+
 	}
 

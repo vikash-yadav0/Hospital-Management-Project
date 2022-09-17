@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospital.project.entiries.Doctor;
+import com.hospital.project.entiries.Patient;
 import com.hospital.project.repositry.DoctorRepository;
 @Service
 public class DoctorService {
@@ -23,6 +24,18 @@ public class DoctorService {
 	public Doctor getDoctor(int did) {
 	
 		return drepo.findById(did).get();
+	}
+	public Doctor updateDoctor(Doctor da,int doctor_id)
+	{
+		Doctor d=drepo.findById(doctor_id).get();
+		d.setDoctor_name(da.getDoctor_name());
+		d.setDoctor_contact(da.getDoctor_contact());
+		d.setQualifications(da.getQualifications());
+		
+		/*Login l=lrepo.getById(pa.getLogin()).get();
+		l.setPassword(pa.getPassword());
+		l.setUser_id(pa.getUser_email());*/
+		return drepo.save(d);
 	}
 	
 	}

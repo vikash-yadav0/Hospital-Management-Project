@@ -125,12 +125,16 @@ public class Patient {
 	public void setPatient_bdate(Date patient_bdate) {
 		this.patient_bdate = patient_bdate;
 	}
-	public String getPatient_password() {
+	
+	public String getPassword() {
 		return password;
 	}
-	public void setPatient_password(String patient_password) {
-		this.password = patient_password;
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
+
+
 	public String getPatient_bloodgroup() {
 		return patient_bloodgroup;
 	}

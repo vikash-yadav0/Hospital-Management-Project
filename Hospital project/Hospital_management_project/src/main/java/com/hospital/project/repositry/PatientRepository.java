@@ -14,10 +14,9 @@ import com.hospital.project.entiries.Patient;
 @Repository
 public interface PatientRepository extends JpaRepository<Patient, Integer>
 {
-	/*@Modifying
-	@Query("update patient_table set patient_name=:name where patient_id=:pid")
-	public int UpdatePatient(int pid, String name);
-*/
+
+	
+	
 	
 
 	

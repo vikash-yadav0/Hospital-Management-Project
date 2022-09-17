@@ -52,5 +52,11 @@ public class DoctorController {
 	{
 		return dservice.getDoctor(did);
 	}
+	@PostMapping("/updatedoctor")
+	public Doctor updatedoctor (@RequestBody Doctor doc,@RequestParam("doctor_id") int did)
+	{
+		return dservice.updateDoctor(doc, did);
+		
+	}
 
 }
