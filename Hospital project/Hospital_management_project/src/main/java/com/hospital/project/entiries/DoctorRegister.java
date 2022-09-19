@@ -6,7 +6,7 @@ public class DoctorRegister {
 	String doctor_contact;
 	String qualifications;
 	String password;
-	String role;
+	int dept_id;
 	
 	public DoctorRegister() {
 		super();
@@ -47,11 +47,6 @@ public class DoctorRegister {
 	public void setQualifications(String qualifications) {
 		this.qualifications = qualifications;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+
 
 }

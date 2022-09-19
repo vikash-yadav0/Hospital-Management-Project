@@ -29,7 +29,7 @@ public class LoginService {
 	@Autowired
 	StaffRepository srepo;
 	
-	public Object CheckLogin(String uid,String pwd)
+	/*public Object CheckLogin(String uid,String pwd)
 	{
 		List<Object[]> log=lrepo.checkLogin(uid, pwd);
 		if(log.size()==1)
@@ -87,8 +87,14 @@ public class LoginService {
 		  }
 	
 		return null;	
-	}
+	}*/
+	public Login CheckLogin(String uid,String pwd)
+	{
+		return lrepo.checkLogin(uid, pwd);
+		
 	
+			
+	}
 	public Login add(Login l)
 	{
 		return lrepo.save(l);

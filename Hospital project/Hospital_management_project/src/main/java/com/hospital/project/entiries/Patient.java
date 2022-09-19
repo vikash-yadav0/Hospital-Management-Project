@@ -207,6 +207,9 @@ public class Patient {
 				+ ", patient_height=" + patient_height + ", patient_weight=" + patient_weight + ", patient_gender="
 				+ patient_gender + ", form_fill=" + form_fill + ", login=" + login + "]";
 	}
+
+
+
 	
 	
 }

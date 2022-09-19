@@ -86,5 +86,10 @@ public class DoctorController {
 		else 
 			return null;
 	}
+	@PostMapping("/getDoctor")
+	public Doctor getDoctor(@RequestBody Login l)
+	{
+		return dservice.getDoctor(l);
+	}
 
 }

@@ -47,9 +47,8 @@ public class PatientService {
 		p.setPatient_height(pa.getPatient_height());
 		p.setPatient_history(pa.getPatient_history());
 		p.setPatient_weight(pa.getPatient_weight());
-		/*Login l=lrepo.getById(pa.getLogin()).get();
-		l.setPassword(pa.getPassword());
-		l.setUser_id(pa.getUser_email());*/
+		//p.setLogin.(pa.getLogin().getPassword(),pa.getLogin().getUser_id());
+		
 		return prepo.save(p);
 	}
 	}

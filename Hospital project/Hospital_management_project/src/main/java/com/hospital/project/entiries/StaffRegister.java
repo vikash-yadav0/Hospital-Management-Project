@@ -10,9 +10,15 @@ public class StaffRegister {
 	Date staff_jdate;
 	String user_email;
 	String password;
+	int dept_id;
 	String role;
 	
-	
+	public int getDept_id() {
+		return dept_id;
+	}
+	public void setDept_id(int dept_id) {
+		this.dept_id = dept_id;
+	}
 	public String getUser_email() {
 		return user_email;
 	}

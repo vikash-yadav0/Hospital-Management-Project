@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospital.project.entiries.Doctor;
+import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 import com.hospital.project.repositry.DoctorRepository;
 @Service
@@ -36,6 +37,11 @@ public class DoctorService {
 		l.setPassword(pa.getPassword());
 		l.setUser_id(pa.getUser_email());*/
 		return drepo.save(d);
+	}
+	
+	public Doctor getDoctor(Login l)
+	{
+		return drepo.getDoctor(l);
 	}
 	
 	}

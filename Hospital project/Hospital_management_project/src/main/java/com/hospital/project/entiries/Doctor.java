@@ -28,6 +28,7 @@ public class Doctor {
 		String qualifications;
 		@Column
 		String password;
+		
 		@OneToOne
 		@JoinColumn(name="login")
 		Login login;

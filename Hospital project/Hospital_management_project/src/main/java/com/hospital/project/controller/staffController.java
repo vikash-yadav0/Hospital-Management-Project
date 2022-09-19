@@ -37,11 +37,10 @@ public class staffController {
 	{
 		Login l=new Login(pr.getUser_email(),pr.getPassword(),"staff");
 		Login inserted=lservice.add(l);
-		Staff p=new Staff(pr.getStaff_name(),pr.getUser_email(),pr.getStaff_contact(),pr.getStaff_gender(),pr.getPassword(),pr.getStaff_bdate(),pr.getStaff_jdate(),inserted);
-		return sservice.save(p);
-		
+		Staff p=new Staff(pr.getStaff_name(),pr.getUser_email(), pr.getStaff_contact(),pr.getStaff_gender(),pr.getPassword(),pr.getStaff_bdate(),pr.getStaff_jdate(),inserted,pr.getDept_id());
+		return sservice.save(p);		
 	}
-	// not getting department with staff ..
+
 	@GetMapping("/allstaff")
 	public List<Staff> getAll()
 	{
@@ -70,7 +69,7 @@ public class staffController {
 	
 		Login l=new Login(s.getUser_email(),s.getPassword(),"doctor");
 		Login inserted=lservice.add(l);
-		Staff p=new Staff(s.getStaff_name(),s.getUser_email(),s.getStaff_contact(),s.getStaff_gender(),s.getPassword(),s.getStaff_bdate(),s.getStaff_jdate(),inserted);
+		Staff p=new Staff(s.getStaff_name(),s.getUser_email(),s.getStaff_contact(),s.getStaff_gender(),s.getPassword(),s.getStaff_bdate(),s.getStaff_jdate(),inserted,s.getDept_id());
 		Staff savesf =sservice.save(p);
 		boolean flag=true;
 		byte[] data;

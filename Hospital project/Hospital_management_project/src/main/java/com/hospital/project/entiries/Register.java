@@ -16,7 +16,7 @@ public class Register {
 	String patient_weight;	
 	String patient_gender;
 	String form_fill;
-	String role;
+	
 	
 	
 	public Register() {
@@ -95,12 +95,7 @@ public class Register {
 	public void setForm_fill(String form_fill) {
 		this.form_fill = form_fill;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 	
 	
 	

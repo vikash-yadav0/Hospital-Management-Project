@@ -44,6 +44,8 @@ public class Staff {
 	@JoinColumn(name="login_id")
 	Login login;	
 	
+	@Column
+	int dept_id;
 	/*@JsonIgnoreProperties("staff")
 	@ManyToOne
 	@JoinColumn(name="dept_id")
@@ -57,34 +59,38 @@ public class Staff {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Staff(int staff_id, String staff_name, String user_email, byte[] picture, String staff_contact,
-			String staff_gender, String password, Date staff_bdate, Date staff_jdate, Login login) {
+	public Staff(int staff_id, String staff_name, String user_email, String staff_contact,
+			String staff_gender, String password, Date staff_bdate, Date staff_jdate, Login login, int dept_id) {
 		super();
 		this.staff_id = staff_id;
 		this.staff_name = staff_name;
 		this.user_email = user_email;
-		this.picture = picture;
+		
 		this.staff_contact = staff_contact;
 		this.staff_gender = staff_gender;
 		this.password = password;
 		this.staff_bdate = staff_bdate;
 		this.staff_jdate = staff_jdate;
 		this.login = login;
+		this.dept_id = dept_id;
 	}
 
-	public Staff( String staff_name, String staff_email, String staff_contact, String staff_gender,
-			String staff_password, Date staff_bdate, Date staff_jdate, Login login) {
+	
+	public Staff(String staff_name, String user_email, String staff_contact, String staff_gender,
+			String password, Date staff_bdate, Date staff_jdate, Login login, int dept_id) {
 		super();
-		
 		this.staff_name = staff_name;
-		this.user_email = staff_email;
+		this.user_email = user_email;
+	
 		this.staff_contact = staff_contact;
 		this.staff_gender = staff_gender;
-		this.password = staff_password;
+		this.password = password;
 		this.staff_bdate = staff_bdate;
 		this.staff_jdate = staff_jdate;
-		this.login = login;		
+		this.login = login;
+		this.dept_id = dept_id;
 	}
+
 	public Date getStaff_bdate() {
 		return staff_bdate;
 	}
