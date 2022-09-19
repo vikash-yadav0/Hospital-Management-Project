@@ -45,6 +45,15 @@ public class BedMaster {
 		this.status = status;
 		this.department = department;
 	}
+	
+	public BedMaster(String category, Double charges, String status, Department department, Admission admission) {
+		super();
+		this.category = category;
+		this.charges = charges;
+		this.status = status;
+		this.department = department;
+		this.admission = admission;
+	}
 	public int getBed_id() {
 		return bed_id;
 	}

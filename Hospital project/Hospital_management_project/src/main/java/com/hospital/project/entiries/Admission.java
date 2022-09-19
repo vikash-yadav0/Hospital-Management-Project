@@ -76,6 +76,18 @@ public Admission(int admission_id, Date admited_date, Patient patient, BedMaster
 	
 }
 
+public Admission(Date admited_date, Patient patient, BedMaster bed, String status, Doctor doctor, Department department,
+		Staff staff) {
+	super();
+	this.admited_date = admited_date;
+	this.patient = patient;
+	this.bed = bed;
+	this.status = status;
+	this.doctor = doctor;
+	this.department = department;
+	this.staff = staff;
+}
+
 public int getAdmission_id() {
 	return admission_id;
 }

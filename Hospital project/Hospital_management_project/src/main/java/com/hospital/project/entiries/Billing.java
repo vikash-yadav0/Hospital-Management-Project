@@ -39,6 +39,15 @@ public class Billing {
 		super();
 	}
 	
+	public Billing(Admission admission, Double test_cost, Double medicine_cost, BedMaster bed, int consultation_fees) {
+		super();
+		this.admission = admission;
+		this.test_cost = test_cost;
+		this.medicine_cost = medicine_cost;
+		this.bed = bed;
+		this.consultation_fees = consultation_fees;
+	}
+
 	public Billing(int billing_id, Admission admission, Double test_cost, Double medicine_cost, BedMaster bed,
 			int consultation_fees) {
 		super();

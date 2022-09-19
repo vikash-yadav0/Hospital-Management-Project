@@ -20,7 +20,7 @@ public class DoctorService {
 	}	
 	public Doctor save(Doctor c)
 	{
-		return drepo.save(c);
+		return drepo.save(c) ;
 	}
 	public Doctor getDoctor(int did) {
 	

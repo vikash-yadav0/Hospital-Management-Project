@@ -44,7 +44,7 @@ public class DoctorController {
 	{
 		Login l=new Login(pr.getUser_email(),pr.getPassword(),"doctor");
 		Login inserted=lservice.add(l);
-		Doctor p=new Doctor(pr.getDoctor_name(),pr.getUser_email(),pr.getDoctor_contact(),pr.getQualifications(),pr.getPassword(),inserted);
+		Doctor p=new Doctor(pr.getDoctor_name(),pr.getUser_email(),pr.getDoctor_contact(),pr.getQualifications(),pr.getPassword(),inserted,pr.getDept_id());
 		return dservice.save(p);
 		
 	}
@@ -53,7 +53,7 @@ public class DoctorController {
 	{
 		return dservice.save(C);
 	}
-	@GetMapping("/getdoctor")
+	@GetMapping("/getdoctorbyid")
 	public Doctor getDoctor(@RequestParam("doctor_id") int did)
 	{
 		return dservice.getDoctor(did);
@@ -64,12 +64,12 @@ public class DoctorController {
 		return dservice.updateDoctor(doc, did);
 		
 	}
-	@PostMapping("/updfile")
+	@PostMapping("/registerdoctor")
 	public Doctor SaveUpload(@RequestPart("data")Doctor d,@RequestPart("file")MultipartFile file)
 	{
 		Login l=new Login(d.getUser_email(),d.getPassword(),"doctor");
 		Login inserted=lservice.add(l);
-		Doctor p=new Doctor(d.getDoctor_name(),d.getUser_email(),d.getDoctor_contact(),d.getQualifications(),d.getPassword(),inserted);
+		Doctor p=new Doctor(d.getDoctor_name(),d.getUser_email(),d.getDoctor_contact(),d.getQualifications(),d.getPassword(),inserted,d.getDept_id());
 		
 		Doctor savedf =dservice.save(p);
 		boolean flag=true;

@@ -11,7 +11,7 @@ public class StaffRegister {
 	String user_email;
 	String password;
 	int dept_id;
-	String role;
+	
 	
 	public int getDept_id() {
 		return dept_id;
@@ -65,11 +65,6 @@ public class StaffRegister {
 	public void setStaff_jdate(Date staff_jdate) {
 		this.staff_jdate = staff_jdate;
 	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 
 }

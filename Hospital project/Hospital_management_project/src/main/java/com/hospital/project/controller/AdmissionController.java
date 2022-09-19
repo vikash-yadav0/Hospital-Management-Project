@@ -30,7 +30,7 @@ public class AdmissionController {
 	@PostMapping("/saveadmission")
 	public Admission SaveDoctor(@RequestBody Admission C)
 	{
-		return aservice.saveadm(C);
+		return aservice.save(C);
 	}
 	@GetMapping("/getadmission")
 	public Admission getAdmission(@RequestParam("admission_id") int aid)

@@ -42,14 +42,21 @@ public class Payment {
 	}
 
 
-	public Payment(int payment_id, Billing billing, String paymentmethod, Date discharge_date,
-			String payment_status) {
+	public Payment(Billing billing, String paymentmethod, Date discharge_date, String payment_status) {
+		super();
+		this.billing = billing;
+		this.paymentmethod = paymentmethod;
+		Discharge_date = discharge_date;
+		this.payment_status = payment_status;
+	}
+
+
+	public Payment(int payment_id, Billing billing, String paymentmethod, Date discharge_date, String payment_status) {
 		super();
 		this.payment_id = payment_id;
 		this.billing = billing;
 		this.paymentmethod = paymentmethod;
 		Discharge_date = discharge_date;
-		//this.admission = admission;
 		this.payment_status = payment_status;
 	}
 
@@ -94,19 +101,9 @@ public class Payment {
 	}
 
 
-	/*public Admission getAdmission() {
-		return admission;
-	}
-
-
-	public void setAdmission(Admission admission) {
-		this.admission = admission;
-	}
-
-
 	public String getPayment_status() {
 		return payment_status;
-	}*/
+	}
 
 
 	public void setPayment_status(String payment_status) {
@@ -117,9 +114,10 @@ public class Payment {
 	@Override
 	public String toString() {
 		return "Payment [payment_id=" + payment_id + ", billing=" + billing + ", paymentmethod=" + paymentmethod
-				+ ", Discharge_date=" + Discharge_date +  ", payment_status="
-				+ payment_status + "]";
+				+ ", Discharge_date=" + Discharge_date + ", payment_status=" + payment_status + "]";
 	}
+
+
 
 
 	

@@ -7,7 +7,24 @@ public class DoctorRegister {
 	String qualifications;
 	String password;
 	int dept_id;
+	byte [] picture;
 	
+	public int getDept_id() {
+		return dept_id;
+	}
+
+	public void setDept_id(int dept_id) {
+		this.dept_id = dept_id;
+	}
+
+	public byte[] getPicture() {
+		return picture;
+	}
+
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
+
 	public DoctorRegister() {
 		super();
 		// TODO Auto-generated constructor stub

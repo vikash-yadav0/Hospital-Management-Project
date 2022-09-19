@@ -43,6 +43,11 @@ public class Department {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Department(String dept_name) {
+		super();
+		this.dept_name = dept_name;
+	}
+
 	/*public Department(int dept_id, String dept_name, Set<Doctor> doctor, Set<Admission> admission, Set<Staff> staff,
 			Set<BedMaster> bed) {
 		super();
@@ -53,6 +58,7 @@ public class Department {
 		this.staff = staff;
 		this.bed = bed;
 	}*/
+	
 	
 	public int getDept_id() {
 		return dept_id;
