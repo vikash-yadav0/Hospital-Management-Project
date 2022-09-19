@@ -34,25 +34,31 @@ public class LoginService {
 		List<Object[]> log=lrepo.checkLogin(uid, pwd);
 		if(log.size()==1)
 		  {
+			System.out.println(log.get(0)[0]+ "   "+log.get(0)[1]);
 			Patient p=null;
 			Doctor d=null;
 			Staff s=null;
-			if(log.get(0)[0].equals("Patient"))
+		
+			if(log.get(0)[0].equals("patient"))
 			  {
-				Optional<Patient>op=prepo.findById((int)log.get(0)[1]);
+			
+				Optional<Patient>op=prepo.loginid((int)log.get(0)[1]);
+				System.out.println("byyyy");
 				try
 				  {
 					p=op.get();
+					System.out.println("okkk");
 				  }
 				catch (Exception e) {
 				      p=null;
+				      System.out.println(p);
 				  }
 				return p;
 				
 			  }
-		   else if(log.get(0)[0].equals("Doctor"))
+		   else if(log.get(0)[0].equals("doctor"))
 		       {
-			     Optional<Doctor>op=drepo.findById((int)log.get(0)[1]);
+			     Optional<Doctor>op=drepo.loginid((int)log.get(0)[1]);
 			     try
 			      {
 				    d=op.get();
@@ -64,9 +70,9 @@ public class LoginService {
 			
 			   }
 				
-		  else if(log.get(0)[0].equals("Staff"))
+		  else if(log.get(0)[0].equals("staff"))
 	        {
-		      Optional<Staff>op=srepo.findById((int)log.get(0)[1]);
+		      Optional<Staff>op=srepo.loginid((int)log.get(0)[1]);
 		      try
 		        {
 		        	s=op.get();

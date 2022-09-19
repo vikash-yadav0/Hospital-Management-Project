@@ -88,6 +88,7 @@ public class PatientController
 		return pservice.getPatient(Pid);
 	}
 	
+	
 	@PostMapping("/updatepatient")
 	public Patient updatePatient (@RequestBody Patient pat,@RequestParam("Patient_id") int pid)
 	{

@@ -52,4 +52,4 @@ public class PatientService {
 		l.setUser_id(pa.getUser_email());*/
 		return prepo.save(p);
 	}
-}
+	}
