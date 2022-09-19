@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 import com.hospital.project.entiries.Staff;
 import com.hospital.project.repositry.StaffRepository;
@@ -34,10 +35,12 @@ public class StaffService {
 		s.setStaff_contact(st.getStaff_contact());
 		s.setStaff_gender(st.getStaff_gender());
 		s.setStaff_jdate(st.getStaff_jdate());
-		/*Login l=lrepo.getById(pa.getLogin()).get();
-		l.setPassword(pa.getPassword());
-		l.setUser_id(pa.getUser_email());*/
+	
 		return srepo.save(s);
+	}
+	public Staff getStaff(Login l)
+	{
+		return srepo.getStaff(l);
 	}
 	}
 

@@ -117,6 +117,11 @@ public class PatientController
 		else 
 			return false;
 	}
+	@PostMapping("/getPatient")
+	public Patient getPatient(@RequestBody Login l)
+	{
+		return pservice.getPatient(l);
+	}
 
 	}
 

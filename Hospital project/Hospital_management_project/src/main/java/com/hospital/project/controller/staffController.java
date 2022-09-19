@@ -18,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.hospital.project.entiries.Doctor;
 import com.hospital.project.entiries.Login;
+import com.hospital.project.entiries.Patient;
 import com.hospital.project.entiries.Register;
 import com.hospital.project.entiries.Staff;
 import com.hospital.project.entiries.StaffRegister;
@@ -53,7 +54,7 @@ public class staffController {
 		return sservice.save(C);
 	}
 	@GetMapping("/getstaff")
-	public Staff getPatient(@RequestParam("staff_id") int sid)
+	public Staff getsStaff(@RequestParam("staff_id") int sid)
 	{
 		return sservice.getStaff(sid);
 	}
@@ -85,5 +86,9 @@ public class staffController {
 		else 
 			return null;
 	}
-
+	@PostMapping("/getStaff")
+	public Staff getStaff(@RequestBody Login l)
+	{
+		return sservice.getStaff(l);
+	}
 }

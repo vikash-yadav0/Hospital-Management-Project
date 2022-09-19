@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hospital.project.entiries.Doctor;
 import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 import com.hospital.project.repositry.LoginReprositry;
@@ -51,4 +52,9 @@ public class PatientService {
 		
 		return prepo.save(p);
 	}
+	public Patient getPatient(Login l)
+	{
+		return prepo.getPatient(l);
+	}
+	
 	}

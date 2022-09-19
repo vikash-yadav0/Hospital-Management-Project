@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.hospital.project.entiries.Doctor;
+import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 
 
@@ -21,11 +23,8 @@ public interface PatientRepository extends JpaRepository<Patient, Integer>
 	@Query("select l  from Patient l where login.login_id=:uid")
 	public Optional<Patient> loginid(int uid);
 
-	
-	
-	
-
-	
+	@Query("select d from Patient d where login=:l")
+	public Patient getPatient(Login l);
 
 	
 }
