@@ -30,22 +30,18 @@ CREATE TABLE `admission_table` (
   `patient_id` int NOT NULL,
   `doctor_id` int NOT NULL,
   `bed_id` int NOT NULL,
-  `status` varchar(45) NOT NULL,
-  `staff_id` int DEFAULT NULL,
   `dept_id` int NOT NULL,
   PRIMARY KEY (`admission_id`),
   UNIQUE KEY `admission_id_UNIQUE` (`admission_id`),
   KEY `patient_id_idx` (`patient_id`),
   KEY `doctor_id_idx` (`doctor_id`),
   KEY `bed_id_idx` (`bed_id`),
-  KEY `staff_id_idx` (`staff_id`),
   KEY `FKo4yhdjfugpuqx31p49y5kpq79` (`dept_id`),
   CONSTRAINT `bed_id` FOREIGN KEY (`bed_id`) REFERENCES `bed_master` (`bed_id`),
   CONSTRAINT `doctor_id` FOREIGN KEY (`doctor_id`) REFERENCES `doctor_table` (`doctor_id`),
   CONSTRAINT `FKo4yhdjfugpuqx31p49y5kpq79` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
-  CONSTRAINT `patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient_table` (`patient_id`),
-  CONSTRAINT `staff_id` FOREIGN KEY (`staff_id`) REFERENCES `staff_table` (`staff_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `patient_id` FOREIGN KEY (`patient_id`) REFERENCES `patient_table` (`patient_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +50,7 @@ CREATE TABLE `admission_table` (
 
 LOCK TABLES `admission_table` WRITE;
 /*!40000 ALTER TABLE `admission_table` DISABLE KEYS */;
-INSERT INTO `admission_table` VALUES (1,'2022-08-12',1,1,1,'occupied',1,1);
+INSERT INTO `admission_table` VALUES (1,'2022-08-12',1,1,1,1),(4,'2024-06-11',1,1,1,1),(5,'2024-06-10',1,1,1,1),(6,'2024-06-10',9,1,1,1),(7,'2024-06-10',11,3,3,3),(8,'2024-06-10',11,3,3,3),(9,'2024-06-10',11,3,4,3);
 /*!40000 ALTER TABLE `admission_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -84,7 +80,7 @@ CREATE TABLE `bed_master` (
 
 LOCK TABLES `bed_master` WRITE;
 /*!40000 ALTER TABLE `bed_master` DISABLE KEYS */;
-INSERT INTO `bed_master` VALUES (1,'general',200,'free',1),(2,'gold',800,'free',1),(3,'gold',800,'book',1),(4,'general',200,'book',1),(5,'silver',500,'free',1),(6,'silver',500,'book',1);
+INSERT INTO `bed_master` VALUES (1,'general',200,'free',1),(2,'gold',800,'free',2),(3,'gold',800,'book',1),(4,'general',200,'book',3),(5,'silver',500,'free',1),(6,'silver',500,'book',2);
 /*!40000 ALTER TABLE `bed_master` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,15 +156,16 @@ CREATE TABLE `doctor_table` (
   `qualifications` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
   `login` int DEFAULT NULL,
-  `department_id` int DEFAULT NULL,
+  `dept_id` int DEFAULT NULL,
   `user_email` varchar(255) NOT NULL,
+  `picture` tinyblob,
   PRIMARY KEY (`doctor_id`),
   UNIQUE KEY `doctor_id_UNIQUE` (`doctor_id`),
   KEY `login1_idx` (`login`),
-  KEY `FK6mel46uabuewl4jxueybelvly` (`department_id`),
-  CONSTRAINT `FK6mel46uabuewl4jxueybelvly` FOREIGN KEY (`department_id`) REFERENCES `department_table` (`dept_id`),
+  KEY `FK6mel46uabuewl4jxueybelvly` (`dept_id`),
+  CONSTRAINT `FK6mel46uabuewl4jxueybelvly` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
   CONSTRAINT `login1` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -177,7 +174,7 @@ CREATE TABLE `doctor_table` (
 
 LOCK TABLES `doctor_table` WRITE;
 /*!40000 ALTER TABLE `doctor_table` DISABLE KEYS */;
-INSERT INTO `doctor_table` VALUES (1,'vikash','7894561235','mbbs','vikash11@',1,1,'vikash@gmail.com'),(2,'ram','8956231478','mbbs,md','ram11@',3,2,'ram@gmail.com'),(3,'ikash','7894561235','mbbs,pg','ikash11@',14,NULL,'ikas@gmail.com');
+INSERT INTO `doctor_table` VALUES (1,'vikash','7894561235','mbbs','vikash11@',1,1,'vikash@gmail.com',NULL),(2,'ram','8956231478','mbbs,md','ram11@',3,2,'ram@gmail.com',NULL),(3,'ikash','7894561235','mbbs,pg','ikash11@',14,3,'ikas@gmail.com',NULL),(4,'anita','8995689547','mbbs,pg','anita11@',17,4,'anita@gmail.com',NULL);
 /*!40000 ALTER TABLE `doctor_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,10 +189,10 @@ CREATE TABLE `login_table` (
   `login_id` int NOT NULL AUTO_INCREMENT,
   `password` varchar(15) NOT NULL,
   `role` varchar(20) NOT NULL,
-  `user_id` varchar(25) NOT NULL,
+  `user_id` varchar(55) NOT NULL,
   PRIMARY KEY (`login_id`),
   UNIQUE KEY `login_id_UNIQUE` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +201,7 @@ CREATE TABLE `login_table` (
 
 LOCK TABLES `login_table` WRITE;
 /*!40000 ALTER TABLE `login_table` DISABLE KEYS */;
-INSERT INTO `login_table` VALUES (1,'vikky11@','doctor','vikas@gmail.com'),(2,'sonal11@','Patient','sonal@gmail.com'),(3,'ram@11','doctor','ram@gmail.com'),(4,'rakesh11@','staff','rak@gmil.com'),(5,'harsh1@','staff','harsh@gmail'),(11,'suresh11@','patient','suresh11@gmail.com'),(12,'patient','resh11@','resh11@gmail.com'),(13,'resh11@','patient','resh11@gmail.com'),(14,'ikash11@','doctor','ikas@gmail.com'),(15,'kash11@','staff','kas@gmail.com'),(16,'kash11@','staff','kas@gmail.com');
+INSERT INTO `login_table` VALUES (1,'vikky11@','doctor','vikas@gmail.com'),(2,'sonal11@','Patient','sonal@gmail.com'),(3,'ram@11','doctor','ram@gmail.com'),(4,'rakesh11@','staff','rak@gmil.com'),(5,'harsh1@','staff','harsh@gmail'),(11,'suresh11@','patient','suresh11@gmail.com'),(12,'patient','resh11@','resh11@gmail.com'),(13,'resh11@','patient','resh11@gmail.com'),(14,'ikash11@','doctor','ikas@gmail.com'),(15,'kash11@','staff','kas@gmail.com'),(16,'kash11@','staff','kas@gmail.com'),(17,'anita11@','doctor','anita@gmail.com'),(18,'rakt122@','patient','rksgh@gmail.com'),(19,'amit12@','patient','amit@gmail.com'),(20,'amit12@','patient','amit@gmail.com'),(21,'amit12@','patient','dachospitalknowit@gmail.com'),(22,'hramit12@','patient','dachospitalknowit@gmail.com'),(23,'hrmt12@','patient','dachospitalknowit@gmail.com'),(24,'ddhrmt12@','patient','dachospitalknowit@gmail.com'),(25,'sumit12@','patient','dachospitalknowit@gmail.com'),(26,'nsumit12@','patient','dachospitalknowit@gmail.com'),(27,'nsumit12@','patient','dachospitalknowit@gmail.com'),(28,'ravi11@','staff','ravi@gmail.com'),(29,'aravi11@','staff','aravi@gmail.com'),(30,'1lalit122@','patient','1sgh@gmail.com'),(31,'1lalit122@','patient','g1sgh@gmail.com'),(32,'1lalit122@','patient','g1sgh@gmail.com'),(33,'1lalit122@','patient','g1sgh@gmail.com'),(34,'1lalit122@','patient','g1sgh@gmail.com');
 /*!40000 ALTER TABLE `login_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,12 +226,13 @@ CREATE TABLE `patient_table` (
   `form_fill` varchar(45) NOT NULL,
   `login` int NOT NULL,
   `password` varchar(15) NOT NULL,
-  `user_email` varchar(25) NOT NULL,
+  `user_email` varchar(55) NOT NULL,
+  `picture` tinyblob,
   PRIMARY KEY (`patient_id`),
   UNIQUE KEY `patient_id_UNIQUE` (`patient_id`),
   KEY `login_idx` (`login`),
   CONSTRAINT `loginid` FOREIGN KEY (`login`) REFERENCES `login_table` (`login_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -243,7 +241,7 @@ CREATE TABLE `patient_table` (
 
 LOCK TABLES `patient_table` WRITE;
 /*!40000 ALTER TABLE `patient_table` DISABLE KEYS */;
-INSERT INTO `patient_table` VALUES (1,'suresh','8958965889','2022-05-12','o+','nothing',126,65,'male','568956895','brother',1,'553354wew','sgh@gmail.com'),(9,'suresh','8958965889','2022-01-11','o+','nothing',126,65,'male','568956895','brother',11,'trhht','rgg@gmail.com'),(10,'resh','8958965889','2024-06-11','o+','nothing',126,65,'male','568956895','brother',12,'resh11@','resh11@gmail.com'),(11,'resh','8958965889','2024-06-11','o+','nothing',126,65,'male','568956895','brother',13,'resh11@','resh11@gmail.com');
+INSERT INTO `patient_table` VALUES (1,'lalit','8958965889','1994-01-24','o+','nothing',126,65,'male','568956895','brother',1,'lalit122@','sgh@gmail.com',NULL),(9,'suresh','8958965889','2022-01-11','o+','nothing',126,65,'male','568956895','brother',11,'trhht','rgg@gmail.com',NULL),(10,'resh','8958965889','2024-06-11','o+','nothing',126,65,'male','568956895','brother',12,'resh11@','resh11@gmail.com',NULL),(11,'resh','8958965889','2024-06-11','o+','nothing',126,65,'male','568956895','brother',13,'resh11@','resh11@gmail.com',NULL),(12,'rakesh','5889','1992-01-06','ab+','nothing',146,56,'male','568','brother',18,'rakt122@','rksgh@gmail.com',NULL),(13,'amit','845895889','1982-01-06','ab+','',172,85,'male','89574568','father',20,'amit12@','amit@gmail.com',NULL),(14,'raoamit','8895889','1962-01-06','b+','',162,95,'male','8974568','father',21,'amit12@','dachospitalknowit@gmail.com',NULL),(15,'hraoamit','89895889','1962-01-06','b+','',162,95,'male','98974568','father',22,'hramit12@','dachospitalknowit@gmail.com',NULL),(16,'hrmit','895889','1902-01-06','b+','',162,95,'male','974568','father',23,'hrmt12@','dachospitalknowit@gmail.com',NULL),(17,'ddhrmit','895889','1902-01-06','b+','',162,95,'male','974568','father',24,'ddhrmt12@','dachospitalknowit@gmail.com',NULL),(18,'sumit','789895889','1902-01-06','b+','',162,95,'male','789974568','father',25,'sumit12@','dachospitalknowit@gmail.com',NULL),(19,'newsumit','789895889','1902-01-06','b+','',162,95,'male','789974568','father',26,'nsumit12@','dachospitalknowit@gmail.com',NULL),(20,'newsumit','789895889','1902-01-06','b+','',162,95,'male','789974568','father',27,'nsumit12@','dachospitalknowit@gmail.com',NULL),(21,'lalit','8958965889','1996-06-23','o+','nothing',126,65,'male','568956895','brother',30,'1lalit122@','1sgh@gmail.com',NULL),(22,'glalit','8958965889','1996-06-23','o+','nothing',126,65,'male','568956895','brother',31,'1lalit122@','g1sgh@gmail.com',NULL),(23,'glalit','8958965889','1996-06-23','o+','nothing',126,65,'male','568956895','brother',32,'1lalit122@','g1sgh@gmail.com',NULL),(24,'glalit','8958965889','1996-06-23','o+','nothing',126,65,'male','568956895','brother',33,'1lalit122@','g1sgh@gmail.com',NULL),(25,'glalit','8958965889','1996-06-23','o+','nothing',126,65,'male','568956895','brother',34,'1lalit122@','g1sgh@gmail.com',NULL);
 /*!40000 ALTER TABLE `patient_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,13 +293,14 @@ CREATE TABLE `staff_table` (
   `login_id` int DEFAULT NULL,
   `password` varchar(15) NOT NULL,
   `user_email` varchar(25) NOT NULL,
+  `picture` tinyblob,
   PRIMARY KEY (`staff_id`),
   UNIQUE KEY `idDoctor table_UNIQUE` (`staff_id`),
   KEY `login_id_idx` (`login_id`),
   KEY `dept_id_idx` (`dept_id`),
   CONSTRAINT `dept_id` FOREIGN KEY (`dept_id`) REFERENCES `department_table` (`dept_id`),
   CONSTRAINT `login_id` FOREIGN KEY (`login_id`) REFERENCES `login_table` (`login_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,7 +309,7 @@ CREATE TABLE `staff_table` (
 
 LOCK TABLES `staff_table` WRITE;
 /*!40000 ALTER TABLE `staff_table` DISABLE KEYS */;
-INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','1996-05-15','2018-06-16',4,'helo','vikas@gmail.com'),(2,'rakesh',3,'male','7856123645','1995-02-23','2020-05-25',5,'byyy','rakesh11@gmail.com'),(3,'ikash',NULL,'male','7894561235','1996-05-01','2012-05-12',16,'kash11@','kas@gmail.com');
+INSERT INTO `staff_table` VALUES (1,'vikash',1,'male','8989565412','1996-05-15','2018-06-16',4,'helo','vikas@gmail.com',NULL),(2,'rakesh',3,'male','7856123645','1995-02-23','2020-05-25',5,'byyy','rakesh11@gmail.com',NULL),(3,'ikash',NULL,'male','7894561235','1996-05-01','2012-05-12',16,'kash11@','kas@gmail.com',NULL),(4,'ravi',NULL,'male','8989565412','1996-05-15','2018-06-16',28,'ravi11@','ravi@gmail.com',NULL),(5,'aravi',NULL,'male','8989565412','1996-05-15','2018-06-16',29,'aravi11@','aravi@gmail.com',NULL);
 /*!40000 ALTER TABLE `staff_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -323,4 +322,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-09-16 20:41:10
+-- Dump completed on 2022-09-21 15:30:46
