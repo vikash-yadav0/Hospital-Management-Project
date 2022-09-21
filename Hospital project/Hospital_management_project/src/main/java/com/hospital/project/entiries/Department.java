@@ -1,18 +1,13 @@
 package com.hospital.project.entiries;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="department_table")
@@ -27,11 +22,11 @@ public class Department {
 	@OneToMany(cascade = CascadeType.ALL)
 	Set<Doctor> doctor=new HashSet();
 	
-	@JsonIgnoreProperties("department")
+	/*@JsonIgnoreProperties("department")
 	@OneToMany(cascade = CascadeType.ALL)
-	Set<Admission> admission=new HashSet();
+	Set<Admission> admission=new HashSet();*/
 	
-	@JsonIgnoreProperties("department")
+	/*@JsonIgnoreProperties("department")
 	@OneToMany(cascade = CascadeType.ALL)
 	Set<Staff> staff=new HashSet();
 	
@@ -48,16 +43,16 @@ public class Department {
 		this.dept_name = dept_name;
 	}
 
-	/*public Department(int dept_id, String dept_name, Set<Doctor> doctor, Set<Admission> admission, Set<Staff> staff,
-			Set<BedMaster> bed) {
+	public Department(int dept_id, String dept_name, Set<Doctor> doctor,  Set<Staff> staff,
+			Set<BedMaster> bed, Set<Admission> admission) {
 		super();
 		this.dept_id = dept_id;
 		this.dept_name = dept_name;
-		this.doctor = doctor;
-		this.admission = admission;
-		this.staff = staff;
-		this.bed = bed;
-	}*/
+		//this.doctor = doctor;
+	//	this.admission = admission;
+		//this.staff = staff;
+	//	this.bed = bed;
+	}
 	
 	
 	public int getDept_id() {
@@ -77,19 +72,19 @@ public class Department {
 	public void setDept_name(String dept_name) {
 		this.dept_name = dept_name;
 	}
-/*	public Set<Doctor> getDoctor() {
+	/*public Set<Doctor> getDoctor() {
 		return doctor;
 	}
 	public void setDoctor(Set<Doctor> doctor) {
 		this.doctor = doctor;
-	}
-	public Set<Admission> getAdmission() {
-		return admission;
-	}
-	public void setAdmission(Set<Admission> admission) {
-		this.admission = admission;
-	}
-	public Set<Staff> getStaff() {
+	}*/
+	///public Set<Admission> getAdmission() {
+	//	return admission;
+	//}
+    //public void setAdmission(Set<Admission> admission) {
+	//	this.admission = admission;
+	//}
+/*	public Set<Staff> getStaff() {
 		return staff;
 	}
 	public void setStaff(Set<Staff> staff) {

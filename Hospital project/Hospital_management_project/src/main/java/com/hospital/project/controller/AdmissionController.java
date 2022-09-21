@@ -11,15 +11,35 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.project.entiries.Admission;
+import com.hospital.project.entiries.Department;
 import com.hospital.project.entiries.Doctor;
+import com.hospital.project.entiries.Patient;
+import com.hospital.project.entiries.AdmissionRegister;
+import com.hospital.project.entiries.BedMaster;
 import com.hospital.project.service.AdmissionService;
+import com.hospital.project.service.BedService;
+import com.hospital.project.service.DepartmentService;
 import com.hospital.project.service.DoctorService;
+import com.hospital.project.service.PatientService;
 @CrossOrigin(origins ="http://localhost:3000")
 @RestController
 public class AdmissionController {
 	
 	@Autowired
 	AdmissionService aservice;
+	
+	@Autowired
+	DoctorService dserv;
+		
+	@Autowired
+	PatientService pserv;
+	
+	
+	@Autowired
+	DepartmentService depserv;
+	
+	@Autowired
+	BedService bserv;
 	
 	@GetMapping("/alladmission")
 	public List<Admission> getAll()
@@ -28,9 +48,14 @@ public class AdmissionController {
 		
 	}
 	@PostMapping("/saveadmission")
-	public Admission SaveDoctor(@RequestBody Admission C)
+	public Admission saveAdmission(@RequestBody AdmissionRegister c)
 	{
-		return aservice.save(C);
+		Doctor d = dserv.getDoctor(c.getDoctor_id());
+		Patient p = pserv.getPatient(c.getPatient_id());
+		Department dep = depserv.getDepartment(c.getDept_id());
+		BedMaster bed=bserv.getBed(c.getBed_id());
+		Admission ad=new Admission(c.getAdmited_date(),p,bed,c.getStatus(),d,dep);
+		return aservice.save(ad);
 	}
 	@GetMapping("/getadmission")
 	public Admission getAdmission(@RequestParam("admission_id") int aid)

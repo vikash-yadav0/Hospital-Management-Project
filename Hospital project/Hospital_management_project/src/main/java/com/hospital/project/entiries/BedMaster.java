@@ -31,8 +31,11 @@ public class BedMaster {
 	@JoinColumn(name="dept_id")
 	Department department;
 	
-	@OneToOne(mappedBy = "bed")
+	@JsonIgnoreProperties("bed")
+	@OneToOne
+	@JoinColumn(name="bed_id")
 	Admission admission;
+	
 	
 	public BedMaster() {
 		super();

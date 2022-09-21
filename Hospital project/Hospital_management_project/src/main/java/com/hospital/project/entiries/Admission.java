@@ -22,8 +22,7 @@ public class Admission {
 
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
-int admission_id;
-	
+int admission_id;  
 @JsonFormat(pattern = "yyyy-mm-dd")
 @Column
 Date admited_date;
@@ -33,21 +32,21 @@ Date admited_date;
 @JoinColumn(name="patient_id")
 Patient patient;
 
-@JsonIgnoreProperties("department")
+@JsonIgnoreProperties({"department"})
 @OneToOne(cascade = CascadeType.ALL)
-@JoinColumn(name="bed_id")
+@JoinColumn(name="bed_id",insertable = false,updatable = false)
 BedMaster bed;
 
 @Column
 String status;
 
 @JsonIgnoreProperties({"admission","login"})
-@ManyToOne
+@OneToOne(cascade = CascadeType.ALL)
 @JoinColumn(name="doctor_id")
 Doctor doctor;
 
-@JsonIgnoreProperties("admission")
-@ManyToOne
+@JsonIgnoreProperties({"doctor","staff","bed","department","admission"})
+@ManyToOne(cascade = CascadeType.ALL)
 @JoinColumn(name="dept_id")
 Department department;
 
@@ -63,7 +62,7 @@ public Admission() {
 }
 
 public Admission(int admission_id, Date admited_date, Patient patient, BedMaster bed, String status, Doctor doctor,
-		Department department, Staff staff) {
+		Department department) {
 	super();
 	this.admission_id = admission_id;
 	this.admited_date = admited_date;
@@ -72,12 +71,11 @@ public Admission(int admission_id, Date admited_date, Patient patient, BedMaster
 	this.status = status;
 	this.doctor = doctor;
 	this.department = department;
-	this.staff = staff;
+	//this.staff = staff;
 	
 }
 
-public Admission(Date admited_date, Patient patient, BedMaster bed, String status, Doctor doctor, Department department,
-		Staff staff) {
+public Admission(Date admited_date, Patient patient, BedMaster bed, String status, Doctor doctor, Department department) {
 	super();
 	this.admited_date = admited_date;
 	this.patient = patient;
@@ -85,7 +83,7 @@ public Admission(Date admited_date, Patient patient, BedMaster bed, String statu
 	this.status = status;
 	this.doctor = doctor;
 	this.department = department;
-	this.staff = staff;
+	//this.staff = staff;
 }
 
 public int getAdmission_id() {
@@ -144,21 +142,20 @@ public void setDepartment(Department department) {
 	this.department = department;
 }
 
-public Staff getStaff() {
+/*public Staff getStaff() {
 	return staff;
 }
 
 public void setStaff(Staff staff) {
 	this.staff = staff;
-}
+}*/
 
 
 
 @Override
 public String toString() {
 	return "Admission [admission_id=" + admission_id + ", admited_date=" + admited_date + ", patient=" + patient
-			+ ", bed=" + bed + ", status=" + status + ", doctor=" + doctor + ", department=" + department + ", staff="
-			+ staff + "]";
+			+ ", bed=" + bed + ", status=" + status + ", doctor=" + doctor + ", department=" + department + ", staff="+"]";
 }
 
 

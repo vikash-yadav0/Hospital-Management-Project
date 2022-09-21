@@ -1,12 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-import Register from './Registerition';
+import AcceptName from './test/AcceptName';
+import EmpForm from './test/AcceptName';
+import DynamicStyling from './test/AcceptName';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/*<img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,10 +19,11 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
-    
+  </a>
+        <AcceptName/>
+        <EmpForm/>*/}
+        <DynamicStyling/>
       </header>
-      <Register/>
     </div>
   );
 }
