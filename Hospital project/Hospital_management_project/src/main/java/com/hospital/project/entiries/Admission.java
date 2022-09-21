@@ -50,10 +50,6 @@ Doctor doctor;
 @JoinColumn(name="dept_id")
 Department department;
 
-@JsonIgnoreProperties({"login","admission"})
-@ManyToOne
-@JoinColumn(name="staff_id")
-Staff staff;
 
 
 
@@ -142,20 +138,12 @@ public void setDepartment(Department department) {
 	this.department = department;
 }
 
-/*public Staff getStaff() {
-	return staff;
-}
-
-public void setStaff(Staff staff) {
-	this.staff = staff;
-}*/
-
 
 
 @Override
 public String toString() {
 	return "Admission [admission_id=" + admission_id + ", admited_date=" + admited_date + ", patient=" + patient
-			+ ", bed=" + bed + ", status=" + status + ", doctor=" + doctor + ", department=" + department + ", staff="+"]";
+			+ ", bed=" + bed + ", status=" + status + ", doctor=" + doctor + ", department=" + department +"]";
 }
 
 

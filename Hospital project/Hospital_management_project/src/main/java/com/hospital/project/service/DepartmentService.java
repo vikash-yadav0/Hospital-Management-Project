@@ -4,14 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hospital.project.entiries.Department;
+import com.hospital.project.repositry.DepartmentReprository;
 @Service
 public class DepartmentService {
 	@Autowired
-	DepartmentService deprepo;
+	DepartmentReprository deprepo;
 	
 	public Department getDepartment(int did) {
 		
-		return deprepo.getDepartment(did);
+		return deprepo.findById(did).get();
 	}
 
 	

@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.project.entiries.Login;
 
-@RestController
+@Repository
 public interface LoginReprositry extends JpaRepository<Login,Integer>{
 	
 	//@Query("select l.role , l.login_id  from Login l where user_id=:uid and password=:pwd")
