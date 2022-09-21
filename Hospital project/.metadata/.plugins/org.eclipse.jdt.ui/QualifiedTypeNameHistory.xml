@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.example.demo.Service.HospitalService"/>
-    <fullyQualifiedTypeName name="com.example.demo.repositry.HospitalRepository"/>
-    <fullyQualifiedTypeName name="com.example.demo.entiries.Doctor"/>
     <fullyQualifiedTypeName name="com.hospital.entiries.Doctor"/>
     <fullyQualifiedTypeName name="com.hospital.entiries.Patient"/>
     <fullyQualifiedTypeName name="com.hospital.project.repositry.HospitalRepositorye"/>
@@ -16,7 +13,6 @@
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
     <fullyQualifiedTypeName name="com.hospital.project.repositry.RegistrationReprository"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.PatientRegister"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
@@ -32,14 +28,11 @@
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Register"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Login"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Staff"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
-    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
-    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.admissionRegister"/>
@@ -49,15 +42,22 @@
     <fullyQualifiedTypeName name="com.hospital.project.service.DepartmentService"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Department"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Doctor"/>
-    <fullyQualifiedTypeName name="com.hospital.project.entiries.Admission"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="com.hospital.project.repositry.BedReprository"/>
     <fullyQualifiedTypeName name="com.hospital.project.controller.BedController"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="com.hospital.project.repositry.DepartmentReprository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.hospital.project.entiries.Admission"/>
+    <fullyQualifiedTypeName name="com.hospital.project.entiries.BillingSave"/>
+    <fullyQualifiedTypeName name="com.hospital.project.entiries.Billing"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.BedMaster"/>
     <fullyQualifiedTypeName name="com.hospital.project.service.BedService"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 </qualifiedTypeNameHistroy>

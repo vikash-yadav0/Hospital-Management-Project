@@ -7,10 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="billing_table")
@@ -20,10 +18,11 @@ public class Billing {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	int billing_id;
 	
-	@JsonIgnoreProperties({"bed","department"})
-	@OneToOne(cascade = CascadeType.ALL)
+	//@JsonIgnoreProperties({"bed","department"})
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="Admission_id")
 	Admission admission;
+	
 	@Column
 	double test_cost;
 	@Column
