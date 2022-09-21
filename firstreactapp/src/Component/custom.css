@@ -1,0 +1,40 @@
+.imag{
+    background-image:url("./doc.jpg");
+    background-size: cover ;
+    background-position:center ;
+    background-repeat:no-repeat;
+}
+.mm{
+    background-image:url("./pat.jpg");
+    background-repeat:no-repeat;
+    background-size: cover ;
+}
+
+Col{
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    height: 50vh;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.one{
+    background-image:url("");
+}
+.two{
+    background-image:url("");
+}
+.three{
+    background-image:url("./doclist.jpeg");
+}
+.four{
+    background-image:url("");
+}
+.five{
+    background-image:url("");
+}
+.six{
+    background-image:url("");
+}
