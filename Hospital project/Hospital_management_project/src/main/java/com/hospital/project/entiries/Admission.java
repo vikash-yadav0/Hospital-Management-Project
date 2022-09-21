@@ -34,7 +34,7 @@ Patient patient;
 
 @JsonIgnoreProperties({"department"})
 @OneToOne(cascade = CascadeType.ALL)
-@JoinColumn(name="bed_id",insertable = false,updatable = false)
+@JoinColumn(name="bed_id")
 BedMaster bed;
 
 @Column
