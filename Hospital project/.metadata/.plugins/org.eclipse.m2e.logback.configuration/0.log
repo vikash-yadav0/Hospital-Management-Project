@@ -9646,3 +9646,4 @@ java.util.ConcurrentModificationException: null
 2022-09-21 19:19:40,989 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-09-21 19:19:40,989 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-09-21 19:19:40,989 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\lalit kumar\Downloads\KnowIT_Project\BackEnd\Connect_To_Your_Doctor\src\test\resources
+2022-09-21 20:58:06,810 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
