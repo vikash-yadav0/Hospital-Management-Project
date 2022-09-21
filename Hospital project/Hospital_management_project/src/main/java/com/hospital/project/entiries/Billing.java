@@ -25,37 +25,37 @@ public class Billing {
 	@JoinColumn(name="Admission_id")
 	Admission admission;
 	@Column
-	Double test_cost;
+	double test_cost;
 	@Column
-	Double medicine_cost;
-	@OneToOne
-	@JoinColumn(name="bed_id")
-	BedMaster bed;
+	double medicine_cost;
 	@Column
-	int consultation_fees;
+	double consultation_fees;
 	
 	
 	public Billing() {
 		super();
 	}
 	
-	public Billing(Admission admission, Double test_cost, Double medicine_cost, BedMaster bed, int consultation_fees) {
+	
+
+	public Billing(Admission admission, double test_cost, double medicine_cost,double consultation_fees) {
 		super();
 		this.admission = admission;
 		this.test_cost = test_cost;
 		this.medicine_cost = medicine_cost;
-		this.bed = bed;
+		//this.bed = bed;
 		this.consultation_fees = consultation_fees;
 	}
 
-	public Billing(int billing_id, Admission admission, Double test_cost, Double medicine_cost, BedMaster bed,
-			int consultation_fees) {
+
+
+	public Billing(int billing_id, Admission admission, double test_cost, double medicine_cost,double consultation_fees) {
 		super();
 		this.billing_id = billing_id;
 		this.admission = admission;
 		this.test_cost = test_cost;
 		this.medicine_cost = medicine_cost;
-		this.bed = bed;
+		//this.bed = bed;
 		this.consultation_fees = consultation_fees;
 	}
 
@@ -67,13 +67,6 @@ public class Billing {
 		this.admission = admission;
 	}
 
-	public BedMaster getBed() {
-		return bed;
-	}
-
-	public void setBed(BedMaster bed) {
-		this.bed = bed;
-	}
 
 	public int getBilling_id() {
 		return billing_id;
@@ -82,30 +75,30 @@ public class Billing {
 		this.billing_id = billing_id;
 	}
 	
-	public Double getTest_cost() {
+	public double getTest_cost() {
 		return test_cost;
 	}
-	public void setTest_cost(Double test_cost) {
+	public void setTest_cost(double test_cost) {
 		this.test_cost = test_cost;
 	}
-	public Double getMedicine_cost() {
+	public double getMedicine_cost() {
 		return medicine_cost;
 	}
-	public void setMedicine_cost(Double medicine_cost) {
+	public void setMedicine_cost(double medicine_cost) {
 		this.medicine_cost = medicine_cost;
 	}
 	
-	public int getConsultation_fees() {
+	public double getConsultation_fees() {
 		return consultation_fees;
 	}
-	public void setConsultation_fees(int consultation_fees) {
+	public void setConsultation_fees(double consultation_fees) {
 		this.consultation_fees = consultation_fees;
 	}
 
 	@Override
 	public String toString() {
 		return "Billing [billing_id=" + billing_id + ", admission=" + admission + ", test_cost=" + test_cost
-				+ ", medicine_cost=" + medicine_cost + ", bed=" + bed + ", consultation_fees=" + consultation_fees
+				+ ", medicine_cost=" + medicine_cost + ", consultation_fees=" + consultation_fees
 				+ "]";
 	}
 		

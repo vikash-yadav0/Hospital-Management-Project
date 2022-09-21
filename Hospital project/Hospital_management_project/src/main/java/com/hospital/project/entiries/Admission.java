@@ -37,9 +37,6 @@ Patient patient;
 @JoinColumn(name="bed_id")
 BedMaster bed;
 
-@Column
-String status;
-
 @JsonIgnoreProperties({"admission","login"})
 @OneToOne(cascade = CascadeType.ALL)
 @JoinColumn(name="doctor_id")
@@ -57,26 +54,26 @@ public Admission() {
 	super();
 }
 
-public Admission(int admission_id, Date admited_date, Patient patient, BedMaster bed, String status, Doctor doctor,
+public Admission(int admission_id, Date admited_date, Patient patient, BedMaster bed, Doctor doctor,
 		Department department) {
 	super();
 	this.admission_id = admission_id;
 	this.admited_date = admited_date;
 	this.patient = patient;
 	this.bed = bed;
-	this.status = status;
+	//this.status = status;
 	this.doctor = doctor;
 	this.department = department;
 	//this.staff = staff;
 	
 }
 
-public Admission(Date admited_date, Patient patient, BedMaster bed, String status, Doctor doctor, Department department) {
+public Admission(Date admited_date, Patient patient, BedMaster bed, Doctor doctor, Department department) {
 	super();
 	this.admited_date = admited_date;
 	this.patient = patient;
 	this.bed = bed;
-	this.status = status;
+
 	this.doctor = doctor;
 	this.department = department;
 	//this.staff = staff;
@@ -114,14 +111,6 @@ public void setBed(BedMaster bed) {
 	this.bed = bed;
 }
 
-public String getStatus() {
-	return status;
-}
-
-public void setStatus(String status) {
-	this.status = status;
-}
-
 public Doctor getDoctor() {
 	return doctor;
 }
@@ -143,7 +132,7 @@ public void setDepartment(Department department) {
 @Override
 public String toString() {
 	return "Admission [admission_id=" + admission_id + ", admited_date=" + admited_date + ", patient=" + patient
-			+ ", bed=" + bed + ", status=" + status + ", doctor=" + doctor + ", department=" + department +"]";
+			+ ", bed=" + bed + ", doctor=" + doctor + ", department=" + department +"]";
 }
 
 

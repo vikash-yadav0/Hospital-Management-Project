@@ -7,7 +7,7 @@ public class AdmissionRegister {
 	Date admited_date;
      int patient_id;         
      int bed_id;    
-     String status;
+     
      int doctor_id;
      int dept_id;
 	public Date getAdmited_date() {
@@ -28,12 +28,7 @@ public class AdmissionRegister {
 	public void setBed_id(int bed_id) {
 		this.bed_id = bed_id;
 	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+	
 	public int getDoctor_id() {
 		return doctor_id;
 	}
