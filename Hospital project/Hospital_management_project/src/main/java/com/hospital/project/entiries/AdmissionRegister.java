@@ -6,8 +6,7 @@ public class AdmissionRegister {
 	
 	Date admited_date;
      int patient_id;         
-     int bed_id;    
-     
+     int bed_id; 
      int doctor_id;
      int dept_id;
 	public Date getAdmited_date() {

@@ -47,6 +47,11 @@ public class AdmissionController {
 		return aservice.getAll();
 		
 	}
+	@PostMapping("/cancelAdmission")
+	public boolean cancelAdmission(@RequestParam("admission_id") int a) {
+		return aservice.cancelAdmission(a);
+	}
+	
 	@PostMapping("/saveadmission")
 	public Admission saveAdmission(@RequestBody AdmissionRegister c)
 	{
@@ -56,6 +61,16 @@ public class AdmissionController {
 		BedMaster bed=bserv.getBed(c.getBed_id());
 		Admission ad=new Admission(c.getAdmited_date(),p,bed,d,dep);
 		return aservice.save(ad);
+	}
+	@PostMapping("/updateadmission")
+	public Admission updateAdmission(@RequestBody AdmissionRegister c,@RequestParam("admission_id") int aid )
+	{
+		/*Doctor d = dserv.getDoctor(c.getDoctor_id());
+		Patient p = pserv.getPatient(c.getPatient_id());
+		Department dep = depserv.getDepartment(c.getDept_id());
+		BedMaster bed=bserv.getBed(c.getBed_id());
+		Admission ad=new Admission(c.getAdmited_date(),p,bed,d,dep);*/
+		return aservice.updateAdmission(c,aid);
 	}
 	@GetMapping("/getadmission")
 	public Admission getAdmission(@RequestParam("admission_id") int aid)

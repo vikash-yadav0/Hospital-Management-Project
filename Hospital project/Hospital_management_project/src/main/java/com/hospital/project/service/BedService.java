@@ -1,5 +1,7 @@
 package com.hospital.project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,10 @@ public class BedService {
 	public BedMaster getBed(int bid) {
 		
 		return brepo.findById(bid).get();
+	}
+
+	public List<BedMaster> getAll() {
+		
+		return brepo.findAll();
 	}
 }
