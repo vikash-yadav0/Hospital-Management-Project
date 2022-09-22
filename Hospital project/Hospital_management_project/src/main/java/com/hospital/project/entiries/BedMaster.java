@@ -78,8 +78,8 @@ public class BedMaster {
 	public String getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public String setStatus(String status) {
+		return this.status = status;
 	}
 	public Department getDepartment() {
 		return department;

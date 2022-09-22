@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,11 +37,13 @@ public class BillingController {
 	}
 	
 	@PostMapping("/savebill")
-	public Billing saveBilling (BillingSave bs)
+	public Billing saveBilling (@RequestBody BillingSave bs)
 	{
 		Admission a=aservice.getAdmission(bs.getAdmission_id());
-		//BedMaster bm=beser.getBed(bs.getBed_id());
-		Billing b=new Billing(a,bs.getTest_cost(),bs.getMedicine_cost(),bs.getConsultation_fees());
+		int bed=a.getBed().getBed_id();
+		BedMaster bm=beser.getBed(bed);
+		String status=bm.setStatus(bs.getBed_Status());
+		Billing b=new Billing(a,bs.getTest_cost(),bs.getMedicine_cost(),bs.getConsultation_fees(),bs.getPayment_status(),bs.getDischarge_date(),status);
 		return bser.savebill(b);
 	}
 	@GetMapping("/getbill")
