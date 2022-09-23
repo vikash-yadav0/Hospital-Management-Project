@@ -29,6 +29,18 @@ public class BedController {
 		return bserv.getAll();
 		
 	}
+	@GetMapping("/bookedbed")
+	public List<BedMaster> BookedBed()
+	{
+		return bserv.BedBooked();
+		
+	}
+	@GetMapping("/avaliablebed")
+	public List<BedMaster> Bedavaliable()
+	{
+		return bserv.Bedavaliable();
+		
+	}
 	
 
 }

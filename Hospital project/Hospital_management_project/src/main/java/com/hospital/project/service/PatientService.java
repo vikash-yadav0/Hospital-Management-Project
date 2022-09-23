@@ -48,7 +48,6 @@ public class PatientService {
 		p.setPatient_height(pa.getPatient_height());
 		p.setPatient_history(pa.getPatient_history());
 		p.setPatient_weight(pa.getPatient_weight());
-		//p.setLogin.(pa.getLogin().getPassword(),pa.getLogin().getUser_id());
 		
 		return prepo.save(p);
 	}

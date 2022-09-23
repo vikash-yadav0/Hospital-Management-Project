@@ -1,6 +1,5 @@
 package com.hospital.project.service;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.hospital.project.entiries.Admission;
 import com.hospital.project.entiries.AdmissionRegister;
-import com.hospital.project.entiries.Doctor;
-import com.hospital.project.entiries.Patient;
 import com.hospital.project.repositry.AdmissionReprository;
+import com.hospital.project.repositry.BedReprository;
+import com.hospital.project.repositry.DepartmentReprository;
+import com.hospital.project.repositry.DoctorRepository;
 import com.hospital.project.repositry.PatientRepository;
 @Service
 public class AdmissionService {
@@ -19,6 +19,15 @@ public class AdmissionService {
 	
 	@Autowired
 	PatientRepository prepo;
+	
+	@Autowired
+	DoctorRepository drepo;
+	
+	@Autowired
+	BedReprository brepo;
+	
+	@Autowired
+	DepartmentReprository deprepo;
 	
 	public List<Admission> getAll()
 	{
@@ -46,11 +55,11 @@ public class AdmissionService {
 	public Admission updateAdmission(AdmissionRegister c, int aid) {
 		
 		Admission ad=arepo.findById(aid).get();
-		ad.setAdmited_date(c.getAdmited_date());
-	/*	ad.setPatient();
-		ad.setDoctor(c.getDoctor_id());
-		ad.setBed(c.getBed_id());
-		ad.setDepartment(c.getDept_id());*/
+		ad.setAdmited_date(c.getAdmited_date());		
+		ad.setPatient(prepo.findById(c.getPatient_id()).get());
+		ad.setDoctor(drepo.findById(c.getDoctor_id()).get());
+		ad.setBed(brepo.findById(c.getBed_id()).get());
+		ad.setDepartment(deprepo.findById(c.getDept_id()).get()); 
 		return arepo.save(ad);
 		
 	}

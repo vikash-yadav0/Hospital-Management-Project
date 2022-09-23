@@ -65,11 +65,7 @@ public class AdmissionController {
 	@PostMapping("/updateadmission")
 	public Admission updateAdmission(@RequestBody AdmissionRegister c,@RequestParam("admission_id") int aid )
 	{
-		/*Doctor d = dserv.getDoctor(c.getDoctor_id());
-		Patient p = pserv.getPatient(c.getPatient_id());
-		Department dep = depserv.getDepartment(c.getDept_id());
-		BedMaster bed=bserv.getBed(c.getBed_id());
-		Admission ad=new Admission(c.getAdmited_date(),p,bed,d,dep);*/
+		
 		return aservice.updateAdmission(c,aid);
 	}
 	@GetMapping("/getadmission")

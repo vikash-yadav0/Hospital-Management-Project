@@ -33,9 +33,6 @@ public class DoctorService {
 		d.setDoctor_contact(da.getDoctor_contact());
 		d.setQualifications(da.getQualifications());
 		
-		/*Login l=lrepo.getById(pa.getLogin()).get();
-		l.setPassword(pa.getPassword());
-		l.setUser_id(pa.getUser_email());*/
 		return drepo.save(d);
 	}
 	

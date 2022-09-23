@@ -24,4 +24,12 @@ public class BedService {
 		
 		return brepo.findAll();
 	}
+   public List<BedMaster> Bedavaliable() {
+		
+		return brepo.BedAvaliable();
+	}
+   public List<BedMaster> BedBooked() {
+	
+	return brepo.BedBooked();
+}
 }
