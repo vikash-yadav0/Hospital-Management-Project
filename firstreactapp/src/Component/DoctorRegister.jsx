@@ -61,7 +61,9 @@ let DoctorRegister = () => {
   useEffect(() => {
     fetch("http://localhost:8080/alldept")
       .then((resp) => resp.json())
-      .then((data) => setdept(data));
+      .then((data) => {
+        console.log('dept',data)
+        setdept(data)});
   }, []);
   async function handleSubmit(event) {
     event.preventDefault();
@@ -131,7 +133,7 @@ let DoctorRegister = () => {
               <br></br>
               <h1>Registration Form</h1>
               <div className="mb-3 ">
-                <label htmlFor="user_email" class="form-label">
+                <label htmlFor="user_email" className="form-label">
                   Doctor Email :
                 </label>
                 <input
@@ -145,7 +147,7 @@ let DoctorRegister = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="doctor_name" class="form-label">
+                <label htmlFor="doctor_name" className="form-label">
                   Doctor Name :
                 </label>
                 <input
@@ -159,7 +161,7 @@ let DoctorRegister = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="doctor_contact" class="form-label">
+                <label htmlFor="doctor_contact" className="form-label">
                   Doctor Contact :
                 </label>
                 <input
@@ -173,7 +175,7 @@ let DoctorRegister = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="qualifications" class="form-label">
+                <label htmlFor="qualifications" className="form-label">
                   Qualifications :
                 </label>
                 <input
@@ -187,7 +189,7 @@ let DoctorRegister = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="password" class="form-label">
+                <label htmlFor="password" className="form-label">
                   Password :
                 </label>
                 <input
@@ -201,20 +203,20 @@ let DoctorRegister = () => {
                 />
               </div>
               <div className="mb-3">
-                <label htmlFor="Dept" class="form-label">
+                <label htmlFor="Dept" className="form-label">
                   Department :
                 </label>
                 <select
                   name="deprt_id"
                   onChange={(e) => {
                     setdept_id(e.target.value);
-                  }}
-                >
-                  this.state.dept.map(
-                  {(dept) => {
-                    <option value={dept.dept_id}>{dept.dept_name}</option>;
-                  }}
-                  )
+                  }}>
+                    <option value='Select'>Select...</option>
+                 { dept.map(
+                  (el) => {
+                  return  <option value={el.dept_id}>{el.dept_name}</option>;
+                  }
+                  )}
                 </select>
               </div>
               <button type="submit" className="btn btn-primary">

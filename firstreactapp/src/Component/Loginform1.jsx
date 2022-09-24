@@ -166,9 +166,9 @@ function Login() {
 
 export default Login;
 {
-  /*<div class="col-md-4">
-    <label for="inputState" class="form-label">Role</label>
-    <select id="inputState" class="form-select">
+  /*<div className="col-md-4">
+    <label for="inputState" className="form-label">Role</label>
+    <select id="inputState" className="form-select">
       <option selected>Admin</option>
       <option>Doctor</option>
       <option>Patient</option>

@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./css/style11.css";
+import Blogo from './NavBar'
+
 
 function ViewDoctor() {
   const [myData, setMyData] = useState([]);
@@ -17,10 +19,7 @@ function ViewDoctor() {
     <div className="container">
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand" onClick={() => navigate("/Landing")}>
-            <img src="./images/logo.png" className="img-thumbnail" />
-            Meditrina Hospital
-          </a>
+        <Blogo/>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -50,7 +49,7 @@ function ViewDoctor() {
       </nav>
 
       <div className="pt-4">
-        <button type="button" class=" btn btn-success btn-lg">
+        <button type="button" className=" btn btn-success btn-lg">
           Doctor List
         </button>
         <table className="table">

@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import "../Component/css/style5.css";
 import { useNavigate } from "react-router-dom";
+import Blogo from "./NavBar";
 
 //import { NavLink } from "react-router-dom";
 
@@ -12,9 +13,7 @@ let Admin = () => {
       <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
-            <a className=" navbar-brand" onClick={() => navigate("/Landing")}>
-              Meditrina Hospital
-            </a>
+            <Blogo />
 
             <div
               className="collapse navbar-collapse"

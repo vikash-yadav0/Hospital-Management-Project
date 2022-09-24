@@ -12,7 +12,7 @@ import com.hospital.project.entiries.Department;
 import com.hospital.project.entiries.Doctor;
 import com.hospital.project.service.DepartmentService;
 
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class DepartmentController {
 

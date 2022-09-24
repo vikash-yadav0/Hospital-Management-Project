@@ -97,9 +97,9 @@ function Register() {
             </div>
           </div>
         </nav>
-        <div class="registeresdpatient">
+        <div className="registeresdpatient">
           <div className="register-container-fluid">
-            <div class="container card w-50 ">
+            <div className="container card w-50 ">
               <form className="register-form" onSubmit={handleSubmit}>
                 <br></br>
                 <h1>Registration Form</h1>

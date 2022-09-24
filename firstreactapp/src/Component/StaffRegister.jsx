@@ -40,7 +40,7 @@ function StaffRegister() {
     }
   }
   return (
-    <div class="registeresdstaff">
+    <div className="registeresdstaff">
       <div className="register-container">
         <form className="register-form" onSubmit={handleSubmit}>
           <br></br>
