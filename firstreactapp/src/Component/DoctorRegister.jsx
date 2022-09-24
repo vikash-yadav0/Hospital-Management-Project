@@ -5,6 +5,7 @@ import "./css/style8.css";
 import { useNavigate } from "react-router-dom";
 import { ConstructionRounded } from "@mui/icons-material";
 import { render } from "@testing-library/react";
+import Blogo from "./NavBar";
 
 {
   /*class DoctorRegist extends React.Component {
@@ -62,7 +63,6 @@ let DoctorRegister = () => {
     fetch("http://localhost:8080/alldept")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log('dept',data)
         setdept(data)});
   }, []);
   async function handleSubmit(event) {
@@ -93,9 +93,7 @@ let DoctorRegister = () => {
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand" onClick={() => navigate("/Landing")}>
-            Meditrina Hospital
-          </a>
+         <Blogo/>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -123,6 +121,7 @@ let DoctorRegister = () => {
           </div>
         </div>
       </nav>
+      <div className="container"></div>
       <div className="registeresd pt-5">
         <div className="register-container">
           <div className="container card w-50 ">

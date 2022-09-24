@@ -2,8 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
-import "./css/style9.css";
+//import "./css/style9.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "./NavBar/footer";
+import Blogo from "./NavBar";
 
 function Register() {
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ function Register() {
   const [user_email, setuser_email] = useState("");
   const [patient_contact1, setpatient_contact1] = useState("");
   const [patient_contact2, setpatient_contact2] = useState("");
-  // const[role,setrole]                          =useState("");
+
   const [patient_bdate, setpatient_bdate] = useState("");
   const [password, setpassword] = useState("");
   const [patient_bloodgroup, setpatient_bloodgroup] = useState("");
@@ -64,9 +66,7 @@ function Register() {
       <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
-            <a className="navbar-brand" onClick={() => navigate("/Landing")}>
-              Meditrina Hospital
-            </a>
+            <Blogo/>
 
             <div
               className="collapse navbar-collapse"
@@ -74,19 +74,15 @@ function Register() {
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <button
-                    type="button"
-                    className="btn btn-success me-md-2"
-                    aria-current="page"
-                    onClick={() => navigate("/login")}
-                  >
+                  <button type="button" className="btn btn-light me-md-2" aria-current="page"
+                    onClick={() => navigate("/login")} >
                     Login
                   </button>
                 </li>
                 <li className="nav-item">
                   <button
                     type="button"
-                    className="btn btn-danger me-md-2"
+                    className="btn btn-light me-md-2"
                     aria-current="page"
                     onClick={() => navigate("/patientregister")}
                   >
@@ -97,7 +93,7 @@ function Register() {
             </div>
           </div>
         </nav>
-        <div className="registeresdpatient">
+        <div className="registeresdpatient pt-4 pb-4">
           <div className="register-container-fluid">
             <div className="container card w-50 ">
               <form className="register-form" onSubmit={handleSubmit}>
@@ -108,7 +104,7 @@ function Register() {
                 <Row>
                   <Col className="md-5">
                     <label>
-                      <b>Enter Name:</b>{" "}
+                      <b>Enter Name:</b>
                     </label>
                     <input
                       type="text"
@@ -132,8 +128,7 @@ function Register() {
                       autoComplete="off"
                       onChange={(event) => {
                         setuser_email(event.target.value);
-                      }}
-                    />
+                      }} />
                   </Col>
                 </Row>
                 <br />
@@ -141,7 +136,7 @@ function Register() {
                 <Row>
                   <Col className="md-5">
                     <label>
-                      <b>Contact :</b>{" "}
+                      <b>Contact :</b>
                     </label>
                     <input
                       type="text"
@@ -155,7 +150,7 @@ function Register() {
                   </Col>
                   <Col className="md-5">
                     <label>
-                      <b>Contact 2: </b>
+                      <b>Contact : </b>
                     </label>
                     <input
                       type="text"
@@ -173,7 +168,7 @@ function Register() {
                 <Row>
                   <Col className="md-5">
                     <label>
-                      <b>Birth Date :</b>
+                      <b>Birth   Date :</b>
                     </label>
                     <input
                       type="date"
@@ -239,7 +234,7 @@ function Register() {
                     <input
                       type="text"
                       name="patient_height"
-                      placeholder="Height"
+                      placeholder="Height (cm)"
                       autoComplete="off"
                       onChange={(event) => {
                         setpatient_height(event.target.value);
@@ -253,7 +248,7 @@ function Register() {
                     <input
                       type="text"
                       name="patient_weight"
-                      placeholder="Weight"
+                      placeholder="Weight(kg)"
                       autoComplete="off"
                       onChange={(event) => {
                         setpatient_weight(event.target.value);
@@ -268,16 +263,14 @@ function Register() {
                       <label for="patient_gender">Gender : </label>
                     </b>
                     <input
-                      type="radio"
-                      name="patient_gender"
-                      id="patient_gender"
-                    />{" "}
+                      type="radio" value="male" name="patient_gender" id="patient_gender" onChange={(event) => {
+                        setpatient_gender(event.target.value);
+                      }} />
                     Male
                     <input
-                      type="radio"
-                      name="patient_gender"
-                      id="patient_gender"
-                    />{" "}
+                      type="radio" value="female" name="patient_gender" id="patient_gender" onChange={(event) => {
+                        setpatient_gender(event.target.value);
+                      }} />
                     Female
                   </Col>
                   <Col className="md-5">
@@ -306,7 +299,43 @@ function Register() {
           </div>
         </div>
       </div>
-    </div>
+      <div className="Container my-4">
+        <footer className="py-6 " >
+          <ul className="nav justify-content-center  bg-primary ">
+            <li className="nav-item">
+              <a
+                onClick={() => navigate("/Landing")}
+                className="nav-link px-2 text-light"
+              >
+                Home
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link px-2 text-light">
+                Features
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link px-2 text-light">
+                Pricing
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link px-2 text-light">
+                FAQs
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="#" className="nav-link px-2 text-light">
+                About
+              </a>
+            </li>
+          </ul>
+          <p className="text-center  bg-primary text-light">
+            © 2022 Company, Inc
+          </p>
+        </footer>
+      </div></div>
   );
 }
 

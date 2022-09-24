@@ -37,74 +37,7 @@ const Landing = () => {
           </div>
         </div>
       </nav>
-      {/* <div className="main-header">
-        <div className="wrap">
-          <div className="logo ">
-            <a>
-              <img
-                src="https://source.unsplash.com/50x50/?symbol"
-                className=""
-                title="logo"
-                alt="logo"
-              />
-            </a>
-
-            <p>
-              <marquee
-                behavior="scroll"
-                direction="left"
-                onmousedown="this.stop();"
-                onmouseup="this.start();"
-              >
-                {" "}
-                ISO 9001 : 2008 Certified Institution
-              </marquee>
-            </p>
-
-            <p>
-              <marquee
-                behavior="scroll"
-                direction="left"
-                onmouseover="this.stop();"
-                onmouseout="this.start();"
-              >
-                <span className="color-blink-text">
-                  <a
-                    className="color-blink-text"
-                    href="images/Ad/Hospital.pdf"
-                    target="_blank"
-                  >
-                    <img
-                      src="https://source.unsplash.com/50x50/?symbol,hospital"
-                      title="arrow"
-                      alt="arrow"
-                    />
-                    Amendment in Prospectus of School(Lab & X-ray): Point no 1
-                    of selection criteria has been removed.
-                  </a>
-                </span>
-              </marquee>
-            </p>
-          </div>
-
-          <div className="social-links">
-            <ul>
-              <li>
-                <a href="#">
-                  <img src="./images/NABH-logo.png" title="NABH" alt="NABH" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="./images/NABL-logo.png" title="NABL" alt="NABL" />
-                </a>
-              </li>
-              <div className="clear"> </div>
-            </ul>
-          </div>
-          <div className="clear"> </div>
-        </div>
-      </div> */}
+    
       <div
         id="carouselExampleCaptions"
         className="carousel slide carousel-fade"
@@ -135,7 +68,7 @@ const Landing = () => {
         <div className="carousel-inner">
           <div className="carousel-item  active">
             <img
-              src="https://source.unsplash.com/600x300/?hospital"
+              src="https://source.unsplash.com/1000x300/?hospital,hospital"
               className="d-block w-100"
               alt="..."
             />
@@ -143,7 +76,7 @@ const Landing = () => {
           </div>
           <div className="carousel-item ">
             <img
-              src="https://source.unsplash.com/600x300/?hospital"
+              src="https://source.unsplash.com/1000x300/?hospital,doctor"
               className="d-block w-100"
               alt="..."
             />
@@ -151,7 +84,7 @@ const Landing = () => {
           </div>
           <div className="carousel-item ">
             <img
-              src="https://source.unsplash.com/600x300/?hospital"
+              src="https://source.unsplash.com/1000x300/?hospital,patient"
               className="d-block w-100"
               alt="..."
             />
@@ -261,7 +194,7 @@ const Landing = () => {
           </div>
           <div className="card">
             <img
-              src="https://source.unsplash.com/600x300/?Commitment,doctor"
+              src="https://source.unsplash.com/600x300/?doctor,Commitment,doctor"
               className="card-img-top"
               alt="..."
             />
@@ -279,7 +212,7 @@ const Landing = () => {
           </div>
           <div className="card">
             <img
-              src="https://source.unsplash.com/600x300/?Contribution,hospital"
+              src="https://source.unsplash.com/600x300/?hospital,Child"
               className="card-img-top"
               alt="..."
             />

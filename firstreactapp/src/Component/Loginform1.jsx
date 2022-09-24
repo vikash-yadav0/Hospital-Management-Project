@@ -4,9 +4,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import doc from'./doc.jpg';
 import Landing from "./Landing";
-import "./css/styles.css";
-import "./css/custom.css";
-import "./css/style7.css";
+//import "./css/styles.css";
+//import "./css/custom.css";
+//import "./css/style7.css";
+import Blogo from "./NavBar";
+import Footer from "./NavBar/footer";
 
 function Login() {
   const [user_id, setuser_id] = useState("");
@@ -44,9 +46,7 @@ function Login() {
       <div className="container-fluids">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
-            <a className="navbar-brand" onClick={() => navigate("/Landing")}>
-              Meditrina Hospital
-            </a>
+            <Blogo/>
 
             <div
               className="collapse navbar-collapse"
@@ -78,7 +78,7 @@ function Login() {
           </div>
         </nav>
         <div>
-          <form className="login">
+          <form className="login pt-4">
             <div className="row mb-3">
               <label for="inputEmail3" className="col-sm-4 col-form-label ">
                 User id :
@@ -123,56 +123,12 @@ function Login() {
           </form>
         </div>
       </div>
-      <div className="Container my-4">
-        <footer className="py-6 ">
-          <ul className="nav justify-content-center  bg-primary ">
-            <li className="nav-item">
-              <a
-                onClick={() => navigate("/Landing")}
-                className="nav-link px-2 text-light"
-              >
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-light">
-                Features
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-light">
-                Pricing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-light">
-                FAQs
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-light">
-                About
-              </a>
-            </li>
-          </ul>
-          <p className="text-center  bg-primary text-light">
-            © 2022 Company, Inc
-          </p>
-        </footer>
-      </div>
+      <Footer/>
     </div>
   );
 }
 
 export default Login;
 {
-  /*<div className="col-md-4">
-    <label for="inputState" className="form-label">Role</label>
-    <select id="inputState" className="form-select">
-      <option selected>Admin</option>
-      <option>Doctor</option>
-      <option>Patient</option>
-      <option>Staff</option>
-    </select>
-                                        </div>*/
+  
 }

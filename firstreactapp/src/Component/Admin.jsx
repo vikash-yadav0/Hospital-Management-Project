@@ -48,12 +48,12 @@ let Admin = () => {
                       </li>
                       <li>
                         <a className="dropdown-item" href="#">
-                          Another action
+                          Schedule
                         </a>
                       </li>
                       <li>
                         <a className="dropdown-item" href="#">
-                          Something else here
+                          Security
                         </a>
                       </li>
                     </ul>
@@ -69,13 +69,13 @@ let Admin = () => {
             <div className="col-sm-3">
               <div className="card ">
                 <div className="card-body">
-                  <h5 className="card-title text-primary">Add Doctor</h5>
+                  <h5 className="card-title text-primary">Register Doctor</h5>
                   <p className="card-text"></p>
                   <button
                     onClick={() => navigate("/Doctorregister")}
                     className="btn btn-primary"
                   >
-                    ADD Doctor
+                    REGISTER
                   </button>
                 </div>
               </div>
@@ -83,13 +83,13 @@ let Admin = () => {
             <div className="col-sm-3">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">View Doctor</h5>
+                  <h5 className="card-title"> Doctor Information</h5>
                   <p className="card-text"></p>
                   <button
                     onClick={() => navigate("/viewdoctor")}
                     className="btn btn-warning"
                   >
-                    VIEW Doctor
+                    VIEW 
                   </button>
                 </div>
               </div>
@@ -100,13 +100,13 @@ let Admin = () => {
             <div className="col-sm-3">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Add Staff</h5>
+                  <h5 className="card-title">Register Staff</h5>
                   <p className="card-text"></p>
                   <button
                     onClick={() => navigate("/StaffRegister")}
                     className="btn btn-info"
                   >
-                    STAFF REGISTER
+                    REGISTER
                   </button>
                 </div>
               </div>
@@ -114,13 +114,13 @@ let Admin = () => {
             <div className="col-sm-3 ">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">View Staff</h5>
+                  <h5 className="card-title">Staff Information</h5>
                   <p className="card-text"></p>
                   <button
                     className="btn btn-success"
                     onClick={() => navigate("/viewstaff")}
                   >
-                    VIEW STAFF
+                    VIEW 
                   </button>
                 </div>
               </div>
@@ -131,13 +131,13 @@ let Admin = () => {
             <div className="col-sm-3">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">View Patient</h5>
+                  <h5 className="card-title">Patient Information</h5>
                   <p className="card-text"></p>
                   <button
                     onClick={() => navigate("/viewpatient")}
                     className="btn btn-success"
                   >
-                    VIEW PATIENT
+                    VIEW 
                   </button>
                 </div>
               </div>

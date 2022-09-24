@@ -13,9 +13,9 @@ const Blogo = () => {
         justifyContent: "space-evenly",
         alignItems: "center",
       }}
-      onClick={() => navigate("/Landing")}
-    >
-      <img style={{ width: "20%" }} src={imgLogo} className="img-thumbnail" />
+      className="navbar-brand mx-5"
+      onClick={() => navigate("/Landing")}>
+      <img style={{ width: "20%" }} src={imgLogo} className="img-thumbnail " />
       Meditrina Hospital
     </a>
   );

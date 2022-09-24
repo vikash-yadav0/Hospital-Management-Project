@@ -3,8 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./css/style11.css";
-import Blogo from './NavBar'
-
+import Blogo from "./NavBar";
 
 function ViewDoctor() {
   const [myData, setMyData] = useState([]);
@@ -16,7 +15,7 @@ function ViewDoctor() {
       .then((res) => setMyData(res.data));
   }, []);
   return (
-    <div className="container">
+    <div >
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
         <Blogo/>
@@ -71,14 +70,14 @@ function ViewDoctor() {
               } = post;
               return (
                 <tr>
-                  <th>{doctor_name}</th>
-                  <th>{qualifications}</th>
-                  <th>{doctor_contact}</th>
-                  <th>{user_email}</th>
+                  <td>{doctor_name}</td>
+                  <td>{qualifications}</td>
+                  <td>{doctor_contact}</td>
+                  <td>{user_email}</td>
                   <button
                     type="button"
                     className="btn btn-success "
-                    onClick={() => navigate("/Update")}
+                    onClick={() => navigate("")}
                   >
                     Update
                   </button>
@@ -95,7 +94,7 @@ function ViewDoctor() {
           </tbody>
         </table>
       </div>
-      <footer className="py-6 ">
+      <footer className="py-6 "style={{position:"absolute",bottom:"0",width:"100%"}}>
         <ul className="nav justify-content-center  bg-primary ">
           <li className="nav-item">
             <a
