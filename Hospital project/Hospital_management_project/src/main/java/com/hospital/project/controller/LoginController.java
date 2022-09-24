@@ -25,4 +25,5 @@ public class LoginController {
 	{
 		return lser.CheckLogin(l.getUser_id(),l.getPassword());
 	}
+	
 }

@@ -1,0 +1,13 @@
+.container  {
+
+    background-image: url("medical-g1ab5ed98a_1920.jpg");
+  
+
+    height:750px;
+    width: 500x;
+  
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
