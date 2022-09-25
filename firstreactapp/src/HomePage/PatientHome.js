@@ -2,9 +2,9 @@ import { bgcolor, color } from "@mui/system";
 
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../Component/css/style.css';
+
 import Blogo from "../Component/NavBar";
-import './style2.css';
+
 function HomeController() {
 
   const [patient, setPatient] = useState([]);

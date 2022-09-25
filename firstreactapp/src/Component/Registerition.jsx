@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
-//import "./css/style9.css";
 import { useNavigate } from "react-router-dom";
 import Footer from "./NavBar/footer";
 import Blogo from "./NavBar";

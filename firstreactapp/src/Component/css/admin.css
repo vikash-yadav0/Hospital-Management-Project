@@ -1,0 +1,12 @@
+.admin{
+    background-image: url("src/Component/css/admin.css");
+  
+   
+    height: 550px;; 
+    width: 1000x;
+  
+   
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

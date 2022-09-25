@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState } from "react";
 import Blogo from "./NavBar";
 import { useNavigate } from "react-router-dom";
-//import "./css/style10.css";
 
 function StaffRegister() {
   const navigate = useNavigate();

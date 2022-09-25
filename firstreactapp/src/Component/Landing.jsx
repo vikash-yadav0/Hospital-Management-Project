@@ -125,7 +125,7 @@ const Landing = () => {
       </div>
       <div class="col-md-5 my-4">
       <img
-            src="https://source.unsplash.com/600x300/?Courtesy,doctor"
+            src="https://source.unsplash.com/600x300/?Courtesy,doctor,hospital"
             className="card-img-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
             alt="..." width="500" height="200"
           />
@@ -141,7 +141,7 @@ const Landing = () => {
       </div>
       <div class="col-md-5 order-md-1">
       <img
-            src="https://source.unsplash.com/600x300/?Care,doctor"
+            src="https://source.unsplash.com/600x300/?Care,doctor,doctor"
             class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"width="500" height="200"
             alt="..."
           />
@@ -157,7 +157,7 @@ const Landing = () => {
       </div>
       <div class="col-md-5 my-4">
       <img
-            src="https://source.unsplash.com/600x300/?doctor,Capability"
+            src="https://source.unsplash.com/600x300/?doctor,Capability,doctor"
             className="card-img-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
             alt="..."width="500" height="200"
           />

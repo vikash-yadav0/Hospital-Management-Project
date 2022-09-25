@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router"; 
-import "./css/style.css";
+
 import Blogo from "./NavBar";
 function AdmitPatient() {
   const [admited_date, setadmited_date] = useState("");

@@ -1,8 +1,8 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import "../Component/css/style5.css";
 import { useNavigate } from "react-router-dom";
 import Blogo from "./NavBar";
+
 
 let Admin = () => {
  
@@ -63,7 +63,7 @@ let Admin = () => {
               </ul>
             </div>
           </div>
-        </nav>
+        </nav><div className="admin">
         <div className="fluids" style={{ marginBottom: "50px" }}>
           <div className="row my-3"></div>
           <div className="row my-2 pb-2 mx-4 ">
@@ -244,7 +244,7 @@ let Admin = () => {
                          
           </div>
         </div>
-    
+    </div>
       <footer className="py-6" style={{position:"absolute",bottom:"0",width:"100%"}}>
         <ul className="nav justify-content-center  bg-primary ">
           <li className="nav-item">

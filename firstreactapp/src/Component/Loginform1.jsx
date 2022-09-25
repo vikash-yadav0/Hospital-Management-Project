@@ -2,11 +2,9 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import doc from'./doc.jpg';
+
 import Landing from "./Landing";
-//import "./css/styles.css";
-//import "./css/custom.css";
-//import "./css/style7.css";
+
 import Blogo from "./NavBar";
 import Footer from "./NavBar/footer";
 
