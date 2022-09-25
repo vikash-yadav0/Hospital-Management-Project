@@ -69,7 +69,7 @@ function SearchDoctor() {
                     <option value='Select'>Select...</option>
                     {doctor.map(
                         (el) => {
-                            return <option value={el.doctor_id}>{el.doctor_name},{el.qualifications}</option>;
+                            return <option value={el.doctor_id}>{el.doctor_name}</option>;
                         }
                     )}
                 </select>
