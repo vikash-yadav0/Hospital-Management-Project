@@ -25,16 +25,16 @@ function Login() {
       })
       .then((resp) => {
         if (resp.data.role === "doctor") {
-          localStorage.setItem("loggedindoctor", JSON.stringify(resp.data));
+          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
           navigate("/doctorhome");
         } else if (resp.data.role === "patient") {
-          localStorage.setItem("loggedinpatient", JSON.stringify(resp.data));
+          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
           navigate("/patienthome");
         } else if (resp.data.role === "staff") {
-          localStorage.setItem("loggedinstaff", JSON.stringify(resp.data));
+          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
           navigate("/staffhome");
         } else if (resp.data.role === "admin") {
-          localStorage.setItem("loggedinadmin", JSON.stringify(resp.data));
+          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
           navigate("/Admin");
         } else {
           alert("Invalid usename or password");
@@ -45,7 +45,7 @@ function Login() {
     <div>
       <div className="container-fluids">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-          <div className="container-fluid">
+          <div className="container ">
             <Blogo/>
 
             <div
@@ -76,14 +76,14 @@ function Login() {
               </ul>
             </div>
           </div>
-        </nav>
-        <div>
+        </nav><div className="pt-5"></div>
+        <div className="container card w-50">
           <form className="login pt-4">
             <div className="row mb-3">
               <label for="inputEmail3" className="col-sm-4 col-form-label ">
                 User id :
               </label>
-              <div className="col-sm-3">
+              <div className="col-sm-4">
                 <input
                   type="email"
                   placeholder="user_id"
@@ -99,7 +99,7 @@ function Login() {
               <label for="inputPassword3" className="col-sm-4 col-form-label">
                 Password :
               </label>
-              <div className="col-sm-3">
+              <div className="col-sm-4">
                 <input
                   type="password"
                   placeholder="Password"
@@ -113,7 +113,7 @@ function Login() {
             </div>
             <button
               type="submit"
-              className="btn btn-success me-md-4"
+              className="btn btn-success col-sm-2"
               onClick={(e) => {
                 handleSubmit(e);
               }}

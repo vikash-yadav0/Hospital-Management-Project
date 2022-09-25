@@ -95,6 +95,10 @@ public class LoginService {
 	
 			
 	}
+	public Login find(int id)
+	{
+		return lrepo.findById(id).get();
+	}
 	public Login add(Login l)
 	{
 		return lrepo.save(l);

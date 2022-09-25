@@ -10,6 +10,12 @@ public class AdmissionRegister {
      int doctor_id;
      int dept_id;
      String bed_status;
+	public String getBed_status() {
+		return bed_status;
+	}
+	public void setBed_status(String bed_status) {
+		this.bed_status = bed_status;
+	}
 	public Date getAdmited_date() {
 		return admited_date;
 	}

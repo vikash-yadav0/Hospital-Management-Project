@@ -99,5 +99,11 @@ public class DoctorController {
 	{
 		return dservice.getDoctor(l);
 	}
+	@GetMapping("/getDoctorbylogin")
+	public Doctor getDoctorbylogin(@RequestParam("login_id") int lid)
+	{
+		Login l=lservice.find(lid);
+		return dservice.getDoctor(l);
+	}
 
 }

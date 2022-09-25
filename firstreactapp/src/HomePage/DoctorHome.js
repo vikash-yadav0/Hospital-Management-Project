@@ -3,18 +3,25 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
 function DoctorHome() {
-  // let nm = JSON.parse(localStorage.getItem("loggedindoctor")).doctor_name;
-  const [doctor, setDoctor] = useState({});
+   let nm = JSON.parse(localStorage.getItem("loggedindoctor"));
+  const [doctor, setDoctor] = useState([]);
   const navigate = useNavigate();
-
+let logout=()=>{
+  localStorage.removeItem("loggedindoctor");
+}
 
   useEffect(() => {
-    axios.post("/getDoctor", localStorage.getItem("loggedinuser"))
-      .then(resp => { setDoctor(resp.data); localStorage.setItem("loggedindoctor", JSON.stringify(doctor)) });
+    fetch("http://localhost:8080/getDoctorbylogin?login_id="+nm.login_id)
+      .then((resp) => resp.json())
+      .then((data) => {setDoctor(data)
+      });
+   {/*} axios.post("/getDoctor", localStorage.getItem("loggedinuser"))
+  .then(resp => { setDoctor(resp.data); localStorage.setItem("loggedindoctor", JSON.stringify(doctor)) });*/}
   }, []);
 
   return (
     <div>
+
       <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
@@ -30,7 +37,7 @@ function DoctorHome() {
                     type="button"
                     className="btn btn-light me-md-2"
                     aria-current="page"
-                    onClick={() => navigate("/login")}
+                    onClick={() => {logout();navigate("/login")}}
                   >
                     Logout
                   </button>

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router";
-import Blogo from "./Component/NavBar";
+import Blogo from "./NavBar";
 const UpdateDoctor = () => {
     const navigate = useNavigate();
     const [doctor_name, setdoctor_name] = useState("");
