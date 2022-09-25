@@ -20,6 +20,8 @@ import ViewBeds from './Component/ViewBeds';
 import BedBooked from './Component/BedBooked';
 import SearchDoctor from './Component/SearchDoctor';
 import UpdateDoctor from './Component/UpdateDoctor';
+import SearchPatient from './Component/SearchPatient';
+import SearchStaff from './Component/searchStaff';
 function App() {
   return (
     <div className="App">
@@ -41,6 +43,8 @@ function App() {
      <Route path="/BedBooked" element={<BedBooked/>}/>
      <Route path='/SearchDoctor' element={<SearchDoctor/>}/>
      <Route path='/UpdateDoctor' element={<UpdateDoctor/>}/>
+     <Route path='/SearchPatient'element={<SearchPatient/>}/>
+     <Route path='/SearchStaff'element={<SearchStaff/>}/>
      </Routes>
     
     

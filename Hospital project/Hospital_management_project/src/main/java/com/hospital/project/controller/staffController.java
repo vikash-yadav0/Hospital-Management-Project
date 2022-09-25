@@ -74,7 +74,7 @@ public class staffController {
 		return sservice.getStaff(sid);
 	}
 	@PostMapping("/updatestaff")
-	public Staff updatedoctor (@RequestBody Staff sta,@RequestParam("staff_id") int sid)
+	public Staff updatestaff (@RequestBody Staff sta,@RequestParam("staff_id") int sid)
 	{
 		return sservice.updateStaff(sta, sid);
 		

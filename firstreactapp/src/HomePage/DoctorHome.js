@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
 function DoctorHome() {
-   let nm = JSON.parse(localStorage.getItem("loggedindoctor"));
+   let nm = JSON.parse(localStorage.getItem("loggedinuser"));
   const [doctor, setDoctor] = useState([]);
   const navigate = useNavigate();
 let logout=()=>{
-  localStorage.removeItem("loggedindoctor");
+  localStorage.removeItem("loggedinuser");
 }
 
   useEffect(() => {
@@ -15,8 +15,7 @@ let logout=()=>{
       .then((resp) => resp.json())
       .then((data) => {setDoctor(data)
       });
-   {/*} axios.post("/getDoctor", localStorage.getItem("loggedinuser"))
-  .then(resp => { setDoctor(resp.data); localStorage.setItem("loggedindoctor", JSON.stringify(doctor)) });*/}
+
   }, []);
 
   return (

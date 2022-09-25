@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class BillingSave {
 	int admission_id;
-
 	double test_cost;	
 	double medicine_cost;
 	double consultation_fees;

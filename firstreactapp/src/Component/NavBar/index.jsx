@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import imgLogo from '../images/logo.png'
-const imgSrc =
-  "http://www.dailyrounds.org/blog/wp-content/uploads/2015/05/caduceus.jpg";
 const Blogo = () => {
   const navigate = useNavigate();
   return (
