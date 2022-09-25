@@ -21,7 +21,6 @@ function StaffRegister() {
     fetch("http://localhost:8080/alldept")
       .then((resp) => resp.json())
       .then((data) => {
-        console.log('dept',data)
         setdept(data)});
   }, []);
   async function handleSubmit(event) {
@@ -35,6 +34,7 @@ function StaffRegister() {
         password: password,
         staff_bdate: staff_bdate,
         staff_jdate: staff_jdate,
+        dept_id:dept_id,
       });
 
       alert("User Registation Successfully");
@@ -47,6 +47,7 @@ function StaffRegister() {
       setpassword("");
       setstaff_bdate("");
       setstaff_jdate("");
+      setdept_id(0);
     } catch (err) {
       alert("User Registation Failed");
     }
@@ -82,10 +83,10 @@ function StaffRegister() {
         </ul>
       </div>
     </div>
-  </nav>
-  <div className="container">
+  </nav><div></div>
+  <div className="container pt-4 pb-4 ">
     <div className="registeresdstaff">
-      <div className="register-container">
+      <div className="container card w-50">
         <form className="register-form" onSubmit={handleSubmit}>
           <br></br>
           <h1>
@@ -201,8 +202,8 @@ function StaffRegister() {
           </div>
           <br />
           <div className="mb-3">
-                <label htmlFor="Dept" className="form-label">
-                  Department :
+                <label htmlFor="Dept" className="form-label"><b>
+                  Department :</b>
                 </label>
                 <select
                   name="deprt_id"

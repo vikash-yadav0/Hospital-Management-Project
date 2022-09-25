@@ -95,7 +95,7 @@ function StaffHome(){
                   <h5 className="card-title">Avaliable beds</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/bedsavailbility")}
+                    onClick={() => navigate("/viewBeds")}
                     className="btn btn-warning"
                   >
                     Click
@@ -109,10 +109,10 @@ function StaffHome(){
             <div className="col-sm-3">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Add Staff</h5>
+                  <h5 className="card-title">Bed Booked</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/StaffRegister")}
+                    onClick={() => navigate("/BedBooked")}
                     className="btn btn-info"
                   >
                     Click

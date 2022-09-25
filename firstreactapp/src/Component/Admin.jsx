@@ -126,6 +126,7 @@ let Admin = () => {
               </div>
             </div>
           </div>
+          
 
           <div className="row my-2 pb-2 mx-4">
             <div className="col-sm-3">
@@ -142,10 +143,26 @@ let Admin = () => {
                 </div>
               </div>
             </div>
+            <div className="col-sm-3 ">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Search Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    className="btn btn-success"
+                    onClick={() => navigate("/SearchDoctor")}
+                  >
+                    VIEW 
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+                         
           </div>
         </div>
-      </div>
-      <footer className="py-6 ">
+    
+      <footer className="py-6" style={{position:"absolute",bottom:"0",width:"100%"}}>
         <ul className="nav justify-content-center  bg-primary ">
           <li className="nav-item">
             <a

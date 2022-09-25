@@ -25,7 +25,7 @@ import com.hospital.project.service.*;
 
 
 
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class PatientController 
 {

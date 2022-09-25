@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.project.entiries.Login;
 import com.hospital.project.service.LoginService;
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class LoginController {
 	

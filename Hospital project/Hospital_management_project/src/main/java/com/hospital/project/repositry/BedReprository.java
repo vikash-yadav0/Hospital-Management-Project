@@ -13,4 +13,13 @@ public interface BedReprository extends JpaRepository<BedMaster, Integer>{
 	
 	@Query("select l  from BedMaster l where status='booked'")
 	public List<BedMaster> BedBooked();
+	
+	@Query("select l  from BedMaster l where dept_id=:dept")
+	public List<BedMaster> BedBookedbydept(int dept);
+	
+	@Query("select l  from BedMaster l where dept_id=:dept and status='avaliable'")
+	public List<BedMaster> AvaliableBedbydept(int dept);
+	
+	@Query("select l  from BedMaster l where dept_id=:dept and status='booked'")
+	public List<BedMaster> BookedBedbydept(int dept);
 }

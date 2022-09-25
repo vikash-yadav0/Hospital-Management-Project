@@ -16,20 +16,26 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.hospital.project.entiries.Department;
 import com.hospital.project.entiries.Doctor;
 import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 import com.hospital.project.entiries.Register;
 import com.hospital.project.entiries.Staff;
 import com.hospital.project.entiries.StaffRegister;
+import com.hospital.project.service.DepartmentService;
 import com.hospital.project.service.LoginService;
 import com.hospital.project.service.StaffService;
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class staffController {
 
 	@Autowired
 	StaffService sservice;
+	
+	@Autowired
+	DepartmentService dservice;
+	
 	@Autowired
 	LoginService lservice;
 	
@@ -38,7 +44,9 @@ public class staffController {
 	{
 		Login l=new Login(pr.getUser_email(),pr.getPassword(),"staff");
 		Login inserted=lservice.add(l);
-		Staff p=new Staff(pr.getStaff_name(),pr.getUser_email(), pr.getStaff_contact(),pr.getStaff_gender(),pr.getPassword(),pr.getStaff_bdate(),pr.getStaff_jdate(),inserted,pr.getDept_id());
+		Department dept=dservice.getDepartment(pr.getDept_id());
+		int s=dept.getDept_id();
+		Staff p=new Staff(pr.getStaff_name(),pr.getUser_email(), pr.getStaff_contact(),pr.getStaff_gender(),pr.getPassword(),pr.getStaff_bdate(),pr.getStaff_jdate(),inserted,s);
 		return sservice.save(p);		
 	}
 
@@ -48,6 +56,13 @@ public class staffController {
 		return sservice.getAll();
 		
 	}
+	@GetMapping("/getstaffbydept")
+	public List<Staff> getstaffbydept(@RequestParam("dept_id") int did)
+	{
+		return sservice.getstaffbydept(did);
+		
+	}
+	
 	@PostMapping("/savestaff")
 	public Staff SaveContact(@RequestBody Staff C)
 	{
@@ -64,7 +79,7 @@ public class staffController {
 		return sservice.updateStaff(sta, sid);
 		
 	}
-	@PostMapping("/upsfile")
+/*	@PostMapping("/upsfile")
 	public Staff SaveUpload(@RequestPart("data")StaffRegister s,@RequestPart("file")MultipartFile file)
 	{
 	
@@ -85,7 +100,7 @@ public class staffController {
 			return savesf;
 		else 
 			return null;
-	}
+	}*/
 	@PostMapping("/getStaff")
 	public Staff getStaff(@RequestBody Login l)
 	{

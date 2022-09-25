@@ -21,9 +21,10 @@ import com.hospital.project.entiries.DoctorRegister;
 import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
 import com.hospital.project.entiries.Register;
+import com.hospital.project.entiries.Staff;
 import com.hospital.project.service.DoctorService;
 import com.hospital.project.service.LoginService;
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class DoctorController {
 	// not getting department with staff ..
@@ -64,6 +65,13 @@ public class DoctorController {
 		return dservice.updateDoctor(doc, did);
 		
 	}
+	@GetMapping("/getdoctorbydept")
+	public List<Doctor> getDoctorbydept(@RequestParam("dept_id") int did)
+	{
+		return dservice.getDoctorbydept(did);
+		
+	}
+	
 	@PostMapping("/registerdoctor")
 	public Doctor SaveUpload(@RequestPart("data")Doctor d,@RequestPart("file")MultipartFile file)
 	{

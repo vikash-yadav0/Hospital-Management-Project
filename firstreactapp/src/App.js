@@ -5,9 +5,7 @@ import Login from "./Component/Loginform1";
 import Admin from "./Component/Admin";
 import Register from './Component/Registerition';
 //import MainMenu from "./Component/MainMenu";
-
 import Landing from "./Component/Landing";
-
 import 'react-toastify/dist/ReactToastify.css';
 import DoctorRegister from './Component/DoctorRegister';
 import StaffRegister from './Component/StaffRegister';
@@ -19,6 +17,9 @@ import ViewPatient from './Component/ViewPatient';
 import PatientHome from './HomePage/PatientHome';
 import Bedsavailbility from './Component/Bedsavailbility';
 import ViewBeds from './Component/ViewBeds';
+import BedBooked from './Component/BedBooked';
+import SearchDoctor from './Component/SearchDoctor';
+import UpdateDoctor from './UpdateDoctor';
 function App() {
   return (
     <div className="App">
@@ -44,6 +45,9 @@ function App() {
      <Route path="/patienthome" element={<PatientHome/>}/>
      <Route path="/bedsavailbility" element={<Bedsavailbility/>}/>
      <Route path="/viewbeds" element={<ViewBeds/>}/>
+     <Route path="/BedBooked" element={<BedBooked/>}/>
+     <Route path='/SearchDoctor' element={<SearchDoctor/>}/>
+     <Route path='/UpdateDoctor' element={<UpdateDoctor/>}/>
      </Routes>
     
     

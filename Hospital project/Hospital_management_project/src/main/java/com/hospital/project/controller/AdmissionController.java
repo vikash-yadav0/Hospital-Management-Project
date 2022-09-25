@@ -21,7 +21,7 @@ import com.hospital.project.service.BedService;
 import com.hospital.project.service.DepartmentService;
 import com.hospital.project.service.DoctorService;
 import com.hospital.project.service.PatientService;
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class AdmissionController {
 	

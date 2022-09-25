@@ -17,7 +17,7 @@ import com.hospital.project.entiries.BillingSave;
 import com.hospital.project.service.AdmissionService;
 import com.hospital.project.service.BedService;
 import com.hospital.project.service.BillingService;
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class BillingController {
 	@Autowired

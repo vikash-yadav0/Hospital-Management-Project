@@ -32,4 +32,13 @@ public class BedService {
 	
 	return brepo.BedBooked();
 }
+   public List<BedMaster> BedBookedbydept(int did) {
+		
+		return brepo.BedBookedbydept(did);
+	}
+   public List<BedMaster> AvaliableBedbydept(int did) {
+		
+		return brepo.AvaliableBedbydept(did);
+	}
+
 }

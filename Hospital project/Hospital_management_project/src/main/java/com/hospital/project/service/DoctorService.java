@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.hospital.project.entiries.Doctor;
 import com.hospital.project.entiries.Login;
 import com.hospital.project.entiries.Patient;
+import com.hospital.project.entiries.Staff;
 import com.hospital.project.repositry.DoctorRepository;
 @Service
 public class DoctorService {
@@ -35,6 +36,11 @@ public class DoctorService {
 		
 		return drepo.save(d);
 	}
+	
+	public List<Doctor> getDoctorbydept(int did)
+	{
+		return drepo.getDoctorbydept(did);
+	}	
 	
 	public Doctor getDoctor(Login l)
 	{

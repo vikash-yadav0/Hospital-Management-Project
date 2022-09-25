@@ -1,97 +1,67 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
-import { useState } from "react";
-import "./css/style8.css";
-import { useNavigate } from "react-router-dom";
-import { ConstructionRounded } from "@mui/icons-material";
-import { render } from "@testing-library/react";
-import Blogo from "./NavBar";
+import { Navigate,useNavigate } from "react-router";
+import Blogo from "./Component/NavBar";
+const UpdateDoctor=()=>{
+    const navigate = useNavigate();
+    const [user_email, setuser_email] = useState("");
+    const [doctor_name, setdoctor_name] = useState("");
+    const [doctor_contact, setdoctor_contact] = useState("");
+    const [qualifications, setqualifications] = useState("");
+    const [password, setpassword] = useState("");
+    const [dept_id, setdept_id] = useState();
+    const [dept, setdept] = useState([]);
+    const [doctor,setDoctor]=useState([]);
+    const [doctorid,setDoctorid]=useState([]);
+    const [Doctor_id,setDoctor_id] = useState(0);
 
-{
-  /*class DoctorRegist extends React.Component {
-    navigate = useNavigate();
-    constructor(props) {
-        super(props)
-        this.state = {
-            dept: [],
-            dept_id: 0,
-            user_email: "",
-            doctor_name: "",
-            doctor_contact: "",
-            qualifications: "",
-            password: ""
-        }
-        this.deptid = this.deptid.bind(this);
-    }
-    componentDidMount = () => {
+    useEffect(() => {
         fetch("http://localhost:8080/alldept")
-            .then(resp => resp.json())
-            .then(data => this.setState({ dept: data }));
-
-    }
-    deptid = (e) => {
-        this.setState({ dept_id: e.target.value })
-    }
+          .then((resp) => resp.json())
+          .then((data) => {
+            setdept(data)});
+      }, []);
+      async function handleSubmit(event) {
+        event.preventDefault();
+        try {
+          await axios.post("http://localhost:8080/registerd", {
+            user_email: user_email,
+            doctor_name: doctor_name,
+            doctor_contact: doctor_contact,
+            qualifications: qualifications,
+            password: password,
+            dept_id: dept_id,
+          });
     
-    render() {
-        return (<div>
-            select Department:
-            <select name="dept" onChange={(e) => { this.deptid(e) }}>
-                {
-                    this.state.dept.map(dept => {
-                        return (<option value={dept.dept_id}>{dept.dept_name}</option>)
-                    })
-                }
-            </select>
-        </div>
-        )
+          alert("User Registation Successfully");
+          setuser_email("");
+          setdoctor_name("");
+          setdoctor_contact("");
+          setqualifications("");
+          setpassword("");
+          setdept_id(0);
+        } catch (err) {
+          alert("User Registation Failed");
+        }
+      }
+      useEffect(() => {    
+        fetch("http://localhost:8080/alldoctor")
+        .then(r => r.json())
+        .then(d => setDoctor(d))
+    },[]);
+
+    const FetchDoctor=(e)=>{
+        
+        setDoctor_id(e.target.value);   
+        fetch("http://localhost:8080/getdoctorbyid?doctor_id="+Doctor_id)
+        .then(r => r.json())
+        .then(d => {setDoctorid(d)});
     }
-}*/
-}
-
-let DoctorRegister = () => {
-  const navigate = useNavigate();
-  const [user_email, setuser_email] = useState("");
-  const [doctor_name, setdoctor_name] = useState("");
-  const [doctor_contact, setdoctor_contact] = useState("");
-  const [qualifications, setqualifications] = useState("");
-  const [password, setpassword] = useState("");
-  const [dept_id, setdept_id] = useState();
-  const [dept, setdept] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:8080/alldept")
-      .then((resp) => resp.json())
-      .then((data) => {
-        setdept(data)});
-  }, []);
-  async function handleSubmit(event) {
-    event.preventDefault();
-    try {
-      await axios.post("http://localhost:8080/registerd", {
-        user_email: user_email,
-        doctor_name: doctor_name,
-        doctor_contact: doctor_contact,
-        qualifications: qualifications,
-        password: password,
-        dept_id: dept_id,
-      });
-
-      alert("User Registation Successfully");
-      setuser_email("");
-      setdoctor_name("");
-      setdoctor_contact("");
-      setqualifications("");
-      setpassword("");
-      setdept_id(0);
-    } catch (err) {
-      alert("User Registation Failed");
-    }
-  }
-
-  return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+  
+return(
+    <>
+     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
          <Blogo/>
 
@@ -130,7 +100,7 @@ let DoctorRegister = () => {
               onSubmit={handleSubmit}
             >
               <br></br>
-              <h1>Registration Form</h1>
+              <h1>Update Form</h1>
               <div className="mb-3 ">
                 <label htmlFor="user_email" className="form-label">
                   Doctor Email :
@@ -260,8 +230,7 @@ let DoctorRegister = () => {
           © 2022 Company, Inc
         </p>
       </footer>
-    </div>
-  );
-};
-
-export default DoctorRegister;
+    </>
+    )
+}
+export default UpdateDoctor;

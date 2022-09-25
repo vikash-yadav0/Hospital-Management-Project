@@ -12,7 +12,7 @@ import com.hospital.project.entiries.BedMaster;
 
 import com.hospital.project.service.BedService;
 
-@CrossOrigin(origins ="http://localhost:3000")
+@CrossOrigin(origins ="*")
 @RestController
 public class BedController {
 	@Autowired
@@ -39,6 +39,18 @@ public class BedController {
 	public List<BedMaster> Bedavaliable()
 	{
 		return bserv.Bedavaliable();
+		
+	}
+	@GetMapping("/avaliablebedbydept")
+	public List<BedMaster> avaliablebedbydept(@RequestParam("dept_id")int did)
+	{
+		return bserv.AvaliableBedbydept(did);
+		
+	}
+	@GetMapping("/BedBookedbydept")
+	public List<BedMaster> BedBookedbydept(@RequestParam("dept_id") int did)
+	{
+		return bserv.BedBookedbydept(did);
 		
 	}
 	

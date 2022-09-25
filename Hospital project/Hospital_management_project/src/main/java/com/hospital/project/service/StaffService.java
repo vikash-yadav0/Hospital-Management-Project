@@ -19,6 +19,10 @@ public class StaffService {
 	{
 		return srepo.findAll();
 	}	
+	public List<Staff> getstaffbydept(int did)
+	{
+		return srepo.getstaffbydept(did);
+	}	
 	public Staff save(Staff s)
 	{
 		return srepo.save(s);

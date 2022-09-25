@@ -10,4 +10,5 @@
     <fullyQualifiedTypeName name="com.hospital.project.repositry.PatientRepository"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.AdmissionRegister"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Patient"/>
+    <fullyQualifiedTypeName name="com.hospital.project.entiries.Department"/>
 </qualifiedTypeNameHistroy>
