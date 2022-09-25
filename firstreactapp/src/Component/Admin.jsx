@@ -81,6 +81,34 @@ let Admin = () => {
               </div>
             </div>
             <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-3">
               <div className="card">
                 <div className="card-body">
                   <h5 className="card-title"> Doctor Information</h5>
@@ -125,6 +153,33 @@ let Admin = () => {
                 </div>
               </div>
             </div>
+            <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div><div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
           
 
@@ -153,6 +208,33 @@ let Admin = () => {
                     onClick={() => navigate("/SearchDoctor")}
                   >
                     VIEW 
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div><div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
                   </button>
                 </div>
               </div>
