@@ -9,10 +9,12 @@ function ViewBeds(){
    const navigate=useNavigate();
 
    useEffect(()=>{
-    axios
-    .get("http://localhost:8080/bookedbed")
-    .then((res)=>setMyData(res.data));
-},[] )
+    fetch("http://localhost:8080/bookedbed")
+    .then((resp) => resp.json())
+    .then((data) => {
+      setMyData(data)
+    });
+},[] );
 return(
   <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -21,22 +23,13 @@ return(
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              
               <li className="nav-item mx-2">
                 <button
                   type="button"
                   className="btn btn-light "
                   aria-current="page"
-                  onClick={() => navigate("/login")}
-                >
-                  Logout
-                </button>
-              </li>
-              <li className="nav-item mx-2">
-                <button
-                  type="button"
-                  className="btn btn-light "
-                  aria-current="page"
-                  onClick={() => navigate("/PatientHome")}
+                  onClick={() => navigate("/StaffHome")}
                 >
                   Go back
                 </button>

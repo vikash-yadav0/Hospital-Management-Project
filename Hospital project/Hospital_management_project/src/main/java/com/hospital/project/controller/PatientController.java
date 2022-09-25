@@ -122,6 +122,12 @@ public class PatientController
 	{
 		return pservice.getPatient(l);
 	}
+	@GetMapping("/getPatientbylogin")
+	public Patient getPatientbylogin(@RequestParam("login_id") int lid)
+	{
+		Login l=lservice.find(lid);
+		return pservice.getPatient(l);
+	}
 
 	}
 

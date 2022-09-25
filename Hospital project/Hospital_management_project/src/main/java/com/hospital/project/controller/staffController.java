@@ -106,4 +106,10 @@ public class staffController {
 	{
 		return sservice.getStaff(l);
 	}
+	@GetMapping("/getStaffbylogin")
+	public Staff getStaffbylogin(@RequestParam("login_id") int lid)
+	{
+		Login l=lservice.find(lid);
+		return sservice.getStaff(l);
+	}
 }

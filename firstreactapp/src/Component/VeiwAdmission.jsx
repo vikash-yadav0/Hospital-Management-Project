@@ -1,0 +1,133 @@
+import React from "react";
+import axios from "axios";
+import {useState,useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import Blogo from "./NavBar";
+
+function ViewAdmission(){
+   const [myData, setMyData] = useState([]);
+   const navigate = useNavigate();
+ 
+   useEffect(() => {
+     axios
+       .get("http://localhost:8080/alladmission")
+       .then((res) => setMyData(res.data));
+   }, []);
+   return (
+     <div >
+       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+         <div className="container-fluid">
+         <Blogo/>
+ 
+           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+               <li className="nav-item mx-2">
+                 <button
+                   type="button"
+                   className="btn btn-light "
+                   aria-current="page"
+                   onClick={() => navigate("/login")}
+                 >
+                   Logout
+                 </button>
+               </li>
+               <li className="nav-item mx-2">
+                 <button
+                   type="button"
+                   className="btn btn-light "
+                   aria-current="page"
+                   onClick={() => navigate("/Admin")}
+                 >
+                   Go back
+                 </button>
+               </li>
+             </ul>
+           </div>
+         </div>
+       </nav>
+ 
+       <div className="pt-4">
+         <button type="button" className=" btn btn-success btn-lg">
+           Admission List
+         </button>
+         <table className="table">
+           <thead>
+             <tr>
+               <th>Admission ID</th>
+               <th>Amisssion Date</th>
+               <th>Patient</th>
+               <th>Bed</th>
+               <th>Department</th>
+             </tr>
+           </thead>
+           <tbody>
+           {myData.map((post)=>{
+             const{admission_id,admited_date,patient,bed,doctor,department}=post;
+               return(
+                 <tr>
+                    <td>{admission_id}</td>
+                    <td>{admited_date}</td>                    
+                    <td>{patient}</td>
+                  <td>{bed}</td>                               
+                  <td>{doctor}</td>
+                  <td>{department}</td>
+                   <button
+                     type="button"
+                     className="btn btn-success "
+                     onClick={() => navigate("")}
+                   >
+                     Update
+                   </button>
+                   <button
+                     type="button"
+                     className="btn btn-danger mx-2"
+                     onClick={() => navigate("")}
+                   >
+                     Delete
+                   </button>
+                 </tr>
+               );
+             })}
+           </tbody>
+         </table>
+       </div>
+       <footer className="py-6 "style={{position:"absolute",bottom:"0",width:"100%"}}>
+         <ul className="nav justify-content-center  bg-primary ">
+           <li className="nav-item">
+             <a
+               onClick={() => navigate("/Landing")}
+               className="nav-link px-2 text-light"
+             >
+               Home
+             </a>
+           </li>
+           <li className="nav-item">
+             <a href="#" className="nav-link px-2 text-light">
+               Features
+             </a>
+           </li>
+           <li className="nav-item">
+             <a href="#" className="nav-link px-2 text-light">
+               Pricing
+             </a>
+           </li>
+           <li className="nav-item">
+             <a href="#" className="nav-link px-2 text-light">
+               FAQs
+             </a>
+           </li>
+           <li className="nav-item">
+             <a href="#" className="nav-link px-2 text-light">
+               About
+             </a>
+           </li>
+         </ul>
+         <p className="text-center  bg-primary text-light">
+           © 2022 Company, Inc
+         </p>
+       </footer>
+     </div>
+  
+    );
+}
+export default ViewAdmission;

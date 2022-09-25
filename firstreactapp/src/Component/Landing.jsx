@@ -116,8 +116,55 @@ const Landing = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-
-      <div className="card-group my-4">
+      <div class="row featurette d-flex justify-content-center align-items-center">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1"><u>Care</u><span class="text-muted"></span></h2>
+        <p class="lead"> We recognize that every person is important, and hence deserves
+              the very best care possible. We will not be mechanical in our
+              approach to work. We will be personal.</p>
+      </div>
+      <div class="col-md-5 my-4">
+      <img
+            src="https://source.unsplash.com/600x300/?Courtesy,doctor"
+            className="card-img-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            alt="..." width="500" height="200"
+          />
+       
+      </div>
+    </div>
+    <div class="row featurette d-flex justify-content-center align-items-center">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1"> <u>Capability</u><span class="text-muted"></span></h2>
+        <p class="lead">Whatever be the health problem, we will be fully capable of
+              diagnosing and treating it effectively. Through the use of
+              advanced technology, techniques and processes.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+      <img
+            src="https://source.unsplash.com/600x300/?Care,doctor"
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"width="500" height="200"
+            alt="..."
+          />
+        
+      </div>
+    </div>
+    <div class="row featurette d-flex justify-content-center align-items-center">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1"><u>Commitment</u> <span class="text-muted"></span></h2>
+        <p class="lead">To continuous learning. To find better methods of prevention and
+                cure. Through undertaking, supporting and commissioning
+                research, in various medical and paramedical fields.</p>
+      </div>
+      <div class="col-md-5 my-4">
+      <img
+            src="https://source.unsplash.com/600x300/?doctor,Capability"
+            className="card-img-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+            alt="..."width="500" height="200"
+          />
+       
+      </div>
+    </div><>
+     {/* <div className="card-group my-4">
         <div className="card">
           <img
             src="https://source.unsplash.com/600x300/?Care,doctor"
@@ -229,7 +276,7 @@ const Landing = () => {
             </div>
           </div>
         </div>
-      </div>
+  </div>*/}</>
       <footer style={{ float: "bottom" }}>
         <ul className="nav justify-content-center  bg-primary ">
           <li className="nav-item">
@@ -241,7 +288,7 @@ const Landing = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-light">
+            <a href="" className="nav-link px-2 text-light">
               Features
             </a>
           </li>

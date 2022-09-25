@@ -1,23 +1,23 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-import {useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Blogo from "./NavBar";
 
-function ViewBeds(){
-   const[myData,setMyData]=useState([]);
-   const navigate=useNavigate();
+function ViewBeds() {
+  const [myData, setMyData] = useState([]);
+  const navigate = useNavigate();
 
-   useEffect(()=>{
+  useEffect(() => {
     axios
-    .get("http://localhost:8080/avaliablebed")
-    .then((res)=>setMyData(res.data));
-},[] )
-return(
-  <div>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      .get("http://localhost:8080/avaliablebed")
+      .then((res) => setMyData(res.data));
+  }, [])
+  return (
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-        <Blogo/>
+          <Blogo />
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -45,37 +45,37 @@ return(
           </div>
         </div>
       </nav>
-  <div className="pt-4">
-  <button type="button" className=" btn btn-success btn-lg">
-    Bed avaliable
-  </button>
-  <table className="table">
-    <thead>
-      <tr>
-        <th>Bed id</th>
-        <th>category</th>
-        <th>charges</th>
-        <th>status</th>
-      </tr>
-    </thead>
-    <tbody>
-    {myData.map((post)=>{
-             const{bed_id,category,charges,status}=post;
-             return(
-          <tr>
-            <th width="12%">{bed_id}</th>
-                        <td>{category}</td>
-                        <td>{charges}</td>
-                        <td>{status}</td>
-           
-          </tr>
-        );
-      })}
-    </tbody>
- </table>
- 
-          </div>
-          <footer className="py-6 ">
+      <div className="pt-4">
+        <button type="button" className=" btn btn-success btn-lg">
+          Bed avaliable
+        </button>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Bed id</th>
+              <th>category</th>
+              <th>charges</th>
+              <th>status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {myData.map((post) => {
+              const { bed_id, category, charges, status } = post;
+              return (
+                <tr>
+                  <th width="12%">{bed_id}</th>
+                  <td>{category}</td>
+                  <td>{charges}</td>
+                  <td>{status}</td>
+
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+
+      </div>
+      <footer className="py-6 ">
         <ul className="nav justify-content-center  bg-primary ">
           <li className="nav-item">
             <a
@@ -110,7 +110,7 @@ return(
           © 2022 Company, Inc
         </p>
       </footer>
-             </div>
-        );
+    </div>
+  );
 }
 export default ViewBeds;

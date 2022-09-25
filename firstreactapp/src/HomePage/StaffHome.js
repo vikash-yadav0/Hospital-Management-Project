@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
@@ -7,11 +7,18 @@ function StaffHome() {
 
   const [staff, setStaff] = useState({});
   const navigate = useNavigate();
+  let nm = JSON.parse(localStorage.getItem("loggedinuser"));
+ 
+  
+let logout=()=>{
+  localStorage.removeItem("loggedinuser");
+}
 
   useEffect(() => {
-    axios.post("/getStaff", localStorage.getItem("loggedinuser"))
-      .then(resp => { setStaff(resp.data); localStorage.setItem("loggedinStaff", JSON.stringify(staff)) });
-  }, []);
+    fetch("http://localhost:8080/getStaffbylogin?login_id="+nm.login_id)
+      .then((resp) => resp.json())
+      .then((data) => {setStaff(data)
+      });}, []);
 
   return (
     <div>
@@ -30,7 +37,7 @@ function StaffHome() {
                     type="button"
                     className="btn btn-light me-md-2"
                     aria-current="page"
-                    onClick={() => navigate("/login")}
+                    onClick={() => {logout();navigate("/login")}}
                   >
                     Logout
                   </button>

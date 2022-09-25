@@ -34,7 +34,7 @@ function Login() {
           localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
           navigate("/staffhome");
         } else if (resp.data.role === "admin") {
-          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
+         // localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
           navigate("/Admin");
         } else {
           alert("Invalid usename or password");
@@ -83,11 +83,11 @@ function Login() {
               <label for="inputEmail3" className="col-sm-4 col-form-label ">
                 User id :
               </label>
-              <div className="col-sm-4">
+              <div className="col-sm-5">
                 <input
                   type="email"
                   placeholder="user_id"
-                  className="form-control"
+                  className="form-control "
                   id="inputEmail3"
                   onChange={(event) => {
                     setuser_id(event.target.value);
@@ -99,7 +99,7 @@ function Login() {
               <label for="inputPassword3" className="col-sm-4 col-form-label">
                 Password :
               </label>
-              <div className="col-sm-4">
+              <div className="col-sm-5">
                 <input
                   type="password"
                   placeholder="Password"

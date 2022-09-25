@@ -4,15 +4,10 @@ import "../Component/css/style5.css";
 import { useNavigate } from "react-router-dom";
 import Blogo from "./NavBar";
 
-
-//import { NavLink } from "react-router-dom";
-
 let Admin = () => {
  
   const navigate = useNavigate();
-  let logout=()=>{
-    localStorage.removeItem("loggedinuser");
-  }
+ 
   
   return (
     <div>
@@ -31,7 +26,7 @@ let Admin = () => {
                     type="button"
                     className="btn btn-light me-md-2"
                     aria-current="page"
-                    onClick={() => {logout();navigate("/login")}}
+                    onClick={() => {navigate("/login")}}
                   >
                     Logout
                   </button>
@@ -265,11 +260,7 @@ let Admin = () => {
               Features
             </a>
           </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link px-2 text-light">
-              Pricing
-            </a>
-          </li>
+         
           <li className="nav-item">
             <a href="#" className="nav-link px-2 text-light">
               FAQs

@@ -122,7 +122,7 @@ function Register() {
                       <b>Email ID :</b>
                     </label>
                     <input
-                      type="text"
+                      type="email"
                       name="user_email"
                       placeholder="Email"
                       autoComplete="off"
@@ -168,7 +168,7 @@ function Register() {
                 <Row>
                   <Col className="md-5">
                     <label>
-                      <b>Birth   Date :</b>
+                      <b>Birth Date :</b>
                     </label>
                     <input
                       type="date"
