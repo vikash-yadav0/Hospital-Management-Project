@@ -5,11 +5,9 @@ import { Navigate, useNavigate } from "react-router";
 import Blogo from "./Component/NavBar";
 const UpdateDoctor = () => {
     const navigate = useNavigate();
-    const [user_email, setuser_email] = useState("");
     const [doctor_name, setdoctor_name] = useState("");
     const [doctor_contact, setdoctor_contact] = useState("");
     const [qualifications, setqualifications] = useState("");
-    const [password, setpassword] = useState("");
     const [dept_id, setdept_id] = useState();
     const [dept, setdept] = useState([]);
     const [doctor, setDoctor] = useState([]);
