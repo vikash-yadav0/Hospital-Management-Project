@@ -15,7 +15,7 @@ import ViewDoctor from './Component/ViewDoctor';
 import ViewStaff from './Component/ViewStaff';
 import ViewPatient from './Component/ViewPatient';
 import PatientHome from './HomePage/PatientHome';
-import Bedsavailbility from './Component/Bedsavailbility';
+import Bedsavailbility from './Component/AdmitPatient';
 import ViewBeds from './Component/ViewBeds';
 import BedBooked from './Component/BedBooked';
 import SearchDoctor from './Component/SearchDoctor';

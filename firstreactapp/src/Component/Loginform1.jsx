@@ -25,16 +25,16 @@ function Login() {
       })
       .then((resp) => {
         if (resp.data.role === "doctor") {
-          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
+          localStorage.setItem("loggedindoctor", JSON.stringify(resp.data));
           navigate("/doctorhome");
         } else if (resp.data.role === "patient") {
-          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
+          localStorage.setItem("loggedinpatient", JSON.stringify(resp.data));
           navigate("/patienthome");
         } else if (resp.data.role === "staff") {
-          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
+          localStorage.setItem("loggedinstaff", JSON.stringify(resp.data));
           navigate("/staffhome");
         } else if (resp.data.role === "admin") {
-          localStorage.setItem("loggedinuser", JSON.stringify(resp.data));
+          localStorage.setItem("loggedinadmin", JSON.stringify(resp.data));
           navigate("/Admin");
         } else {
           alert("Invalid usename or password");

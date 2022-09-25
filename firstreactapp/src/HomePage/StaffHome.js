@@ -1,24 +1,24 @@
 import axios from "axios";
-import React, { useState , useEffect} from "react";
-import {  useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
 
-function StaffHome(){
-         
-  const[staff, setStaff] = useState({});
+function StaffHome() {
+
+  const [staff, setStaff] = useState({});
   const navigate = useNavigate();
 
-   useEffect(() => {
-       axios.post("/getStaff", localStorage.getItem("loggedinuser") )
-       .then(resp => {setStaff(resp.data); localStorage.setItem("loggedinStaff",JSON.stringify(staff))});
-    },[]  );
-     
-    return(
-        <div>
-         <div className="containers">
+  useEffect(() => {
+    axios.post("/getStaff", localStorage.getItem("loggedinuser"))
+      .then(resp => { setStaff(resp.data); localStorage.setItem("loggedinStaff", JSON.stringify(staff)) });
+  }, []);
+
+  return (
+    <div>
+      <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
-            <Blogo/>
+            <Blogo />
 
             <div
               className="collapse navbar-collapse"
@@ -35,7 +35,7 @@ function StaffHome(){
                     Logout
                   </button>
                 </li>
-                
+
                 <li className="nav-item">
                   <div className="dropdown">
                     <button
@@ -69,10 +69,7 @@ function StaffHome(){
             </div>
           </div>
         </nav>
-      </div>
-       
-      
-            <div className="fluids" style={{ marginBottom: "50px" }}>
+        <div className="fluids" style={{ marginBottom: "50px" }}>
           <div className="row my-3"></div>
           <div className="row my-2 pb-2 mx-4 ">
             <div className="col-sm-3">
@@ -84,7 +81,35 @@ function StaffHome(){
                     onClick={() => navigate("/patientregister")}
                     className="btn btn-primary"
                   >
-                    Click
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Avaliable Beds</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/viewbeds")}
+                    className="btn btn-primary"
+                  >
+                    Check
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Booked Bed</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/BedBooked")}
+                    className="btn btn-primary"
+                  >
+                    Check
                   </button>
                 </div>
               </div>
@@ -92,13 +117,13 @@ function StaffHome(){
             <div className="col-sm-3">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Avaliable beds</h5>
+                  <h5 className="card-title"> Admit Patient</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/viewBeds")}
+                    onClick={() => navigate("/viewdoctor")}
                     className="btn btn-warning"
                   >
-                    Click
+                    Register 
                   </button>
                 </div>
               </div>
@@ -109,13 +134,13 @@ function StaffHome(){
             <div className="col-sm-3">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">Bed Booked</h5>
+                  <h5 className="card-title">Admitted Patients</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/BedBooked")}
+                    onClick={() => navigate("/bedsavailbility")}
                     className="btn btn-info"
                   >
-                    Click
+                    View All
                   </button>
                 </div>
               </div>
@@ -123,20 +148,107 @@ function StaffHome(){
             <div className="col-sm-3 ">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">View Staff</h5>
+                  <h5 className="card-title">Staff Information</h5>
                   <p className="card-text"></p>
                   <button
                     className="btn btn-success"
                     onClick={() => navigate("/viewstaff")}
                   >
-                   Click
+                    VIEW 
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div><div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
                   </button>
                 </div>
               </div>
             </div>
           </div>
+          
+
+          <div className="row my-2 pb-2 mx-4">
+            <div className="col-sm-3">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Patient Information</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/viewpatient")}
+                    className="btn btn-success"
+                  >
+                    VIEW 
+                  </button>
+                </div>
+              </div>
             </div>
-            <footer className="py-6 "style={{position:"absolute",bottom:"0",width:"100%"}}>
+            <div className="col-sm-3 ">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">Search Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    className="btn btn-success"
+                    onClick={() => navigate("/SearchDoctor")}
+                  >
+                    VIEW 
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div><div className="col-sm-3">
+              <div className="card ">
+                <div className="card-body">
+                  <h5 className="card-title text-primary">Register Doctor</h5>
+                  <p className="card-text"></p>
+                  <button
+                    onClick={() => navigate("/Doctorregister")}
+                    className="btn btn-primary"
+                  >
+                    REGISTER
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+                         
+          </div></div>
+      <footer className="py-6 " style={{ position: "absolute", bottom: "0", width: "100%" }}>
         <ul className="nav justify-content-center  bg-primary ">
           <li className="nav-item">
             <a
@@ -171,8 +283,8 @@ function StaffHome(){
           © 2022 Company, Inc
         </p>
       </footer>
-          </div>      
-        
-    );
+    </div>
+
+  );
 }
 export default StaffHome;

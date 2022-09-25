@@ -9,6 +9,7 @@ public class AdmissionRegister {
      int bed_id; 
      int doctor_id;
      int dept_id;
+     String bed_status;
 	public Date getAdmited_date() {
 		return admited_date;
 	}
