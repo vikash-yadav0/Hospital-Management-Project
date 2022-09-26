@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Blogo from "./NavBar";
+import '../Component/css/admin.css'
 
 
 let Admin = () => {
@@ -10,7 +11,7 @@ let Admin = () => {
  
   
   return (
-    <div>
+    <div className="admin">
       <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
@@ -63,7 +64,7 @@ let Admin = () => {
               </ul>
             </div>
           </div>
-        </nav><div className="admin">
+        </nav><div >
         <div className="fluids" style={{ marginBottom: "50px" }}>
           <div className="row my-3"></div>
           <div className="row my-2 pb-2 mx-4 ">
@@ -206,7 +207,7 @@ let Admin = () => {
                   <p className="card-text"></p>
                   <button
                     className="btn btn-warning "
-                    onClick={() => navigate("/SearchDoctor")}
+                    onClick={() => navigate("/ViewAdmission")}
                   >
                     ADMIT 
                   </button>

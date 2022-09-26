@@ -5,10 +5,19 @@
     <fullyQualifiedTypeName name="com.hospital.project.entiries.BedMaster"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Admission"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.hospital.project.repositry.PatientRepository"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.AdmissionRegister"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Patient"/>
+    <fullyQualifiedTypeName name="com.hospital.project.service.DepartmentService"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Department"/>
+    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonIgnoreProperties"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="java.util.HashSet"/>
+    <fullyQualifiedTypeName name="com.hospital.project.entiries.Staff"/>
+    <fullyQualifiedTypeName name="com.hospital.project.entiries.Doctor"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
 </qualifiedTypeNameHistroy>

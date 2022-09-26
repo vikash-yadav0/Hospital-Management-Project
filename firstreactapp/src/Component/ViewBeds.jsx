@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import Blogo from "./NavBar";
+import '../Component/css/bedbooking.css';
 
 function ViewBeds() {
   const [myData, setMyData] = useState([]);
@@ -14,7 +15,7 @@ function ViewBeds() {
       .then((res) => setMyData(res.data));
   }, [])
   return (
-    <div>
+    <div className="bedbooking">
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <Blogo />
@@ -49,7 +50,7 @@ function ViewBeds() {
         <button type="button" className=" btn btn-success btn-lg">
           Bed avaliable
         </button>
-        <table className="table">
+        <table className="table bg-light my-4">
           <thead>
             <tr>
               <th>Bed id</th>

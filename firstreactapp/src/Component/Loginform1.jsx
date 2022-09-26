@@ -2,9 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import Landing from "./Landing";
-
+import '../Component/css/login.css';
 import Blogo from "./NavBar";
 import Footer from "./NavBar/footer";
 
@@ -40,7 +38,7 @@ function Login() {
       });
   }
   return (
-    <div>
+    <div className="login1">
       <div className="container-fluids">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container ">
@@ -86,6 +84,7 @@ function Login() {
                   type="email"
                   placeholder="user_id"
                   className="form-control "
+                  autoComplete="off"
                   id="inputEmail3"
                   onChange={(event) => {
                     setuser_id(event.target.value);

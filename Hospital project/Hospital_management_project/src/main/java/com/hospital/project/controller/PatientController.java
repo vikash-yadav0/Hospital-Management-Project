@@ -94,6 +94,11 @@ public class PatientController
 	{
 		return pservice.updatePatient(pat, pid);
 		
+	}@PostMapping("/updatepatientbyDoctor")
+	public Patient updatepatientbyDoctor (@RequestParam("patient_history") String pat,@RequestParam("Patient_id") int pid)
+	{
+		return pservice.updatePatienthistory(pat, pid);
+		
 	}
 	@PostMapping("/uploadpfile")
 	public boolean SaveUpload(@RequestPart("data")Patient pr,@RequestPart("file")MultipartFile file)

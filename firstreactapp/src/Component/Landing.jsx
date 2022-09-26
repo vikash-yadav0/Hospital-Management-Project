@@ -116,14 +116,14 @@ const Landing = () => {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      <div class="row featurette d-flex justify-content-center align-items-center">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1"><u>Care</u><span class="text-muted"></span></h2>
-        <p class="lead"> We recognize that every person is important, and hence deserves
+      <div className="row featurette d-flex justify-content-center align-items-center">
+      <div className="col-md-7">
+        <h2 className="featurette-heading fw-normal lh-1"><u>Care</u><span className="text-muted"></span></h2>
+        <p className="lead"> We recognize that every person is important, and hence deserves
               the very best care possible. We will not be mechanical in our
               approach to work. We will be personal.</p>
       </div>
-      <div class="col-md-5 my-4">
+      <div className="col-md-5 my-4">
       <img
             src="https://source.unsplash.com/600x300/?Courtesy,doctor,hospital"
             className="card-img-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
@@ -132,30 +132,30 @@ const Landing = () => {
        
       </div>
     </div>
-    <div class="row featurette d-flex justify-content-center align-items-center">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1"> <u>Capability</u><span class="text-muted"></span></h2>
-        <p class="lead">Whatever be the health problem, we will be fully capable of
+    <div className="row featurette d-flex justify-content-center align-items-center">
+      <div className="col-md-7 order-md-2">
+        <h2 className="featurette-heading fw-normal lh-1"> <u>Capability</u><span className="text-muted"></span></h2>
+        <p className="lead">Whatever be the health problem, we will be fully capable of
               diagnosing and treating it effectively. Through the use of
               advanced technology, techniques and processes.</p>
       </div>
-      <div class="col-md-5 order-md-1">
+      <div className="col-md-5 order-md-1">
       <img
             src="https://source.unsplash.com/600x300/?Care,doctor,doctor"
-            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"width="500" height="200"
+            className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"width="500" height="200"
             alt="..."
           />
         
       </div>
     </div>
-    <div class="row featurette d-flex justify-content-center align-items-center">
-      <div class="col-md-7">
-        <h2 class="featurette-heading fw-normal lh-1"><u>Commitment</u> <span class="text-muted"></span></h2>
-        <p class="lead">To continuous learning. To find better methods of prevention and
+    <div className="row featurette d-flex justify-content-center align-items-center">
+      <div className="col-md-7">
+        <h2 className="featurette-heading fw-normal lh-1"><u>Commitment</u> <span className="text-muted"></span></h2>
+        <p className="lead">To continuous learning. To find better methods of prevention and
                 cure. Through undertaking, supporting and commissioning
                 research, in various medical and paramedical fields.</p>
       </div>
-      <div class="col-md-5 my-4">
+      <div className="col-md-5 my-4">
       <img
             src="https://source.unsplash.com/600x300/?doctor,Capability,doctor"
             className="card-img-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"

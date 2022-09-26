@@ -74,20 +74,7 @@ function ViewDoctor() {
                   <td>{qualifications}</td>
                   <td>{doctor_contact}</td>
                   <td>{user_email}</td>
-                  <button
-                    type="button"
-                    className="btn btn-success "
-                    onClick={() => navigate("")}
-                  >
-                    Update
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger mx-2"
-                    onClick={() => navigate("")}
-                  >
-                    Delete
-                  </button>
+                 
                 </tr>
               );
             })}

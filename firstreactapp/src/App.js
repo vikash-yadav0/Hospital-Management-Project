@@ -28,6 +28,9 @@ import UpdatePatient from './Component/UpdatePatient';
 import Aboutus from './Component/Aboutus';
 import FAQ from './Component/FAQ';
 import ViewAdmission from './Component/VeiwAdmission';
+import Patientupdate from './Component/patientupdate';
+import DuPatient from './Component/DuPatient';
+
 function App() {
   return (
     <div className="App">
@@ -54,9 +57,11 @@ function App() {
      <Route path='/billing' element={<Billing/>}/>
      <Route path='/updatestaff' element={<UpdateStaff/>}/>
      <Route path='/updatepatient' element={<UpdatePatient/>}/>
-     <Route path='./aboutus'element={<Aboutus/>}/>
-     <Route path='./FAQ' element={<FAQ/>}/>
-     <Route path='./viewadmission'element={<ViewAdmission/>}/>
+     <Route path='/aboutus'element={<Aboutus/>}/>
+     <Route path='/FAQ' element={<FAQ/>}/>
+     <Route path='/ViewAdmission'element={<ViewAdmission/>}/>
+     <Route path='/Patientupdate' element={<Patientupdate/>}/>
+     <Route path='/DuPatient' element={<DuPatient/>}/>
      </Routes>
     
     

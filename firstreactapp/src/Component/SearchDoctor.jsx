@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import Blogo from "./NavBar";
+import '../Component/css/viewdoct.css';
 
 function SearchDoctor() {
 
@@ -25,7 +26,7 @@ function SearchDoctor() {
             .then(d => { setDoctorid(d) });
 
     }
-    return (<>
+    return (<div className="viewdoc">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Blogo/>
@@ -137,7 +138,7 @@ function SearchDoctor() {
                 <p className="text-center  bg-primary text-light">
                     © 2022 Company, Inc
                 </p>
-            </footer></>
+            </footer></div>
 
     )
 }

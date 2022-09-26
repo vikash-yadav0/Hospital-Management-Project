@@ -3,51 +3,11 @@ import axios from "axios";
 import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
-import { ConstructionRounded } from "@mui/icons-material";
-import { render } from "@testing-library/react";
+
 import Blogo from "./NavBar";
+import '../Component/css/docreg.css';
 
-{
-  /*class DoctorRegist extends React.Component {
-    navigate = useNavigate();
-    constructor(props) {
-        super(props)
-        this.state = {
-            dept: [],
-            dept_id: 0,
-            user_email: "",
-            doctor_name: "",
-            doctor_contact: "",
-            qualifications: "",
-            password: ""
-        }
-        this.deptid = this.deptid.bind(this);
-    }
-    componentDidMount = () => {
-        fetch("http://localhost:8080/alldept")
-            .then(resp => resp.json())
-            .then(data => this.setState({ dept: data }));
 
-    }
-    deptid = (e) => {
-        this.setState({ dept_id: e.target.value })
-    }
-    
-    render() {
-        return (<div>
-            select Department:
-            <select name="dept" onChange={(e) => { this.deptid(e) }}>
-                {
-                    this.state.dept.map(dept => {
-                        return (<option value={dept.dept_id}>{dept.dept_name}</option>)
-                    })
-                }
-            </select>
-        </div>
-        )
-    }
-}*/
-}
 
 let DoctorRegister = () => {
   const navigate = useNavigate();
@@ -58,6 +18,7 @@ let DoctorRegister = () => {
   const [password, setpassword] = useState("");
   const [dept_id, setdept_id] = useState();
   const [dept, setdept] = useState([]);
+  
 
   useEffect(() => {
     fetch("http://localhost:8080/alldept")
@@ -90,7 +51,7 @@ let DoctorRegister = () => {
   }
 
   return (
-    <div>
+    <div className="docreg">
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
          <Blogo/>

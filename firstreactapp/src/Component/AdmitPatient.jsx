@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router"; 
+import '../Component/css/admitpatient.css';
 
 import Blogo from "./NavBar";
 function AdmitPatient() {
@@ -66,7 +67,7 @@ function AdmitPatient() {
   }
 
   return (
-    <div>
+    <div className="admitpatient">
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
           <Blogo/>

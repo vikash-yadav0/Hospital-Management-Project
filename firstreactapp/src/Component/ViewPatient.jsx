@@ -83,20 +83,7 @@ function ViewPatient(){
                   <td>{patient_gender}</td>
                   <td>{user_email}</td>
                   <td>{form_fill}</td>
-                   <button
-                     type="button"
-                     className="btn btn-success "
-                     onClick={() => navigate("")}
-                   >
-                     Update
-                   </button>
-                   <button
-                     type="button"
-                     className="btn btn-danger mx-2"
-                     onClick={() => navigate("")}
-                   >
-                     Delete
-                   </button>
+                   
                  </tr>
                );
              })}

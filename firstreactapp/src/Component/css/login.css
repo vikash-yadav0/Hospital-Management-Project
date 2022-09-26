@@ -1,6 +1,5 @@
-/*.containers {
-    
-    background-image: url("pexels-expect-best-323705.jpg");
+.login1{
+    background-image: url("../images/login.jpg");
   
    
     height: 550px;; 
@@ -10,4 +9,4 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }*/
+}

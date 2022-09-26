@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {useState,useEffect} from "react";
 import Footer from "./NavBar/footer";
 import Blogo from "./NavBar";
+import '../Component/css/billing.css';
 
 function Billing(){
    const[myData,setMyData]=useState([]);
@@ -15,7 +16,7 @@ function Billing(){
 });
 },[] );
 return(
-  <div>
+  <div className="billing">
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
             <Blogo/>

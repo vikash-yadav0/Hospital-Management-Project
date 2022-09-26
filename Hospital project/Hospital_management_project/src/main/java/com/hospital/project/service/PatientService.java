@@ -51,6 +51,15 @@ public class PatientService {
 		
 		return prepo.save(p);
 	}
+	public Patient updatePatienthistory(String pa,int patient_id)
+	{
+		Patient p=prepo.findById(patient_id).get();
+		
+		p.setPatient_history(pa);
+		
+		
+		return prepo.save(p);
+	}
 	public Patient getPatient(Login l)
 	{
 		return prepo.getPatient(l);

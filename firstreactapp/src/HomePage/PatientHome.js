@@ -18,7 +18,7 @@ let logout=()=>{
   useEffect(() => {
     fetch("http://localhost:8080/getDoctorbylogin?login_id="+nm.login_id)
       .then((resp) => resp.json())
-      .then((data) => {alert(data)
+      .then((data) => {setPatient(data)
       });}, []);
 
   return (
@@ -76,7 +76,7 @@ let logout=()=>{
         </div>
       </div>
     </nav>
-  <h1>welcome {}</h1>
+  <h1>welcome </h1>
     <div className="fluids" style={{ marginBottom: "50px" }}>
           <div className="row my-3"></div>
           <div className="row my-2 pb-2 mx-4 ">
@@ -100,7 +100,7 @@ let logout=()=>{
                   <h5 className="card-title text-dark">Update Patient</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/updatepatient")}
+                    onClick={() => navigate("#")}
                     className="btn btn-warning"
                   >
                     Update
@@ -136,7 +136,7 @@ let logout=()=>{
                 </div>
               </div>
             </div>
-          </div>
+           
 
           
         </div></div>
@@ -176,7 +176,7 @@ let logout=()=>{
     </p>
   </footer>
 </div>
-   
+   </div>
   );
 }
 export default HomeController;

@@ -51,40 +51,40 @@ const Aboutus = () => {
                 First in the combined State of Andhra Pradesh – Digital Flat Panel Cardiac Catheterization Lab</p>
 
 
-            <div class="bg- mt-5 pt-5 pb-5">
-                <div class="container-fluid">
-                    <div class="asd pb-3 mb-4">Vision and Mission</div>
+            <div className="bg- mt-5 pt-5 pb-5">
+                <div className="container-fluid">
+                    <div className="asd pb-3 mb-4">Vision and Mission</div>
 
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="media pt-0">
-                                <img src="https://www.noblehospitalspune.com/assets/imgs/vision.png" class="mr-3" width="45" />
-                                <div class="media-body">
-                                    <h5 class="mt-0 asd ">Vision</h5>
-                                    <p class="mb-3">Achieving unmatched standards of excellence that become a benchmark of healthcare practice through innovation, technology and compassionate care.</p>
+                    <div className="row">
+                        <div className="col-sm-6">
+                            <div className="media pt-0">
+                                <img src="https://www.noblehospitalspune.com/assets/imgs/vision.png" className="mr-3" width="45" />
+                                <div className="media-body">
+                                    <h5 className="mt-0 asd ">Vision</h5>
+                                    <p className="mb-3">Achieving unmatched standards of excellence that become a benchmark of healthcare practice through innovation, technology and compassionate care.</p>
                                 </div>
                             </div>
-                            <div class="media">
-                                <img src="https://www.noblehospitalspune.com/assets/imgs/mission.png" class="mr-3" width="45" />
-                                <div class="media-body">
-                                    <h5 class="mt-0 asd ">Mission</h5>
-                                    <p class="mb-3">To provide integrated healthcare of global standards to patients from all walks of life and to establish ourselves as one of India's most trusted and advanced healthcare destinations.</p>
+                            <div className="media">
+                                <img src="https://www.noblehospitalspune.com/assets/imgs/mission.png" className="mr-3" width="45" />
+                                <div className="media-body">
+                                    <h5 className="mt-0 asd ">Mission</h5>
+                                    <p className="mb-3">To provide integrated healthcare of global standards to patients from all walks of life and to establish ourselves as one of India's most trusted and advanced healthcare destinations.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
+                        <div className="col-sm-6">
 
-                            <div class="media">
-                                <img src="https://www.noblehospitalspune.com/assets/imgs/values.png" class="mr-3" width="45" />
-                                <div class="media-body">
-                                    <h5 class="mt-0 asd ">Values</h5>
-                                    <p class="mb-3">
-                                        <strong class="cf">Compassion</strong> – Encouraging open communication, transparency and maintaining excellence in personal and professional conduct.<br />
-                                        <strong class="cf">Quality</strong> – Adhering to the highest standards of patient care.<br />
-                                        <strong class="cf">Innovation</strong> – Recognising and implementing new ideas.<br />
-                                        <strong class="cf">Collaboration</strong> – Fostering efficiency and synergising to drive professional and organisational growth.<br />
-                                        <strong class="cf">Leadership</strong> – Being approachable, dependable and inspiring to build trust and mutual respect.
+                            <div className="media">
+                                <img src="https://www.noblehospitalspune.com/assets/imgs/values.png" className="mr-3" width="45" />
+                                <div className="media-body">
+                                    <h5 className="mt-0 asd ">Values</h5>
+                                    <p className="mb-3">
+                                        <strong className="cf">Compassion</strong> – Encouraging open communication, transparency and maintaining excellence in personal and professional conduct.<br />
+                                        <strong className="cf">Quality</strong> – Adhering to the highest standards of patient care.<br />
+                                        <strong className="cf">Innovation</strong> – Recognising and implementing new ideas.<br />
+                                        <strong className="cf">Collaboration</strong> – Fostering efficiency and synergising to drive professional and organisational growth.<br />
+                                        <strong className="cf">Leadership</strong> – Being approachable, dependable and inspiring to build trust and mutual respect.
                                     </p>
                                 </div>
                             </div>

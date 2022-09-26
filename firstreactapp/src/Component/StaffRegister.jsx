@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import Blogo from "./NavBar";
 import { useNavigate } from "react-router-dom";
+import '../Component/css/staffreg.css';
 
 function StaffRegister() {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ function StaffRegister() {
     }
   }
   return (
-    <div>
+    <div className="staffreg">
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
     <div className="container-fluid">
      <Blogo/>
@@ -83,16 +84,15 @@ function StaffRegister() {
       </div>
     </div>
   </nav><div></div>
+  <h1>
+            Staff Registration
+          </h1>
   <div className="container pt-4 pb-4 ">
     <div className="registeresdstaff">
       <div className="container card w-50">
-        <form className="register-form" onSubmit={handleSubmit}>
-          <br></br>
-          <h1>
-            Staff Registration
-          </h1>
+        
+        <form className="register-form pt-3" onSubmit={handleSubmit}>
          
-
           <div>
           <b>
              <label for="staff_name">Name : </label>

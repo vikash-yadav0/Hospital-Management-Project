@@ -3,18 +3,21 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
 function DoctorHome() {
-   let nm = JSON.parse(localStorage.getItem("loggedinuser"));
+  let nm = JSON.parse(localStorage.getItem("loggedinuser"));
   const [doctor, setDoctor] = useState([]);
   const navigate = useNavigate();
-let logout=()=>{
-  localStorage.removeItem("loggedinuser");
-}
+  let logout = () => {
+    localStorage.removeItem("loggedinuser");
+  }
 
   useEffect(() => {
-    fetch("http://localhost:8080/getDoctorbylogin?login_id="+nm.login_id)
+    fetch("http://localhost:8080/getDoctorbylogin?login_id=" + nm.login_id)
       .then((resp) => resp.json())
-      .then((data) => {setDoctor(data)
-      });}, []);
+      .then((data) => {{
+        setDoctor(data);localStorage.setItem("loggedindoctor", JSON.stringify(data))}
+      });
+      
+  }, []);
 
   return (
     <div>
@@ -34,7 +37,7 @@ let logout=()=>{
                     type="button"
                     className="btn btn-light me-md-2"
                     aria-current="page"
-                    onClick={() => {logout();navigate("/login")}}
+                    onClick={() => { logout(); navigate("/login") }}
                   >
                     Logout
                   </button>
@@ -52,7 +55,7 @@ let logout=()=>{
                     <ul className="dropdown-menu">
                       <li>
                         <a className="dropdown-item" href="#">
-                          Profile
+                          {doctor.doctor_name}
                         </a>
                       </li>
                       <li>
@@ -96,7 +99,7 @@ let logout=()=>{
                   <h5 className="card-title text-dark">View Staff</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/Doctorregister")}
+                    onClick={() => navigate("/viewstaff")}
                     className="btn btn-warning"
                   >
                     STAFF
@@ -124,7 +127,7 @@ let logout=()=>{
                   <h5 className="card-title text-dark"> Search Staff</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/viewdoctor")}
+                    onClick={() => navigate("/SearchStaff")}
                     className="btn btn-success"
                   >
                     SEARCH
@@ -169,7 +172,7 @@ let logout=()=>{
                   <h5 className="card-title text-dark">Admit Patient</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/")}
+                    onClick={() => navigate("#")}
                     className="btn btn-info"
                   >
                     ADMITTED
@@ -179,20 +182,20 @@ let logout=()=>{
             </div><div className="col-sm-3">
               <div className="card ">
                 <div className="card-body">
-                  <h5 className="card-title text-dark">Update Patient</h5>
+                  <h5 className="card-title text-dark">Update Patient History</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/UpdatePatient")}
+                    onClick={() => navigate("/DuPatient")}
                     className="btn btn-success"
                   >
-                    UPDATE
+                    UPDATE HISTORY
                   </button>
                 </div>
               </div>
             </div>
           </div>
-         </div>        
         </div>
+      </div>
       <footer className="py-6 " style={{ position: "absolute", bottom: "0", width: "100%" }}>
         <ul className="nav justify-content-center  bg-primary ">
           <li className="nav-item">
@@ -229,7 +232,7 @@ let logout=()=>{
         </p>
       </footer>
     </div>
-     
-    );
+
+  );
 }
 export default DoctorHome;

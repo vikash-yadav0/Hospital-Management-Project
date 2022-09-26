@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router";
 import Blogo from "./NavBar";
-const UpdatePatient = () => {
+import '../Component/css/login.css';
+const Patientupdate = () => {
+    const navigate = useNavigate();
     const [patient_name, setpatient_name] = useState("");
     const [patient_contact1, setpatient_contact1] = useState("");
     const [patient_contact2, setpatient_contact2] = useState("");
@@ -17,9 +19,17 @@ const UpdatePatient = () => {
     const [dept_id, setdept_id] = useState("");
     const [dept, setdept] = useState([]);
     const [patient, setpatient] = useState([]);
-    const [patientid, setpatientid] = useState([]);
-    const [patient_id, setpatient_id] = useState(0);
-    const navigate = useNavigate();
+
+    
+    let nm = JSON.parse(localStorage.getItem("loggedinuser"));    
+
+    useEffect(() => {
+      fetch("http://localhost:8080/getPatientbylogin?login_id="+nm.login_id)
+        .then((resp) => resp.json())
+        .then((data) => {setpatient(data)
+        });}, []);
+  
+
     useEffect(() => {
         fetch("http://localhost:8080/alldept")
             .then((resp) => resp.json())
@@ -30,7 +40,7 @@ const UpdatePatient = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await axios.post(("http://localhost:8080/updatepatient?Patient_id=" + patient_id), {
+            await axios.post(("http://localhost:8080/updatepatient?Patient_id=" + patient.patient_id), {
 
                 patient_name: patient_name,
                 patient_contact1: patient_contact1,
@@ -60,22 +70,9 @@ const UpdatePatient = () => {
             alert("User Registation Failed");
         }
     }
-    useEffect(() => {
-        fetch("http://localhost:8080/allpatient")
-            .then(r => r.json())
-            .then(d => setpatient(d))
-    }, []);
-
-    const FetchPatient = (e) => {
-
-        setpatient_id(e.target.value);
-        fetch("http://localhost:8080/getpatient?patient_id=" + patient_id)
-            .then(r => r.json())
-            .then(d => { setpatientid(d) });
-    }
 
     return (
-        <>
+        <div className="login1">
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Blogo />
@@ -99,25 +96,6 @@ const UpdatePatient = () => {
             </nav>
             <div className="pt-3"></div>
             <div className="container card w-25 ">
-                <label htmlFor="Dept" className="form-label"><b>
-                    Patient :</b>
-                </label>
-                <select
-                    name="patient_id"
-                    onChange={(e) => {
-                        setpatient_id(e.target.value);
-                    }}
-                >
-                    <option value='Select'>Select...</option>
-                    {patient.map(
-                        (el) => {
-                            return <option value={el.patient_id}>{el.patient_name}</option>;
-                        }
-                    )}
-
-                </select>
-                <button className='btn btn-primary mx-5' style={{ marginLeft: "10px", marginTop: "10px" }} onClick={FetchPatient}>Search</button>
-
             </div>
             <div className="container">
                 <div className="registeresd pt-2">
@@ -139,7 +117,7 @@ const UpdatePatient = () => {
                                         placeholder="name"
                                         name="patient_name"
                                         id="patient_name"
-                                        defaultValue={patientid.patient_name}
+                                        defaultValue={patient.patient_name}
                                         onChange={(event) => {
                                             setpatient_name(event.target.value);
                                         }}
@@ -153,7 +131,7 @@ const UpdatePatient = () => {
                                         type="text"
                                         placeholder="contact1"
                                         name="patient_contact1"
-                                        defaultValue={patientid.patient_contact1}
+                                        defaultValue={patient.patient_contact1}
                                         id="patient_contact1"
                                         onChange={(event) => {
                                             setpatient_contact1(event.target.value);
@@ -168,7 +146,7 @@ const UpdatePatient = () => {
                                         type="tel"
                                         placeholder="contact2"
                                         name="patient_contact2"
-                                        defaultValue={patientid.patient_contact2}
+                                        defaultValue={patient.patient_contact2}
                                         id="patient_contact2"
                                         onChange={(event) => {
                                             setpatient_contact1(event.target.value);
@@ -198,7 +176,7 @@ const UpdatePatient = () => {
                                         type="date"
 
                                         name="birthdate"
-                                        defaultValue={patientid.patient_bdate}
+                                        defaultValue={patient.patient_bdate}
                                         id="patient_bdate"
                                         onChange={(event) => {
                                             setpatient_bdate(event.target.value);
@@ -213,7 +191,7 @@ const UpdatePatient = () => {
                                         type="text"
 
                                         name="patient_bloodgroup"
-                                        defaultValue={patientid.patient_bloodgroup}
+                                        defaultValue={patient.patient_bloodgroup}
                                         id="patient_bloodgroup"
                                         onChange={(event) => {
                                             setpatient_bloodgroup(event.target.value);
@@ -228,7 +206,7 @@ const UpdatePatient = () => {
                                         type="text"
 
                                         name="patient_height"
-                                        defaultValue={patientid.patient_height}
+                                        defaultValue={patient.patient_height}
                                         id="Patient_height"
                                         onChange={(event) => {
                                             setpatient_height(event.target.value);
@@ -243,7 +221,7 @@ const UpdatePatient = () => {
                                         type="text"
 
                                         name="patient_weight"
-                                        defaultValue={patientid.patient_weight}
+                                        defaultValue={patient.patient_weight}
                                         id="patient_weight"
                                         onChange={(event) => {
                                             setpatient_weight(event.target.value);
@@ -258,7 +236,7 @@ const UpdatePatient = () => {
                                         type="textbox"
 
                                         name="patient_history"
-                                        defaultValue={patientid.patient_history}
+                                        defaultValue={patient.patient_history}
                                         id="patient_history"
                                         onChange={(event) => {
                                             setpatient_history(event.target.value);
@@ -326,7 +304,7 @@ const UpdatePatient = () => {
                     © 2022 Company, Inc
                 </p>
             </footer>
-        </>
+        </div>
     )
 }
-export default UpdatePatient;
+export default Patientupdate;

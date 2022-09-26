@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "./NavBar";
@@ -9,10 +8,9 @@ function ViewAdmission(){
    const navigate = useNavigate();
  
    useEffect(() => {
-     axios
-       .get("http://localhost:8080/alladmission")
-       .then((res) => setMyData(res.data));
-   }, []);
+    fetch("http://localhost:8080/alladmission")
+    .then(e=>e.json())
+    .then(e=>setMyData(e))},[]);
    return (
      <div >
        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -26,7 +24,7 @@ function ViewAdmission(){
                    type="button"
                    className="btn btn-light "
                    aria-current="page"
-                   onClick={() => navigate("/login")}
+                   onClick={() => navigate("#")}
                  >
                    Logout
                  </button>
@@ -36,7 +34,7 @@ function ViewAdmission(){
                    type="button"
                    className="btn btn-light "
                    aria-current="page"
-                   onClick={() => navigate("/Admin")}
+                   onClick={() => navigate("#")}
                  >
                    Go back
                  </button>
@@ -61,33 +59,17 @@ function ViewAdmission(){
              </tr>
            </thead>
            <tbody>
-           {myData.map((post)=>{
-             const{admission_id,admited_date,patient,bed,doctor,department}=post;
-               return(
+          
                  <tr>
-                    <td>{admission_id}</td>
-                    <td>{admited_date}</td>                    
-                    <td>{patient}</td>
-                  <td>{bed}</td>                               
-                  <td>{doctor}</td>
-                  <td>{department}</td>
-                   <button
-                     type="button"
-                     className="btn btn-success "
-                     onClick={() => navigate("")}
-                   >
-                     Update
-                   </button>
-                   <button
-                     type="button"
-                     className="btn btn-danger mx-2"
-                     onClick={() => navigate("")}
-                   >
-                     Delete
-                   </button>
+                    <td>{myData.admission_id}</td>
+                    <td>{myData.admited_date}</td>                    
+                    <td>{myData.patient}</td>
+                  <td>{myData.bed}</td>                               
+                  <td>{myData.doctor}</td>
+                  <td>{myData.department}</td>
+                  
                  </tr>
-               );
-             })}
+               
            </tbody>
          </table>
        </div>
