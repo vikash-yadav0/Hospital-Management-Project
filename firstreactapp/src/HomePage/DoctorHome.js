@@ -2,6 +2,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
+import '../Component/css/viewdoct.css';
+
+
 function DoctorHome() {
   let nm = JSON.parse(localStorage.getItem("loggedinuser"));
   const [doctor, setDoctor] = useState([]);
@@ -20,7 +23,7 @@ function DoctorHome() {
   }, []);
 
   return (
-    <div>
+    <div className="viewdoc">
 
       <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">

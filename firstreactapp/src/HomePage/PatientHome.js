@@ -1,5 +1,5 @@
 import { bgcolor, color } from "@mui/system";
-
+import '../Component/css/patient.css';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,13 +16,14 @@ let logout=()=>{
 }
 
   useEffect(() => {
-    fetch("http://localhost:8080/getDoctorbylogin?login_id="+nm.login_id)
+    fetch("http://localhost:8080/getPatientbylogin?login_id="+nm.login_id)
       .then((resp) => resp.json())
-      .then((data) => {setPatient(data)
+      .then((data) => {{
+        setPatient(data);localStorage.setItem("loggedindoctor", JSON.stringify(data))}
       });}, []);
 
   return (
-    <div>
+    <div className="patienthome">
     <div className="containers">
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
@@ -56,7 +57,7 @@ let logout=()=>{
                 <ul className="dropdown-menu">
                   <li>
                     <a className="dropdown-item" href="#">
-                      Profile
+                    {patient.patient_name}
                     </a>
                   </li>
                   <li>

@@ -2,6 +2,7 @@ import React from "react";
 import {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "./NavBar";
+import '../Component/css/bedbooking.css';
 
 function ViewAdmission(){
    const [myData, setMyData] = useState([]);
@@ -12,7 +13,7 @@ function ViewAdmission(){
     .then(e=>e.json())
     .then(e=>setMyData(e))},[]);
    return (
-     <div >
+     <div className="bedbooking">
        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
          <div className="container-fluid">
          <Blogo/>
@@ -48,7 +49,7 @@ function ViewAdmission(){
          <button type="button" className=" btn btn-success btn-lg">
            Admission List
          </button>
-         <table className="table">
+         <table className="table bg-light my-4">
            <thead>
              <tr>
                <th>Admission ID</th>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import '../Component/css/docreg.css';
+import '../Component/css/staffreg.css';
 import Blogo from "./NavBar";
 
 function Register() {
@@ -61,7 +61,7 @@ function Register() {
     }
   }
   return (
-    <div className="docreg">
+    <div className="staffreg">
       <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">

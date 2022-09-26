@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router";
 import Blogo from "./NavBar";
+import '../Component/css/viewdoct.css';
 const UpdateStaff = () => {
     const navigate = useNavigate();
     const [staff_name, setstaff_name] = useState("");
@@ -63,7 +64,7 @@ const UpdateStaff = () => {
     }
 
     return (
-        <>
+        <div className="viewdoc">
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Blogo />
@@ -262,7 +263,7 @@ const UpdateStaff = () => {
                     © 2022 Company, Inc
                 </p>
             </footer>
-        </>
+        </div>
     )
 }
 export default UpdateStaff;

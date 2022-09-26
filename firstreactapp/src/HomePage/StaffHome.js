@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
-
+import '../Component/css/staffreg.css';
 function StaffHome() {
 
   const [staff, setStaff] = useState({});
@@ -17,11 +17,12 @@ let logout=()=>{
   useEffect(() => {
     fetch("http://localhost:8080/getStaffbylogin?login_id="+nm.login_id)
       .then((resp) => resp.json())
-      .then((data) => {setStaff(data)
+      .then((data) => {{
+        setStaff(data);localStorage.setItem("loggedindoctor", JSON.stringify(data))}
       });}, []);
 
   return (
-    <div>
+    <div className="staffreg">
       <div className="containers">
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
@@ -56,7 +57,7 @@ let logout=()=>{
                     <ul className="dropdown-menu">
                       <li>
                         <a className="dropdown-item" href="#">
-                          Profile
+                          {staff.staff_name}
                         </a>
                       </li>
                       <li>

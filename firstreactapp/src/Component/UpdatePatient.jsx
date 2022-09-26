@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router";
 import Blogo from "./NavBar";
+import '../Component/css/viewdoct.css';
 const UpdatePatient = () => {
     const [patient_name, setpatient_name] = useState("");
     const [patient_contact1, setpatient_contact1] = useState("");
@@ -75,7 +76,7 @@ const UpdatePatient = () => {
     }
 
     return (
-        <>
+        <div className="viewdoc">
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Blogo />
@@ -326,7 +327,7 @@ const UpdatePatient = () => {
                     © 2022 Company, Inc
                 </p>
             </footer>
-        </>
+        </div>
     )
 }
 export default UpdatePatient;

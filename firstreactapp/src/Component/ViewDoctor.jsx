@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import '../Component/css/bedbooking.css';
 
 import Blogo from "./NavBar";
 
@@ -15,7 +16,7 @@ function ViewDoctor() {
       .then((res) => setMyData(res.data));
   }, []);
   return (
-    <div >
+    <div className="bedbooking">
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
         <Blogo/>
@@ -51,7 +52,7 @@ function ViewDoctor() {
         <button type="button" className=" btn btn-success btn-lg">
           Doctor List
         </button>
-        <table className="table">
+        <table className="table bg-light my-4">
           <thead>
             <tr>
               <th>Name</th>

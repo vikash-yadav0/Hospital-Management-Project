@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Table from 'react-bootstrap/Table'
 import Blogo from "./NavBar";
 import Footer from "./NavBar/footer";
+import '../Component/css/viewdoct.css';
 
 function SearchStaff(){
 
@@ -27,7 +28,7 @@ function SearchStaff(){
         
     }
     return(
-     <div>
+     <div className="viewdoc">
          <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
           <div className="container-fluid">
             <Blogo/>
