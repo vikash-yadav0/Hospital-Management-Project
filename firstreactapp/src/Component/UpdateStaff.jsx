@@ -6,12 +6,12 @@ import Blogo from "./NavBar";
 import '../Component/css/viewdoct.css';
 const UpdateStaff = () => {
     const navigate = useNavigate();
-    const [staff_name, setstaff_name] = useState("");
-    const [staff_contact, setstaff_contact] = useState("");
-    const [staff_gender, setstaff_gender] = useState("");
-    const [Staff_bdate, setStaff_bdate] = useState("");
-    const [Staff_jdate, setStaff_jdate] = useState("");
-    const [dept_id, setdept_id] = useState("");
+    const [staff_name, setstaff_name] = useState();
+    const [staff_contact, setstaff_contact] = useState();
+    const [staff_gender, setstaff_gender] = useState();
+    const [Staff_bdate, setStaff_bdate] = useState();
+    const [Staff_jdate, setStaff_jdate] = useState();
+    const [dept_id, setdept_id] = useState();
     const [dept, setdept] = useState([]);
     const [staff, setStaff] = useState([]);
     const [staffid, setStaffid] = useState([]);
@@ -24,20 +24,19 @@ const UpdateStaff = () => {
                 setdept(data)
             });
     }, []);
-    async function handleSubmit(event) {
-        event.preventDefault();
+    async function handleSubmit() {
         try {
-            await axios.post(("http://localhost:8080/updatestaff?staff_id=" + staff_id), {
-
-                Staff_name: staff_name,
+            await axios.post(("http://localhost:8080/updatestaff?staff_id=" + staffid.staff_id), {
+               
+                staff_name: staff_name,
                 staff_contact: staff_contact,
                 staff_gender: staff_gender,
-                Staff_bdate: Staff_bdate,
-                Staff_jdate: Staff_jdate,
+                staff_bdate: Staff_bdate,
+                staff_jdate: Staff_jdate,
                 dept_id: dept_id,
             });
 
-            alert("User Registation Successfully");
+           
 
             setstaff_name("");
             setstaff_contact("");
@@ -45,8 +44,9 @@ const UpdateStaff = () => {
             setStaff_bdate("");
             setStaff_jdate("");
             setdept_id(0);
+            alert("User Registation Successfully");
         } catch (err) {
-            alert("User Registation Failed");
+            alert("User Registation Failed",err);
         }
     }
     useEffect(() => {
@@ -221,9 +221,9 @@ const UpdateStaff = () => {
                                         )}
                                     </select>
                                 </div>
-                                <button type="submit" className="btn btn-primary py-1">
+                                <span  className="btn btn-primary py-1" onClick={() => handleSubmit()}>
                                     Submit
-                                </button>
+                                </span>
                             </form>
                         </div>
                     </div>

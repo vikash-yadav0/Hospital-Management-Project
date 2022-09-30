@@ -6,14 +6,14 @@ import Blogo from "./NavBar";
 import '../Component/css/viewdoct.css';
 const UpdateDoctor = () => {
     const navigate = useNavigate();
-    const [doctor_name, setdoctor_name] = useState("");
-    const [doctor_contact, setdoctor_contact] = useState("");
-    const [qualifications, setqualifications] = useState("");
-    const [dept_id, setdept_id] = useState();
+    const [doctor_name, setdoctor_name] = useState();
+    const [doctor_contact, setdoctor_contact] = useState();
+    const [qualifications, setqualifications] = useState();
+    const [dept_id, setdept_id] = useState(0);
     const [dept, setdept] = useState([]);
     const [doctor, setDoctor] = useState([]);
     const [doctorid, setDoctorid] = useState([]);
-    const [Doctor_id, setDoctor_id] = useState(0);
+    const [Doctor_id, setDoctor_id] = useState();
 
     useEffect(() => {
         fetch("http://localhost:8080/alldept")
@@ -22,10 +22,10 @@ const UpdateDoctor = () => {
                 setdept(data)
             });
     }, []);
-    async function handleSubmit(event) {
-        event.preventDefault();
+    async function handleSubmit() {
+       
         try {
-            await axios.post(("http://localhost:8080/updatedoctor?doctor_id=" + Doctor_id), {
+            await axios.post(("http://localhost:8080/updatedoctor?doctor_id=" + doctorid.doctor_id), {
 
                 doctor_name: doctor_name,
                 doctor_contact: doctor_contact,
@@ -40,7 +40,7 @@ const UpdateDoctor = () => {
             setqualifications("");
             setdept_id(0);
         } catch (err) {
-            alert("User Registation Failed");
+            alert("User Registation Failed",err);
         }
     }
     useEffect(() => {
@@ -58,7 +58,7 @@ const UpdateDoctor = () => {
     }
 
     return (
-        <div className="staffreg">
+        <div className="viewdoc">
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container-fluid">
                     <Blogo />
@@ -185,9 +185,9 @@ const UpdateDoctor = () => {
                                         )}
                                     </select>
                                 </div>
-                                <button type="submit" className="btn btn-primary py-1">
+                                <span  className="btn btn-primary py-1" onClick={() => handleSubmit()}>
                                     Submit
-                                </button>
+                                </span>
                             </form>
                         </div>
                     </div>

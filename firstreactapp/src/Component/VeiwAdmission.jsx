@@ -11,7 +11,7 @@ function ViewAdmission(){
    useEffect(() => {
     fetch("http://localhost:8080/alladmission")
     .then(e=>e.json())
-    .then(e=>setMyData(e))},[]);
+    .then(e=>{setMyData(e)})},[]);
    return (
      <div className="bedbooking">
        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -51,26 +51,32 @@ function ViewAdmission(){
          </button>
          <table className="table bg-light my-4">
            <thead>
+            
              <tr>
                <th>Admission ID</th>
                <th>Amisssion Date</th>
-               <th>Patient</th>
-               <th>Bed</th>
-               <th>Department</th>
+               <th>Patient name</th>
+             
+               <th>Bed id</th>
+               <th>doctor name</th>
+               <th>Department name</th>
              </tr>
            </thead>
            <tbody>
-          
+           {myData.map((post) => {
+              
+              return (
                  <tr>
-                    <td>{myData.admission_id}</td>
-                    <td>{myData.admited_date}</td>                    
-                    <td>{myData.patient}</td>
-                  <td>{myData.bed}</td>                               
-                  <td>{myData.doctor}</td>
-                  <td>{myData.department}</td>
+                  <td>{post.admission_id}</td>
+                 <td>{post.admited_date}</td>                    
+                 <td>{post.patient.patient_name}</td>
+                  <td>{post.bed.bed_id}</td>                               
+                  <td>{post.doctor.doctor_name}</td>
+                  <td>{post.department.dept_name}</td>
                   
                  </tr>
-               
+                );
+              })}
            </tbody>
          </table>
        </div>

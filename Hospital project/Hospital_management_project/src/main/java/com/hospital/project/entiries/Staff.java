@@ -47,14 +47,7 @@ public class Staff {
 	
 	@Column
 	int dept_id;
-	/*@JsonIgnoreProperties("staff")
-	@ManyToOne
-	@JoinColumn(name="dept_id")
-	Department department;	*/
 	
-	/*@JsonIgnoreProperties("staff")
-	@OneToMany(mappedBy="staff",cascade = CascadeType.ALL)
-	Set<Admission> admission =new HashSet();*/
 	public Staff() {
 		super();
 		// TODO Auto-generated constructor stub

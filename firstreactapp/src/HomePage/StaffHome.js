@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Blogo from "../Component/NavBar";
-import '../Component/css/staffreg.css';
+import '../Component/css/staffhome.css';
 function StaffHome() {
 
   const [staff, setStaff] = useState({});

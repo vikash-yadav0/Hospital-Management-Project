@@ -18,6 +18,6 @@
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Staff"/>
     <fullyQualifiedTypeName name="com.hospital.project.entiries.Doctor"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
 </qualifiedTypeNameHistroy>

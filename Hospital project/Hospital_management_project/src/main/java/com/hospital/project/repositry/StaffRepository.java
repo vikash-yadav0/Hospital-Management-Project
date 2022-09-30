@@ -26,4 +26,6 @@ public interface StaffRepository extends JpaRepository<Staff,Integer>
 	
 	@Query("select l  from Staff l where dept_id=:did")
 	public List<Staff> getstaffbydept( int did);
+	
+	
 }

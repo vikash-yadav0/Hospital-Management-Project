@@ -6,10 +6,11 @@ import '../Component/css/admitpatient.css';
 
 import Blogo from "./NavBar";
 function AdmitPatient() {
-  const [admited_date, setadmited_date] = useState("");
-  const [patient_id, setpatient_id] = useState("");
+  const [admited_date, setadmited_date] = useState();
+  const [patient_id, setpatient_id] = useState();
   const [patient, setpatient] = useState([]);
   const [bed_id, setbed_id] = useState([]);
+  const [bedid, setbedid] = useState([]);
   const [doctor, setDoctor] = useState([]);
   const [doctor_id, setDoctor_id] = useState(0);
   const [dept_id, setdept_id] = useState();
@@ -33,7 +34,7 @@ function AdmitPatient() {
     fetch("http://localhost:8080/avaliablebed")
       .then((resp) => resp.json())
       .then((data) => {
-        setbed_id(data)
+        setbedid(data)
       });
   }, []);
 
@@ -44,9 +45,8 @@ function AdmitPatient() {
   }, []);
 
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    try {
+  async function handleSubmit() {
+    try { 
       await axios.post("http://localhost:8080/saveadmission", {
         admited_date: admited_date,
         patient_id: patient_id,
@@ -84,16 +84,7 @@ function AdmitPatient() {
                   Logout
                 </button>
               </li>
-              <li className="nav-item">
-                <button
-                  type="button"
-                  className="btn btn-light me-md-2"
-                  aria-current="page"
-                  onClick={() => navigate("/Admin")}
-                >
-                  Go Back
-                </button>
-              </li>
+             
             </ul>
           </div>
         </div>
@@ -127,7 +118,7 @@ function AdmitPatient() {
               onChange={(e) => {
                 setpatient_id(e.target.value);
               }}>
-              <option value='Select'>Select......</option>
+             <option value='Select'>Select......</option>
               {patient.map(
                 (el) => {
                   return <option value={el.patient_id}>{el.patient_name},{el.patient_bdate},{el.patient_bloodgroup}</option>;
@@ -144,10 +135,10 @@ function AdmitPatient() {
             <select
               name="bed_id"
               onChange={(e) => {
-                setdept_id(e.target.value);
+                setbed_id(e.target.value);
               }}>
               <option value='Select'>Select...</option>
-              {bed_id.map(
+              {bedid.map(
                 (el) => {
                   return <option value={el.bed_id}>{el.bed_id},{el.category},{el.charges}</option>;
                 }
@@ -195,9 +186,9 @@ function AdmitPatient() {
           </div>
           <br />
 
-          <button type="submit" className="btn btn-primary py-1">
+          <span  className="btn btn-primary py-1" onClick={() => handleSubmit()}>
                                     Submit
-                                </button>
+                                </span>
         </form>
         </div></div>
         <footer className="py-6 " style={{ position: "absolute", bottom: "0", width: "100%" }}>
