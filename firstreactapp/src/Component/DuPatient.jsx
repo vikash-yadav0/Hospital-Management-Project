@@ -7,7 +7,7 @@ import '../Component/css/docreg.css';
 const DuPatient = () => {
 
     
-    const [patient_history, setpatient_history] = useState("");
+    const [patient_history, setpatient_history] = useState();
         
    
     const [patient, setpatient] = useState([]);
@@ -15,20 +15,19 @@ const DuPatient = () => {
     const [patient_id, setpatient_id] = useState(0);
     const navigate = useNavigate();
     
-    async function handleSubmit(event) {
-        event.preventDefault();
+    async function handleSubmit() {
         try {
-            await axios.post(("http://localhost:8080/updatepatientbyDoctor?Patient_id=" + patient_id+"&patient_history="+patient_history), {
-
+          
+            await axios.post(("http://localhost:8080/updatepatientbyDoctor?Patient_id=" + patientid.patient_id), {
+                
+                patient_history:patient_history
             });
 
-            alert("User Registation Successfully");
-
+            alert("History updated Successfully");            
             
-            setpatient_history("");
             
         } catch (err) {
-            alert("User Registation Failed");
+            alert("History updation Failed");
         }
     }
     useEffect(() => {
@@ -54,7 +53,16 @@ const DuPatient = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 
-                           
+                            <li className="nav-item">
+                                <button
+                                    type="button"
+                                    className="btn btn-light me-md-2"
+                                    aria-current="page"
+                                    onClick={() => navigate("/Admin")}
+                                >
+                                    Go Back
+                                </button>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -96,14 +104,14 @@ const DuPatient = () => {
                                     <label htmlFor="staff_name" className="form-label">
                                         Patient Name :
                                     </label>
-                                    <input
+                                    <span
                                         type="text"
                                         placeholder="name"
                                         name="patient_name"
                                         id="patient_name"
-                                        Value={patientid.patient_name}
+                                        
                                        
-                                    />
+                                    >{patientid.patient_name}</span>
                                 </div>
                                
                                 <div className="mb-3">
@@ -111,21 +119,20 @@ const DuPatient = () => {
                                         History:
                                     </label>
                                     <input
-                                        type="textbox"
-
+                                        type="text"
                                         name="patient_history"
                                         defaultValue={patientid.patient_history}
                                         id="patient_history"
-                                        onChange={(event) => {
-                                            setpatient_history(event.target.value);
+                                        onChange={(e) => {
+                                            setpatient_history(e.target.value);
                                         }}
                                     />
                                 </div>
 
 
-                                <button type="submit" className="btn btn-primary py-1">
+                                <span  className="btn btn-primary py-1" onClick={() => handleSubmit()}>
                                     Submit
-                                </button>
+                                </span>
                             </form>
                         </div>
                     </div>
