@@ -147,7 +147,7 @@ let logout=()=>{
                   <p className="card-text"></p>
                   <button
                     className="btn btn-warning"
-                    onClick={() => navigate("/viewstaff")}
+                    onClick={() => navigate("/ViewPatient")}
                   >
                     INFORMATION 
                   </button>
@@ -160,7 +160,7 @@ let logout=()=>{
                   <h5 className="card-title text-dark">Search Doctor</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("/Doctorregister")}
+                    onClick={() => navigate("/SearchDoctor")}
                     className="btn btn-info"
                   >
                     SEARCH
@@ -175,7 +175,7 @@ let logout=()=>{
                   <h5 className="card-title">Admitted Patients</h5>
                   <p className="card-text"></p>
                   <button
-                    onClick={() => navigate("#")}
+                    onClick={() => navigate("/ViewAdmission")}
                     className="btn btn-primary"
                   >
                     ADMITTED

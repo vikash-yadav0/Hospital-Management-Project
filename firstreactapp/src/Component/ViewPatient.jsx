@@ -32,16 +32,7 @@ function ViewPatient(){
                    Logout
                  </button>
                </li>
-               <li className="nav-item mx-2">
-                 <button
-                   type="button"
-                   className="btn btn-light "
-                   aria-current="page"
-                   onClick={() => navigate("/Admin")}
-                 >
-                   Go back
-                 </button>
-               </li>
+               
              </ul>
            </div>
          </div>
@@ -51,8 +42,8 @@ function ViewPatient(){
          <button type="button" className=" btn btn-success btn-lg">
            Patient List
          </button>
-         <table className="table bg-light my-4">
-           <thead>
+         <table className="table  my-4">
+           <thead className="bg-dark text-light">
              <tr>
                <th>Name</th>
                <th>BirthDate</th>
@@ -67,7 +58,8 @@ function ViewPatient(){
                <th>Form Fill</th>
              </tr>
            </thead>
-           <tbody>
+           <tbody
+           className="bg-light text-dark">
            {myData.map((post)=>{
              const{patient_name,user_email,patient_contact1,patient_contact2,patient_bdate,patient_bloodgroup
             ,patient_history,patient_height,patient_weight,patient_gender,form_fill}=post;

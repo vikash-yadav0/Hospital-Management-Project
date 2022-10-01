@@ -32,16 +32,7 @@ function ViewBeds() {
                   Logout
                 </button>
               </li>
-              <li className="nav-item mx-2">
-                <button
-                  type="button"
-                  className="btn btn-light "
-                  aria-current="page"
-                  onClick={() => navigate("/PatientHome")}
-                >
-                  Go back
-                </button>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -50,8 +41,8 @@ function ViewBeds() {
         <button type="button" className=" btn btn-success btn-lg">
           Bed avaliable
         </button>
-        <table className="table bg-light my-4">
-          <thead>
+        <table className="table my-4">
+          <thead className="bg-dark text-light">
             <tr>
               <th>Bed id</th>
               <th>category</th>
@@ -59,7 +50,7 @@ function ViewBeds() {
               <th>status</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-light text-dark">
             {myData.map((post) => {
               const { bed_id, category, charges, status } = post;
               return (

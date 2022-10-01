@@ -32,16 +32,7 @@ function ViewStaff(){
                   Logout
                 </button>
               </li>
-              <li className="nav-item mx-2">
-                <button
-                  type="button"
-                  className="btn btn-light "
-                  aria-current="page"
-                  onClick={() => navigate("/Admin")}
-                >
-                  Go back
-                </button>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -51,8 +42,8 @@ function ViewStaff(){
         <button type="button" className=" btn btn-success btn-lg">
           Staff List
         </button>
-        <table className="table bg-light my-4">
-          <thead>
+        <table className="table  my-4">
+          <thead className="bg-dark text-light">
             <tr>
               <th>Name</th>
               <th>BirthDate</th>
@@ -62,7 +53,7 @@ function ViewStaff(){
               <th>E-Mail</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-light text-dark">
           {myData.map((post)=>{
              const{staff_name,user_email,staff_contact,staff_gender,staff_bdate,staff_jdate}=post;
              return(

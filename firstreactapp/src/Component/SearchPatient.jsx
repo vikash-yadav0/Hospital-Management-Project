@@ -120,7 +120,7 @@ function SearchPatient(){
                         <th>form fill</th>                        
                     </tr>
                         </thead>
-                        <tbody>                      
+                        <tbody className="bg-light text-dark">                      
                             <tr>
                                 <td>{patientid.patient_id}</td>
                                 <td>{patientid.patient_name}</td>

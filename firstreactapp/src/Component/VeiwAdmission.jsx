@@ -30,16 +30,7 @@ function ViewAdmission(){
                    Logout
                  </button>
                </li>
-               <li className="nav-item mx-2">
-                 <button
-                   type="button"
-                   className="btn btn-light "
-                   aria-current="page"
-                   onClick={() => navigate("#")}
-                 >
-                   Go back
-                 </button>
-               </li>
+               
              </ul>
            </div>
          </div>
@@ -49,8 +40,8 @@ function ViewAdmission(){
          <button type="button" className=" btn btn-success btn-lg">
            Admission List
          </button>
-         <table className="table bg-light my-4">
-           <thead>
+         <table className="table my-4">
+           <thead className="bg-dark text-light">
             
              <tr>
                <th>Admission ID</th>
@@ -62,7 +53,7 @@ function ViewAdmission(){
                <th>Department name</th>
              </tr>
            </thead>
-           <tbody>
+           <tbody className="bg-light text-dark">
            {myData.map((post) => {
               
               return (

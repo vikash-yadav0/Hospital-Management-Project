@@ -116,7 +116,7 @@ function SearchStaff(){
                         <th>dept id</th>                        
                     </tr>
                         </thead>
-                        <tbody>                      
+                        <tbody className="bg-light text-dark">                      
                             <tr>
                                 <td>{staffid.staff_id}</td>
                                 <td>{staffid.staff_name}</td>

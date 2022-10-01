@@ -75,16 +75,7 @@ const UpdateDoctor = () => {
                                     Logout
                                 </button>
                             </li>
-                            <li className="nav-item">
-                                <button
-                                    type="button"
-                                    className="btn btn-light me-md-2"
-                                    aria-current="page"
-                                    onClick={() => navigate("/Admin")}
-                                >
-                                    Go Back
-                                </button>
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>

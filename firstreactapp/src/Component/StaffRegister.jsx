@@ -23,8 +23,17 @@ function StaffRegister() {
       .then((data) => {
         setdept(data)});
   }, []);
+  const validateAddFolowUp = () => { var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if(staff_contact.match(phoneno)) {
+    return true;
+  }
+  else {
+    alert("please Enter Phone number");
+    return false;
+  }}
   async function handleSubmit(event) {
     event.preventDefault();
+    if (validateAddFolowUp() === true) {
     try {
       await axios.post("http://localhost:8080/registers", {
         staff_name: staff_name,
@@ -52,6 +61,7 @@ function StaffRegister() {
       alert("User Registation Failed");
     }
   }
+  }
   return (
     <div className="staffreg">
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -70,16 +80,7 @@ function StaffRegister() {
               Logout
             </button>
           </li>
-          <li className="nav-item">
-            <button
-              type="button"
-              className="btn btn-light me-md-2"
-              aria-current="page"
-              onClick={() => navigate("/Admin")}
-            >
-              Go Back
-            </button>
-          </li>
+         
         </ul>
       </div>
     </div>

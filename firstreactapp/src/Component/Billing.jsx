@@ -26,16 +26,7 @@ return(
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <button
-                    type="button"
-                    className="btn btn-light me-md-2"
-                    aria-current="page"
-                    onClick={() => {navigate("/StaffHome")}}
-                  >
-                   Back
-                  </button>
-                </li>
+               
                 <li className="nav-item">
                   <div className="dropdown">
                     <button
